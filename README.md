@@ -29,6 +29,46 @@ node scripts/generate-icons.mjs
 
 ---
 
+## Deploy
+
+O app é estático e não tem backend, então qualquer host serve. **HTTPS é obrigatório**
+para instalar como PWA e para o service worker funcionar — por isso testar pelo IP da
+rede local não basta.
+
+### GitHub Pages (configurado, sem conta extra)
+
+O workflow em `.github/workflows/deploy.yml` publica a cada push. Falta só habilitar uma
+vez, no repositório:
+
+> **Settings → Pages → Source: GitHub Actions**
+
+Depois disso o app fica em
+`https://<usuário>.github.io/Sistema-Operacional-Facul/`.
+
+O Pages serve em subdiretório, o que quebra três coisas se ignorado. Todas estão tratadas:
+
+| Problema | Solução |
+|---|---|
+| Assets e manifest apontando para a raiz | `BASE_PATH` no build → `base` do Vite |
+| Rotas do router perdendo o prefixo | `basename={import.meta.env.BASE_URL}` |
+| Link direto (`/estudos`) dando 404 | `404.html` = cópia do `index.html`; o router assume |
+
+### Vercel ou Netlify (raiz, sem subcaminho)
+
+`vercel.json` e `netlify.toml` já estão no repositório com rewrite de SPA e cabeçalhos de
+cache. Basta importar o repositório — nenhuma variável de ambiente é necessária, porque
+esses hosts servem na raiz e `BASE_PATH` cai no padrão `/`.
+
+### Verificação feita
+
+O build com subcaminho foi servido por um simulador do Pages (inclusive devolvendo **404
+de verdade** em rota desconhecida, como o Pages faz) e passou em 11 checagens: renderização,
+onboarding, navegação preservando a base, link direto via `404.html`, `start_url` e `scope`
+corretos no manifest, ícone resolvendo, service worker registrado no escopo certo e **o app
+abrindo offline com os dados intactos**.
+
+---
+
 ## Stack e por que ela
 
 **Vite + React 19 + TypeScript + Tailwind v4 + Zustand + vite-plugin-pwa.**
