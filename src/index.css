@@ -1,0 +1,185 @@
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+/*
+  Sistema Fernando — design tokens.
+  Base neutra quase preta + um único destaque (lime) reservado para ação e progresso.
+  O destaque nunca é decorativo: se está lime, é onde o usuário deve tocar ou olhar.
+*/
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Superfícies — do fundo ao elevado */
+  --color-base: #08090b;
+  --color-surface: #101216;
+  --color-surface-2: #171a20;
+  --color-surface-3: #1f232b;
+  --color-line: #262b34;
+  --color-line-soft: #1b1f26;
+
+  /* Texto */
+  --color-ink: #f4f6f8;
+  --color-ink-2: #a8b0bd;
+  --color-ink-3: #6b7482;
+
+  /* Destaque principal */
+  --color-accent: #d4ff3f;
+  --color-accent-dim: #a8cc2e;
+  --color-accent-ink: #10140a;
+
+  /* Semânticos — usados com parcimônia */
+  --color-ok: #4ade80;
+  --color-warn: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+
+  /* Cores por domínio (escola, treino, estudo...) */
+  --color-dom-school: #8b93a5;
+  --color-dom-study: #d4ff3f;
+  --color-dom-workout: #ff8a4c;
+  --color-dom-food: #4ade80;
+  --color-dom-sleep: #a78bfa;
+  --color-dom-rest: #60a5fa;
+
+  --radius-card: 1.25rem;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background-color: var(--color-base);
+    /* Evita zoom de duplo-toque no iOS sem bloquear o pinch-to-zoom. */
+    touch-action: manipulation;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+  }
+
+  /* Números tabulares em métricas para não "dançarem" ao atualizar. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /* Foco visível apenas para navegação por teclado. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  /* Scrollbar discreta no desktop. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-3);
+    border-radius: 99px;
+    border: 3px solid var(--color-base);
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  /* iOS dá zoom em campos com fonte < 16px. */
+  input,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@layer utilities {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  /* Brilho suave atrás do card de ação principal. */
+  .glow-accent {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-accent) 22%, transparent),
+      0 18px 50px -18px color-mix(in oklab, var(--color-accent) 45%, transparent);
+  }
+
+  .card-shadow {
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, white 4%, transparent) inset,
+      0 12px 32px -20px rgb(0 0 0 / 0.9);
+  }
+
+  .animate-in-up {
+    animation: in-up 0.42s var(--ease-out-quint) both;
+  }
+
+  .animate-pop {
+    animation: pop 0.3s var(--ease-out-quint) both;
+  }
+}
+
+@keyframes in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
