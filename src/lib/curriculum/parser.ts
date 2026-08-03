@@ -11,7 +11,7 @@ import { uid } from '@/lib/utils'
  * Matemática declara o bimestre errado, Geografia repete um número).
  */
 
-export type ProfileId = 'numerada' | 'semana_aula' | 'intervalo' | 'numerada_data'
+export type ProfileId = 'numerada' | 'semana_aula' | 'intervalo' | 'numerada_data' | 'pares'
 
 export interface ParsedDoc {
   subjectGuess: string | null
@@ -81,6 +81,9 @@ function detectHeader(text: string) {
 // ── Detecção de perfil ───────────────────────────────────────
 
 export function detectProfile(text: string): ProfileId {
+  // Pares ("1 e 2") precisam ser testados antes: a linha solta com o segundo
+  // número faria o perfil genérico enxergar aulas que não existem.
+  if ((text.match(/^\d{1,2}\s+e\s*\d{0,2}$/gm) ?? []).length >= 4) return 'pares'
   if (/^\d{2}\s+\d{2}\s+/m.test(text)) return 'semana_aula' // História: SEM + AULA
   if (/Aulas?\s+\d+(,\s*\d+)*\s*(e\s*\d+)?\s+Conte[úu]do/i.test(text)) return 'intervalo' // Física
   if (/^\(\d{1,2}\/\d{1,2}\)$/m.test(text)) return 'numerada_data' // Química
@@ -291,6 +294,26 @@ function parseNumeradaData(text: string, subjectId: string, year: number): Curri
     )
   })
 
+  // Na virada de página a tabela de duas colunas inverte a ordem, saindo
+  // "(25/08) / AV1 / 17" em vez de "17 / AV1 / (25/08)". Sem isto, ~10 aulas
+  // de Química se perdiam justamente nas semanas de prova.
+  const seen = new Set(out.map((l) => l.number))
+  const inverted = [...text.matchAll(/^\((\d{1,2})\/(\d{1,2})\)\n([^\n]{2,160})\n(\d{1,3})\s*$/gm)]
+  inverted.forEach((m, i) => {
+    const number = Number(m[4])
+    if (seen.has(number)) return
+    seen.add(number)
+    const start = m.index! + m[0].length
+    const end = i + 1 < inverted.length ? inverted[i + 1].index! : text.length
+    out.push(
+      makeLesson(subjectId, number, m[3], text.slice(start, end), {
+        declaredDate: isoFromBR(m[1], m[2], year),
+        order: number,
+      }),
+    )
+  })
+  out.sort((a, b) => a.number - b.number)
+
   // Layout do EFL: número e data em linhas seguidas, título entre elas.
   if (out.length < 3) {
     const alt = [...text.matchAll(/^(\d{2})\s+([^\n]{3,160})\n(\d{1,2})\/(\d{1,2})/gm)]
@@ -304,6 +327,77 @@ function parseNumeradaData(text: string, subjectId: string, year: number): Curri
         }),
       )
     })
+  }
+
+  return out
+}
+
+/**
+ * Redação: aulas em pares, com o título ANTES do número.
+ *
+ *     DEVOLUTIVA DA AV2 …        ← título
+ *     1 e 2                      ← par de aulas
+ *     15/4 OBJETIVOS:            ← data (às vezes colada no campo seguinte)
+ *
+ * O par também quebra em duas linhas ("11 e" / "12") quando a tabela vira de
+ * coluna, então a captura aceita as duas formas.
+ */
+function parsePares(text: string, subjectId: string, year: number): CurriculumLesson[] {
+  const lines = text.split('\n')
+  const out: CurriculumLesson[] = []
+
+  /**
+   * O par aparece em três formas, dependendo de onde a tabela quebrou:
+   *   "1 e 2"                     · par sozinho, título na linha acima
+   *   "11 e"  + "12"              · segundo número na linha seguinte
+   *   "9 e 10 APLICAÇÃO DA AV1"   · título colado na mesma linha
+   */
+  const PAIR_RE = /^(\d{1,2})\s+e\s*(\d{1,2})?\s*(.*)$/
+  const isPair = (line: string) => PAIR_RE.exec(line.trim())
+
+  for (let i = 0; i < lines.length; i++) {
+    const pair = isPair(lines[i])
+    if (!pair) continue
+
+    const first = Number(pair[1])
+    const inlineTitle = pair[3]?.trim() ?? ''
+    // Segundo número pode estar na mesma linha ou na seguinte.
+    const second = pair[2] ? Number(pair[2]) : Number(lines[i + 1]?.trim())
+    const span = Number.isFinite(second) && second > first ? second - first + 1 : 1
+    const afterNumber = pair[2] || inlineTitle ? i : i + 1
+
+    // Título colado na linha do par vence; senão procura acima.
+    let title = inlineTitle
+    if (!title) {
+      for (let j = i - 1; j >= 0 && j > i - 5; j--) {
+        const cand = lines[j].trim()
+        if (!cand || /^\d/.test(cand) || /^(OBJETIVOS|ESTRAT|TAREFA)/i.test(cand)) continue
+        title = cand
+        break
+      }
+    }
+    if (!title || title.length < 4) continue
+
+    // Data nas linhas seguintes ao número — pode vir colada em "15/4 OBJETIVOS:".
+    let declaredDate: string | null = null
+    for (let j = afterNumber; j < Math.min(afterNumber + 3, lines.length); j++) {
+      const dm = lines[j].match(/^\s*(\d{1,2})\/(\d{1,2})\b/)
+      if (dm) {
+        declaredDate = isoFromBR(dm[1], dm[2], year)
+        break
+      }
+    }
+
+    const nextPair = lines.findIndex((l, k) => k > afterNumber && isPair(l))
+    const block = lines.slice(afterNumber, nextPair > 0 ? nextPair : lines.length).join('\n')
+
+    out.push(
+      makeLesson(subjectId, first, title, block, {
+        span,
+        declaredDate,
+        order: first,
+      }),
+    )
   }
 
   return out
@@ -325,7 +419,9 @@ export function parsePlan(rawText: string, override?: { subjectId?: string }): P
         ? parseIntervalo(text, subjectId)
         : profile === 'numerada_data'
           ? parseNumeradaData(text, subjectId, year)
-          : parseNumerada(text, subjectId)
+          : profile === 'pares'
+            ? parsePares(text, subjectId, year)
+            : parseNumerada(text, subjectId)
 
   // Último recurso: se o perfil detectado não achou nada, tenta o genérico.
   if (lessons.length === 0 && profile !== 'numerada') {
