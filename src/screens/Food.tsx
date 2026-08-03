@@ -4,9 +4,10 @@ import { AlertTriangle, Check, Package, Pencil, Plus, ShoppingCart, Trash2 } fro
 import type { MealPlan } from '@/types'
 import { Button, IconButton } from '@/components/ui/Button'
 import { Card, SectionTitle } from '@/components/ui/Card'
+import { ProgressBar } from '@/components/ui/Progress'
 import { Segmented } from '@/components/ui/Chip'
 import { Sheet } from '@/components/ui/Sheet'
-import { TextArea, TextInput, TimeInput } from '@/components/ui/Field'
+import { NumberStepper, TextArea, TextInput, TimeInput } from '@/components/ui/Field'
 import { PageHeader } from '@/components/layout/PageHeader'
 
 import { useAppStore } from '@/store/appStore'
@@ -71,14 +72,26 @@ function TodayMeals() {
   const log = useDayLog()
 
   const [editing, setEditing] = useState<MealPlan | null>(null)
-  const [draft, setDraft] = useState({ description: '', time: '' })
+  const [draft, setDraft] = useState({ description: '', time: '', calories: 0, protein: 0 })
 
   const enabled = meals.filter((m) => m.enabled)
   const done = enabled.filter((m) => log?.meals[m.slot]).length
 
+  // Só conta o que foi realmente marcado — a meta é acompanhar, não planejar.
+  const eaten = enabled.filter((m) => log?.meals[m.slot])
+  const kcal = eaten.reduce((a, m) => a + (m.calories ?? 0), 0)
+  const prot = eaten.reduce((a, m) => a + (m.protein ?? 0), 0)
+  const kcalGoal = enabled.reduce((a, m) => a + (m.calories ?? 0), 0)
+  const protGoal = enabled.reduce((a, m) => a + (m.protein ?? 0), 0)
+
   const openEditor = (meal: MealPlan) => {
     setEditing(meal)
-    setDraft({ description: meal.description, time: meal.time })
+    setDraft({
+      description: meal.description,
+      time: meal.time,
+      calories: meal.calories ?? 0,
+      protein: meal.protein ?? 0,
+    })
   }
 
   return (
@@ -86,6 +99,31 @@ function TodayMeals() {
       <SectionTitle hint={`${done} de ${enabled.length} refeições marcadas`}>
         Refeições de hoje
       </SectionTitle>
+
+      <Card className="flex gap-3">
+        <div className="flex-1">
+          <p className="text-[11px] font-medium tracking-wide text-ink-3 uppercase">Calorias</p>
+          <p className="tnum mt-1 text-[22px] leading-none font-bold text-ink">
+            {kcal}
+            <span className="text-[13px] font-medium text-ink-3">/{kcalGoal}</span>
+          </p>
+          <ProgressBar value={kcal} max={Math.max(kcalGoal, 1)} className="mt-2" />
+        </div>
+        <div className="w-px bg-line-soft" />
+        <div className="flex-1">
+          <p className="text-[11px] font-medium tracking-wide text-ink-3 uppercase">Proteína</p>
+          <p className="tnum mt-1 text-[22px] leading-none font-bold text-ink">
+            {prot}g
+            <span className="text-[13px] font-medium text-ink-3">/{protGoal}g</span>
+          </p>
+          <ProgressBar
+            value={prot}
+            max={Math.max(protGoal, 1)}
+            color="var(--color-dom-workout)"
+            className="mt-2"
+          />
+        </div>
+      </Card>
 
       <div className="space-y-2">
         {meals.map((meal) => {
@@ -123,6 +161,13 @@ function TodayMeals() {
                   <span className="tnum shrink-0 text-[11.5px] text-ink-3">{meal.time}</span>
                 </div>
                 <p className="mt-0.5 truncate text-[12.5px] text-ink-2">{meal.description}</p>
+                {(meal.calories || meal.protein) && (
+                  <p className="tnum mt-0.5 text-[11px] text-ink-3">
+                    {meal.calories ? `${meal.calories} kcal` : ''}
+                    {meal.calories && meal.protein ? ' · ' : ''}
+                    {meal.protein ? `${meal.protein}g proteína` : ''}
+                  </p>
+                )}
               </div>
 
               <IconButton label={`Editar ${meal.label}`} onClick={() => openEditor(meal)}>
@@ -164,6 +209,22 @@ function TodayMeals() {
               label="Horário"
               value={draft.time}
               onChange={(e) => setDraft((d) => ({ ...d, time: e.target.value }))}
+            />
+            <NumberStepper
+              label="Calorias (estimativa)"
+              value={draft.calories}
+              onChange={(v) => setDraft((d) => ({ ...d, calories: v }))}
+              step={50}
+              max={2000}
+              suffix="kcal"
+            />
+            <NumberStepper
+              label="Proteína (estimativa)"
+              value={draft.protein}
+              onChange={(v) => setDraft((d) => ({ ...d, protein: v }))}
+              step={5}
+              max={150}
+              suffix="g"
             />
             <div className="rounded-2xl border border-line-soft bg-surface-2 px-4 py-3">
               <button

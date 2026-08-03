@@ -12,6 +12,7 @@ import { PageHeader } from '@/components/layout/PageHeader'
 import { useAppStore } from '@/store/appStore'
 import { useCurriculumStore } from '@/store/curriculumStore'
 import { parsePlan } from '@/lib/curriculum/parser'
+import { linkLessonsToTopics } from '@/lib/curriculum/topics'
 import { extractPdfText } from '@/lib/curriculum/pdf'
 import { cn } from '@/lib/utils'
 
@@ -46,6 +47,8 @@ export function ImportPlans() {
   const importedSubjects = useCurriculumStore((s) => s.importedSubjects)
   const allLessons = useCurriculumStore((s) => s.lessons)
   const clearSubject = useCurriculumStore((s) => s.clearSubject)
+  const allTopics = useAppStore((s) => s.topics)
+  const addTopicRecord = useAppStore((s) => s.addTopicRecord)
 
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
@@ -72,9 +75,19 @@ export function ImportPlans() {
   }
 
   const confirm = () => {
-    const finalLessons = draft.map((l, i) => ({ ...l, subjectId, order: i + 1 }))
+    const normalized = draft.map((l, i) => ({ ...l, subjectId, order: i + 1 }))
+    // Cria os tópicos de estudo e liga cada aula ao seu — é isso que faz o
+    // estado de preparação persistir entre aulas do mesmo assunto.
+    const { lessons: finalLessons, newTopics } = linkLessonsToTopics(
+      normalized,
+      subjectId,
+      allTopics,
+    )
+    newTopics.forEach((t) => addTopicRecord(t))
     importLessons(subjectId, finalLessons)
-    setSaved(`${finalLessons.length} aulas salvas no Banco Curricular. O PDF pode ser descartado.`)
+    setSaved(
+      `${finalLessons.length} aulas salvas · ${newTopics.length} tópicos criados. O PDF pode ser descartado.`,
+    )
     setDoc(null)
     setDraft([])
   }

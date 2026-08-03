@@ -11,6 +11,8 @@ export const SEED_MEALS: MealPlan[] = [
     label: 'Café da manhã',
     time: '06:20',
     description: '3 ovos mexidos, 2 fatias de pão integral, banana e leite',
+    calories: 650,
+    protein: 35,
     enabled: true,
   },
   {
@@ -18,6 +20,8 @@ export const SEED_MEALS: MealPlan[] = [
     label: 'Lanche da escola',
     time: '09:40',
     description: 'Sanduíche de frango, fruta e castanhas',
+    calories: 450,
+    protein: 25,
     enabled: true,
   },
   {
@@ -25,6 +29,8 @@ export const SEED_MEALS: MealPlan[] = [
     label: 'Almoço',
     time: '12:30',
     description: 'Arroz, feijão, 150g de carne/frango, salada',
+    calories: 800,
+    protein: 45,
     enabled: true,
   },
   {
@@ -32,6 +38,8 @@ export const SEED_MEALS: MealPlan[] = [
     label: 'Pré-treino',
     time: '16:30',
     description: 'Pão com pasta de amendoim + café ou fruta',
+    calories: 350,
+    protein: 12,
     enabled: true,
   },
   {
@@ -39,6 +47,8 @@ export const SEED_MEALS: MealPlan[] = [
     label: 'Pós-treino',
     time: '19:15',
     description: 'Whey ou leite com achocolatado + fruta',
+    calories: 400,
+    protein: 30,
     enabled: true,
   },
   {
@@ -46,6 +56,8 @@ export const SEED_MEALS: MealPlan[] = [
     label: 'Jantar',
     time: '20:00',
     description: 'Arroz, ovos ou frango, legumes',
+    calories: 700,
+    protein: 40,
     enabled: true,
   },
 ]

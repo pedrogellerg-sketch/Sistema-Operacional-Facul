@@ -198,6 +198,9 @@ export interface MealPlan {
   time: Clock
   /** O que comer — texto livre, editável. */
   description: string
+  /** Estimativas grosseiras. O objetivo é acompanhar, não virar app de nutrição. */
+  calories: number | null
+  protein: number | null
   enabled: boolean
 }
 

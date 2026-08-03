@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Check, Dumbbell, Flame, RefreshCw, Zap } from 'lucide-react'
+import { Check, Copy, Dumbbell, Flame, Pencil, Plus, RefreshCw, Trash2, Zap } from 'lucide-react'
 
-import { Button } from '@/components/ui/Button'
+import { Button, IconButton } from '@/components/ui/Button'
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Chip } from '@/components/ui/Chip'
 import { ProgressBar } from '@/components/ui/Progress'
 import { Sheet } from '@/components/ui/Sheet'
-import { TextArea } from '@/components/ui/Field'
+import { NumberStepper, TextArea, TextInput } from '@/components/ui/Field'
 import { PageHeader } from '@/components/layout/PageHeader'
 
 import { useAppStore } from '@/store/appStore'
@@ -29,6 +29,10 @@ export function Workout() {
   const workoutDays = useAppStore((s) => s.routineSettings.workoutDays)
   const logWorkout = useAppStore((s) => s.logWorkout)
   const cycleRotation = useAppStore((s) => s.cycleWorkoutRotation)
+  const updateExercise = useAppStore((s) => s.updateExercise)
+  const addExercise = useAppStore((s) => s.addExercise)
+  const removeExercise = useAppStore((s) => s.removeExercise)
+  const repeatLast = useAppStore((s) => s.repeatLastWorkout)
   const agenda = useAgenda()
 
   const today = todayISO()
@@ -39,6 +43,9 @@ export function Workout() {
   const [checklist, setChecklist] = useState<Record<string, boolean>>({})
   const [registerOpen, setRegisterOpen] = useState(false)
   const [loads, setLoads] = useState<Record<string, string>>({})
+  const [editingEx, setEditingEx] = useState<string | null>(null)
+  const [newEx, setNewEx] = useState('')
+  const [feedback, setFeedback] = useState('')
   const [notes, setNotes] = useState('')
 
   // Abertura direta pelo modo execução (`/treino?executar=1`).
@@ -87,6 +94,12 @@ export function Workout() {
         title="Treino"
         subtitle="Consistência vence intensidade. Aparecer já é metade."
       />
+
+      {feedback && (
+        <Card variant="flat" className="py-3">
+          <p className="text-[13px] text-accent">{feedback}</p>
+        </Card>
+      )}
 
       {/* ── Semana ──────────────────────────────────────── */}
       <Card>
@@ -240,6 +253,20 @@ export function Workout() {
               >
                 Estou sem vontade hoje
               </Button>
+
+              {workoutLogs.some((l) => l.completed) && (
+                <Button
+                  variant="ghost"
+                  size="md"
+                  full
+                  icon={<Copy size={15} />}
+                  onClick={() => {
+                    if (repeatLast(workoutBlock?.id)) setFeedback('Treino anterior repetido com as mesmas cargas.')
+                  }}
+                >
+                  Repetir treino anterior
+                </Button>
+              )}
             </div>
           </Card>
         )}
@@ -293,18 +320,83 @@ export function Workout() {
 
           <Card className="divide-y divide-line-soft p-0">
             {template.exercises.map((ex) => (
-              <div key={ex.id} className="flex items-center gap-3 px-4 py-3">
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-[14px] font-medium text-ink">{ex.name}</p>
-                  <p className="tnum mt-0.5 text-[12px] text-ink-3">
-                    {ex.sets} × {ex.reps}
-                  </p>
+              <div key={ex.id} className="px-4 py-3">
+                <div className="flex items-center gap-3">
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-[14px] font-medium text-ink">{ex.name}</p>
+                    <p className="tnum mt-0.5 text-[12px] text-ink-3">
+                      {ex.sets} × {ex.reps}
+                    </p>
+                  </div>
+                  <span className="tnum shrink-0 text-[13px] font-semibold text-ink-2">
+                    {ex.lastLoad ? `${ex.lastLoad} kg` : '—'}
+                  </span>
+                  <IconButton
+                    label={`Editar ${ex.name}`}
+                    onClick={() => setEditingEx(editingEx === ex.id ? null : ex.id)}
+                    className="h-8 w-8"
+                  >
+                    <Pencil size={14} />
+                  </IconButton>
                 </div>
-                <span className="tnum shrink-0 text-[13px] font-semibold text-ink-2">
-                  {ex.lastLoad ? `${ex.lastLoad} kg` : '—'}
-                </span>
+
+                {editingEx === ex.id && (
+                  <div className="mt-3 space-y-2 border-t border-line-soft pt-3">
+                    <TextInput
+                      value={ex.name}
+                      onChange={(e) => updateExercise(template.id, ex.id, { name: e.target.value })}
+                      placeholder="Nome do exercício"
+                    />
+                    <div className="flex gap-2">
+                      <NumberStepper
+                        value={ex.sets}
+                        onChange={(v) => updateExercise(template.id, ex.id, { sets: v })}
+                        min={1}
+                        max={10}
+                        suffix="séries"
+                      />
+                    </div>
+                    <TextInput
+                      value={ex.reps}
+                      onChange={(e) => updateExercise(template.id, ex.id, { reps: e.target.value })}
+                      placeholder="Repetições (ex.: 8-10)"
+                    />
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      full
+                      icon={<Trash2 size={14} />}
+                      onClick={() => {
+                        removeExercise(template.id, ex.id)
+                        setEditingEx(null)
+                      }}
+                    >
+                      Remover exercício
+                    </Button>
+                  </div>
+                )}
               </div>
             ))}
+
+            <form
+              className="flex gap-2 p-3"
+              onSubmit={(e) => {
+                e.preventDefault()
+                if (!newEx.trim()) return
+                addExercise(template.id, newEx)
+                setNewEx('')
+              }}
+            >
+              <TextInput
+                value={newEx}
+                onChange={(e) => setNewEx(e.target.value)}
+                placeholder="Adicionar exercício"
+                className="flex-1"
+              />
+              <Button type="submit" variant="secondary" size="md" disabled={!newEx.trim()}>
+                <Plus size={17} />
+              </Button>
+            </form>
           </Card>
         </section>
       )}
