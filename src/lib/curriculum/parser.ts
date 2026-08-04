@@ -200,11 +200,16 @@ function isoFromBR(day: string, month: string, year: number): string {
 
 /** Matemática, Geografia, Biologia, Literatura: número + título + campos. */
 function parseNumerada(text: string, subjectId: string): CurriculumLesson[] {
-  const re = /^(\d{1,3})[ \t]+([^\n]{4,160})$/gm
+  // Mínimo de 3 caracteres, não 4: em Matemática as duas avaliações do bimestre
+  // se chamam "AV1" e "AV2", e com o mínimo antigo as duas sumiam do plano —
+  // justamente as aulas que marcam data de prova.
+  const re = /^(\d{1,3})[ \t]+([^\n]{3,160})$/gm
   const marks = [...text.matchAll(re)]
   const out: CurriculumLesson[] = []
 
   marks.forEach((m, i) => {
+    // "15 e" é metade de uma dupla (layout da Redação), não título de aula.
+    if (/^(e|de|da|do)$/i.test(m[2].trim())) return
     const start = m.index! + m[0].length
     const end = i + 1 < marks.length ? marks[i + 1].index! : text.length
     out.push(makeLesson(subjectId, Number(m[1]), m[2], text.slice(start, end)))
@@ -219,6 +224,49 @@ function parseNumerada(text: string, subjectId: string): CurriculumLesson[] {
       out.push(makeLesson(subjectId, Number(m[1]), m[2], text.slice(start, end)))
     })
   }
+
+  /**
+   * Repescagem para documentos que **misturam** os dois arranjos: o EFL traz a
+   * aula 02 com título na mesma linha e a 01, a 17 e a 19 com o número sozinho.
+   * A passada principal achava catorze e as outras seis sumiam sem aviso.
+   *
+   * É estritamente aditiva — nunca substitui o que já foi lido — e só aceita
+   * número dentro da faixa que o documento já estabeleceu. Sem esse limite, um
+   * número de página vira "aula 103" e o cronograma inteiro se desfaz.
+   */
+  if (out.length >= 3) {
+    const seen = new Set(out.map((l) => l.number))
+    const conhecidos = [...seen]
+    const lo = Math.min(...conhecidos) - 2
+    const hi = Math.max(...conhecidos) + 2
+    const solos = [...text.matchAll(/^(\d{1,3})[ \t]*$/gm)]
+
+    solos.forEach((m, i) => {
+      const number = Number(m[1])
+      if (seen.has(number) || number < lo || number > hi) return
+
+      const start = m.index! + m[0].length
+      const end = i + 1 < solos.length ? solos[i + 1].index! : text.length
+      const block = text.slice(start, end)
+      // Número de página: o trecho seguinte abre com a marca de página.
+      if (/^\s*=+\s*P[ÁA]GINA/i.test(block)) return
+
+      // ● é aceito: em "● Comentar e corrigir avaliação" o marcador é o título.
+      const tituloLinha = block
+        .split('\n')
+        .map((l) => l.trim())
+        .filter(Boolean)
+        .find((l) => !/^\d/.test(l) && !/^(OBJETIVOS|ESTRAT[ÉE]GIAS?|TAREFA|AULA\b|=+)/i.test(l))
+
+      const titulo = tituloLinha?.replace(/^●\s*/, '').trim() ?? ''
+      if (titulo.length < 3) return
+
+      seen.add(number)
+      out.push(makeLesson(subjectId, number, titulo, block, { order: number }))
+    })
+  }
+
+  out.sort((a, b) => a.number - b.number)
 
   // Literatura inverte: o título vem primeiro e o número na linha seguinte.
   if (out.filter((l) => l.objectives.length > 0).length === 0) {
@@ -261,7 +309,23 @@ function parseSemanaAula(text: string, subjectId: string): CurriculumLesson[] {
   })
 }
 
-/** Física: "Aulas 82, 83 e 84" — uma linha vale várias aulas. */
+/**
+ * Física: "Aulas 82, 83 e 84" — uma linha vale várias aulas.
+ *
+ * A tabela tem duas colunas e o cabeçalho nem sempre cabe numa linha só: a
+ * última aula do grupo vaza para a linha seguinte, em quatro arranjos
+ * diferentes no mesmo documento —
+ *
+ *   Aulas 82, 83 e   Conteúdo: …          Aulas 102, 103 Conteúdo: …
+ *   84                                    e 104
+ *
+ *   Aulas 118, 119 Conteúdo: … e câmara   Aulas 81 Conteúdo: …
+ *   e 120 escura                          (sem continuação)
+ *
+ * Absorver essa sobra não é detalhe: cada grupo lido como 2 em vez de 3 aulas
+ * encurta a fila da disciplina, e como o cronograma é derivado percorrendo a
+ * fila, todas as aulas seguintes passam a cair na data errada.
+ */
 function parseIntervalo(text: string, subjectId: string): CurriculumLesson[] {
   const re = /^Aulas?\s+([\d,\s e]+?)\s*Conte[úu]do:\s*([^\n]+)$/gim
   const marks = [...text.matchAll(re)]
@@ -271,7 +335,21 @@ function parseIntervalo(text: string, subjectId: string): CurriculumLesson[] {
     const end = i + 1 < marks.length ? marks[i + 1].index! : text.length
     const nums = (m[1].match(/\d+/g) ?? []).map(Number)
 
-    return makeLesson(subjectId, nums[0] ?? i + 1, m[2], text.slice(start, end), {
+    let body = text.slice(start, end)
+    let title = m[2]
+
+    // Só a primeira linha do corpo é candidata, e só vale se continuar a
+    // sequência — assim número de página ou "2 dimensões" no título não entram.
+    const cont = body.match(/^[ \t]*\r?\n[ \t]*(?:e\s+)?(\d{1,3})\b[ \t]*([^\n]*)/)
+    if (cont && nums.length > 0 && Number(cont[1]) === nums[nums.length - 1] + 1) {
+      nums.push(Number(cont[1]))
+      // No arranjo "e 120 escura", o resto da linha é a cauda do título.
+      const tail = cont[2].trim()
+      if (tail) title = `${title} ${tail}`
+      body = body.slice(cont[0].length)
+    }
+
+    return makeLesson(subjectId, nums[0] ?? i + 1, title, body, {
       span: Math.max(nums.length, 1),
       order: nums[0] ?? i + 1,
     })
