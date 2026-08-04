@@ -294,24 +294,63 @@ function parseNumeradaData(text: string, subjectId: string, year: number): Curri
     )
   })
 
-  // Na virada de página a tabela de duas colunas inverte a ordem, saindo
-  // "(25/08) / AV1 / 17" em vez de "17 / AV1 / (25/08)". Sem isto, ~10 aulas
-  // de Química se perdiam justamente nas semanas de prova.
+  /**
+   * O plano de Química mistura quatro arranjos no mesmo documento, porque a
+   * tabela de duas colunas quebra em pontos diferentes a cada página. Além do
+   * formato principal acima, aparecem:
+   *
+   *   (25/08) / AV1 / 17          · invertido, nas viradas de página
+   *   29 / (18/09)                · sem título entre número e data
+   *   24 Resolução de exercícios. · número e título na mesma linha
+   *
+   * Cada variante é tentada em ordem, sempre pulando números já capturados.
+   */
   const seen = new Set(out.map((l) => l.number))
-  const inverted = [...text.matchAll(/^\((\d{1,2})\/(\d{1,2})\)\n([^\n]{2,160})\n(\d{1,3})\s*$/gm)]
-  inverted.forEach((m, i) => {
-    const number = Number(m[4])
-    if (seen.has(number)) return
-    seen.add(number)
-    const start = m.index! + m[0].length
-    const end = i + 1 < inverted.length ? inverted[i + 1].index! : text.length
-    out.push(
-      makeLesson(subjectId, number, m[3], text.slice(start, end), {
-        declaredDate: isoFromBR(m[1], m[2], year),
-        order: number,
-      }),
-    )
+
+  const addVariant = (
+    matches: RegExpMatchArray[],
+    pick: (m: RegExpMatchArray) => {
+      number: number
+      title: string
+      date: [string, string] | null
+    } | null,
+  ) => {
+    matches.forEach((m, i) => {
+      const parsed = pick(m)
+      if (!parsed || seen.has(parsed.number)) return
+      seen.add(parsed.number)
+      const start = m.index! + m[0].length
+      const end = i + 1 < matches.length ? matches[i + 1].index! : text.length
+      out.push(
+        makeLesson(subjectId, parsed.number, parsed.title, text.slice(start, end), {
+          declaredDate: parsed.date ? isoFromBR(parsed.date[0], parsed.date[1], year) : null,
+          order: parsed.number,
+        }),
+      )
+    })
+  }
+
+  addVariant([...text.matchAll(/^\((\d{1,2})\/(\d{1,2})\)\n([^\n]{2,160})\n(\d{1,3})\s*$/gm)], (m) => ({
+    number: Number(m[4]),
+    title: m[3],
+    date: [m[1], m[2]],
+  }))
+
+  // Número seguido direto da data: o título ficou na linha acima.
+  const lines = text.split('\n')
+  addVariant([...text.matchAll(/^(\d{1,3})\n\((\d{1,2})\/(\d{1,2})\)/gm)], (m) => {
+    const lineIdx = text.slice(0, m.index!).split('\n').length - 1
+    const above = lines[lineIdx - 1]?.trim() ?? ''
+    const title = above && !/^\(|^\d|^(OBJETIVOS|ESTRAT|TAREFA)/i.test(above) ? above : 'Aula'
+    return { number: Number(m[1]), title, date: [m[2], m[3]] }
   })
+
+  addVariant([...text.matchAll(/^(\d{1,3})[ \t]+([^\n]{4,160})$/gm)], (m) => ({
+    number: Number(m[1]),
+    title: m[2],
+    date: null,
+  }))
+
   out.sort((a, b) => a.number - b.number)
 
   // Layout do EFL: número e data em linhas seguidas, título entre elas.
