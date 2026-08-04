@@ -61,6 +61,17 @@ os dois modelos vão divergir.
 reescreve o blob inteiro a cada `set()`; juntos, marcar uma refeição reescreveria
 os planos de aula.
 
+**4. Um estado por tópico, e ele mora em `Topic.status`.** Até a Sprint 2 havia
+duas máquinas de estado para a mesma coisa: `Topic.status` no `appStore` e um
+mapa `topicStates` no `curriculumStore`. Preparar uma aula escrevia só a
+segunda, então a tela de Estudos continuava achando que o assunto nunca fora
+visto e o sugeria de novo. Hoje o estado é um só, com cinco valores
+(`nao_iniciado` → `preparando` → `preparado` → `revisando` → `dominado`), e vive
+no tópico — o que também impede que estudar reescreva o banco curricular.
+`preparado` fica de fora da disputa em `pickNextTopic`: o que foi estudado na
+véspera não volta para a fila no mesmo dia. **Não recrie um segundo lugar para
+guardar progresso.**
+
 **Questões não entram no localStorage.** São dados de leitura, empacotados como
 chunk por disciplina em `src/data/questions/`. Só as respostas do usuário são
 persistidas.
@@ -131,16 +142,26 @@ projetado, não bug.
 
 ### 5.3 Pendências menores
 
-- **Física** conta `span` errado: `"Aulas 82, 83 e"` quebra a linha antes do
-  `84`, então o span sai 2 em vez de 3, deslocando o cronograma da disciplina.
-- **Dashboard acadêmico** mostra "de 123 no banco" (tópicos-semente da Sprint 1
-  + importados) ao lado de "39 aulas no Banco Curricular". Não está errado, mas
-  os dois números lado a lado confundem.
-- **Filosofia, Sociologia e Inglês** estão na grade mas não têm plano importado
-  (4 aulas semanais sem conteúdo). Falta também o plano da 2ª trilha de Biologia.
-- **Persistência dos dados no celular**: cheguei a propor e não implementei —
+- **Persistência dos dados no celular**: proposto e não implementado —
   `navigator.storage.persist()` para impedir que o navegador apague os dados sob
-  pressão de espaço, e um lembrete de backup a cada 30 dias.
+  pressão de espaço, e um lembrete de backup a cada 30 dias. É a próxima da fila.
+- **Dashboard acadêmico** mostra "de 184 no banco" ao lado de "255 aulas no
+  Banco Curricular". Não está errado — tópico e aula são coisas diferentes —,
+  mas os dois números lado a lado confundem.
+- **Cinco aulas sem conteúdo**, por erro dos documentos originais ou por
+  ausência neles: Geografia 20, Biologia I 14, Redação 16, EFL 15 e 16. O
+  Fernando vai confirmar com os professores qual aula cai nesses dias e informar;
+  a correção então é manual, pela tela de importação.
+
+**Decidido com o usuário — não gastar tempo com:**
+
+- **Filosofia, Sociologia e Inglês** ficam sem plano de propósito (6 aulas
+  semanais sem conteúdo no app). Ele optou por ignorá-las.
+- **Biologia II** aguarda a escola enviar o planejamento. Nada a fazer até lá.
+- **Leitores de PDF de Insper e FGV** saíram do escopo: sofisticados demais para
+  o retorno, a dois meses da prova. A troca acordada é registrar no app o
+  resultado das provas antigas feitas no papel, usando o cadastro de simulado
+  que já existe.
 
 ---
 

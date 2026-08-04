@@ -14,6 +14,7 @@ import { useAppStore } from '@/store/appStore'
 import { useCurriculumStore } from '@/store/curriculumStore'
 import { findVideos, youtubeSearchUrl } from '@/data/videoCatalog'
 import { pickQuestions } from '@/lib/curriculum/questions'
+import { todayISO } from '@/lib/date'
 import { cn } from '@/lib/utils'
 
 type Mode = 'video_exercicios' | 'video' | 'exercicios'
@@ -36,7 +37,8 @@ export function Prepare() {
   const attempts = useCurriculumStore((s) => s.attempts)
   const recordAttempt = useCurriculumStore((s) => s.recordAttempt)
   const addDoubt = useCurriculumStore((s) => s.addDoubt)
-  const setTopicState = useCurriculumStore((s) => s.setTopicState)
+  // O estado mora no tópico: é o que a tela de Estudos e o ranking também leem.
+  const updateTopic = useAppStore((s) => s.updateTopic)
 
   const [mode, setMode] = useState<Mode>('video_exercicios')
   const [phase, setPhase] = useState<Phase>('escolha')
@@ -121,7 +123,9 @@ export function Prepare() {
   }
 
   const finish = (state: TopicState) => {
-    if (lesson.topicId) setTopicState(lesson.topicId, state)
+    if (lesson.topicId) {
+      updateTopic(lesson.topicId, { status: state, lastReviewedAt: todayISO() })
+    }
     navigate('/amanha')
   }
 

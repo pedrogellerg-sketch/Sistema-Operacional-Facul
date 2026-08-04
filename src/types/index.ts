@@ -44,7 +44,24 @@ export interface Subject {
   enabled: boolean
 }
 
-export type TopicStatus = 'nao_visto' | 'em_andamento' | 'revisando' | 'dominado'
+/**
+ * Estado de aprendizagem de um tópico — **fonte única da verdade**.
+ *
+ * Até a Sprint 2 existiam duas máquinas de estado para a mesma coisa: esta, no
+ * `appStore`, e um mapa `topicStates` no `curriculumStore`. Preparar uma aula
+ * escrevia só a segunda, então a tela de Estudos continuava achando que o
+ * assunto nunca fora visto e o sugeria de novo. Agora há só esta.
+ *
+ * Mora no tópico, e não no banco curricular, por duas razões: é o tópico que a
+ * arquitetura define como unidade de aprendizado, e assim marcar um assunto
+ * como estudado deixa de reescrever os ~70 KB do plano de aulas.
+ */
+export type TopicStatus =
+  | 'nao_iniciado'
+  | 'preparando'
+  | 'preparado'
+  | 'revisando'
+  | 'dominado'
 
 export interface Topic {
   id: string

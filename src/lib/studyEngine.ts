@@ -220,7 +220,7 @@ export function rankSubjects(
 
       if (nextTopic) {
         score += (nextTopic.difficulty - 3) * 6
-        if (nextTopic.status === 'em_andamento') {
+        if (nextTopic.status === 'preparando') {
           score += 20
           reasons.push('tem tópico em andamento')
         }
@@ -248,15 +248,20 @@ export function rankSubjects(
 
 /**
  * Próximo tópico da trilha: o que está em andamento vence; senão o primeiro
- * não visto; senão o `revisando` mais antigo (manutenção).
+ * não iniciado; senão o `revisando` mais antigo (manutenção).
+ *
+ * `preparado` fica deliberadamente fora dessa disputa e só entra no desempate
+ * final. Assunto estudado na véspera da aula está resolvido até a aula
+ * acontecer — sugeri-lo de novo no mesmo dia era o sintoma mais visível de
+ * haver duas máquinas de estado separadas.
  */
 export function pickNextTopic(subjectTopics: Topic[]): Topic | null {
   const ordered = [...subjectTopics].sort((a, b) => a.order - b.order)
 
-  const inProgress = ordered.find((t) => t.status === 'em_andamento')
+  const inProgress = ordered.find((t) => t.status === 'preparando')
   if (inProgress) return inProgress
 
-  const unseen = ordered.find((t) => t.status === 'nao_visto')
+  const unseen = ordered.find((t) => t.status === 'nao_iniciado')
   if (unseen) return unseen
 
   const reviewing = ordered
@@ -276,8 +281,10 @@ export function subjectProgress(subjectId: string, topics: Topic[]): number {
   const list = topics.filter((t) => t.subjectId === subjectId)
   if (list.length === 0) return 0
   const weight: Record<Topic['status'], number> = {
-    nao_visto: 0,
-    em_andamento: 0.35,
+    nao_iniciado: 0,
+    preparando: 0.35,
+    // Estudado antes da aula já é progresso real: falta a aula confirmar.
+    preparado: 0.55,
     revisando: 0.7,
     dominado: 1,
   }
@@ -299,19 +306,12 @@ export const TIER_DESCRIPTION: Record<SubjectTier, string> = {
   opcional: 'Entra quando sobra tempo. Não é gargalo.',
 }
 
-export const STATUS_LABEL: Record<Topic['status'], string> = {
-  nao_visto: 'Não visto',
-  em_andamento: 'Em andamento',
-  revisando: 'Revisando',
-  dominado: 'Dominado',
-}
-
-export const STATUS_COLOR: Record<Topic['status'], string> = {
-  nao_visto: 'var(--color-ink-3)',
-  em_andamento: 'var(--color-warn)',
-  revisando: 'var(--color-info)',
-  dominado: 'var(--color-ok)',
-}
+/**
+ * Rótulo e cor do estado vêm de `types/curriculum` e são reexportados aqui só
+ * para não quebrar quem já importava daqui. Uma definição só: antes existiam
+ * duas listas de rótulos para os mesmos estados, e elas discordavam.
+ */
+export { TOPIC_STATE_LABEL as STATUS_LABEL, TOPIC_STATE_COLOR as STATUS_COLOR } from '@/types/curriculum'
 
 export const STRENGTH_LABEL: Record<Subject['strength'], string> = {
   fraca: 'Ponto fraco',

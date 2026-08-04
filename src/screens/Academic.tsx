@@ -35,7 +35,6 @@ export function Academic() {
   const logs = useAppStore((s) => s.logs)
 
   const lessons = useCurriculumStore((s) => s.lessons)
-  const topicStates = useCurriculumStore((s) => s.topicStates)
   const doubts = useCurriculumStore((s) => s.doubts)
   const attempts = useCurriculumStore((s) => s.attempts)
   const calendar = useCurriculumStore((s) => s.calendar)
@@ -58,9 +57,9 @@ export function Academic() {
     const c: Record<TopicState, number> = {
       nao_iniciado: 0, preparando: 0, preparado: 0, revisando: 0, dominado: 0,
     }
-    for (const t of topics) c[topicStates[t.id] ?? 'nao_iniciado'] += 1
+    for (const t of topics) c[t.status] += 1
     return c
-  }, [topics, topicStates])
+  }, [topics])
 
   const openDoubts = doubts.filter((d) => !d.resolvedAt)
   const correct = attempts.filter((a) => a.correct).length

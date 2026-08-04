@@ -325,7 +325,7 @@ export const useAppStore = create<AppStore>()(
               id: uid('t-'),
               subjectId,
               title: title.trim(),
-              status: 'nao_visto',
+              status: 'nao_iniciado',
               difficulty: 3,
               exercisesDone: 0,
               lastReviewedAt: null,
@@ -360,8 +360,8 @@ export const useAppStore = create<AppStore>()(
             // não deveria precisar marcar isso à mão.
             topics: topic
               ? prev.topics.map((t) =>
-                  t.id === topic.id && t.status === 'nao_visto'
-                    ? { ...t, status: 'em_andamento' }
+                  t.id === topic.id && t.status === 'nao_iniciado'
+                    ? { ...t, status: 'preparando' }
                     : t,
                 )
               : prev.topics,
@@ -700,16 +700,62 @@ export const useAppStore = create<AppStore>()(
       storage: createJSONStorage(() => localStorageAdapter),
       // `partialize` fica implícito: tudo é persistido. Se um dia houver estado
       // volátil (ex.: timers), ele entra aqui como exclusão explícita.
+      migrate: (persisted, version) => migrateTopicStatus(persisted, version),
     },
   ),
 )
 
-/** Espelha `pickNextTopic` do studyEngine sem importar ciclo. */
+/** Nomes antigos do estado do tópico → nomes atuais. */
+const STATUS_ANTIGO: Record<string, Topic['status']> = {
+  nao_visto: 'nao_iniciado',
+  em_andamento: 'preparando',
+}
+
+/**
+ * Migração v1 → v2: funde as duas máquinas de estado numa só.
+ *
+ * Até a v1 o progresso de um tópico vivia em dois lugares que não conversavam —
+ * `Topic.status` aqui e o mapa `topicStates` no banco curricular. Preparar uma
+ * aula escrevia só o segundo, então a tela de Estudos continuava achando que o
+ * assunto nunca fora visto.
+ *
+ * O mapa antigo vence quando existe: ele é o mais recente dos dois, porque só
+ * a preparação de aula o escrevia. Ler o outro store direto do `localStorage` é
+ * feio, mas acontece uma vez só e evita perder progresso já registrado.
+ */
+function migrateTopicStatus(persisted: unknown, version: number): unknown {
+  if (version >= 2 || !persisted || typeof persisted !== 'object') return persisted
+
+  const state = persisted as { topics?: Topic[] }
+  if (!Array.isArray(state.topics)) return persisted
+
+  let doCurriculo: Record<string, Topic['status']> = {}
+  try {
+    const bruto = localStorage.getItem('sistema-fernando:curriculum')
+    if (bruto) doCurriculo = JSON.parse(bruto)?.state?.topicStates ?? {}
+  } catch {
+    // Sem acesso ao storage (modo privado) seguimos só com o renomear.
+  }
+
+  return {
+    ...state,
+    topics: state.topics.map((t) => ({
+      ...t,
+      status: doCurriculo[t.id] ?? STATUS_ANTIGO[t.status as string] ?? t.status,
+    })),
+  }
+}
+
+/**
+ * Espelha `pickNextTopic` do studyEngine sem importar ciclo — inclusive em
+ * deixar `preparado` de fora: o que foi estudado para a aula de amanhã não
+ * volta para a fila hoje.
+ */
 function pickTopicForSubject(topics: Topic[], subjectId: string): Topic | null {
   const list = topics.filter((t) => t.subjectId === subjectId).sort((a, b) => a.order - b.order)
   return (
-    list.find((t) => t.status === 'em_andamento') ??
-    list.find((t) => t.status === 'nao_visto') ??
+    list.find((t) => t.status === 'preparando') ??
+    list.find((t) => t.status === 'nao_iniciado') ??
     list.find((t) => t.status === 'revisando') ??
     list[0] ??
     null

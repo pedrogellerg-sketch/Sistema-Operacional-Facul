@@ -13,7 +13,6 @@ import type {
   RealClassReport,
   SchoolCalendar,
   SimuladoResult,
-  TopicState,
   VideoRef,
 } from '@/types/curriculum'
 
@@ -40,8 +39,11 @@ interface CurriculumState {
   offsets: Record<string, number>
   reports: RealClassReport[]
   doubts: Doubt[]
-  /** Estado de aprendizagem por tópico — a máquina de estados da Sprint 2. */
-  topicStates: Record<string, TopicState>
+  /**
+   * O estado de aprendizagem **não** mora mais aqui. Ele vive em
+   * `Topic.status`, no `appStore`, para haver uma fonte única — e para que
+   * marcar um assunto como estudado deixe de reescrever este blob de ~70 KB.
+   */
   /** Data da próxima revisão agendada, por tópico. */
   nextReview: Record<string, ISODate>
   attempts: QuestionAttempt[]
@@ -63,7 +65,6 @@ interface CurriculumActions {
   reportRealClass: (data: { date: ISODate; subjectId: string; outcome: RealClassOutcome; note?: string }) => void
   undoReport: (id: string) => void
 
-  setTopicState: (topicId: string, state: TopicState) => void
   scheduleReview: (topicId: string, date: ISODate) => void
 
   addDoubt: (data: { topicId: string; subjectId: string; text: string; origin: DoubtOrigin }) => void
@@ -110,7 +111,6 @@ function initialState(): CurriculumState {
     offsets: {},
     reports: [],
     doubts: [],
-    topicStates: {},
     nextReview: {},
     attempts: [],
     customVideos: [],
@@ -175,10 +175,7 @@ export const useCurriculumStore = create<CurriculumStore>()(
         }))
       },
 
-      // ── Estados ──────────────────────────────────────
-      setTopicState: (topicId, state) =>
-        set((s) => ({ topicStates: { ...s.topicStates, [topicId]: state } })),
-
+      // ── Revisão ──────────────────────────────────────
       scheduleReview: (topicId, date) =>
         set((s) => ({ nextReview: { ...s.nextReview, [topicId]: date } })),
 
@@ -231,7 +228,8 @@ export const useCurriculumStore = create<CurriculumStore>()(
     }),
     {
       name: 'sistema-fernando:curriculum',
-      version: 1,
+      // 2 — `topicStates` saiu daqui; o appStore o absorve na própria migração.
+      version: 2,
       storage: createJSONStorage(() => localStorageAdapter),
     },
   ),

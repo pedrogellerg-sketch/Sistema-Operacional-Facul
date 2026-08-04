@@ -14,7 +14,12 @@ export interface StorageAdapter extends StateStorage {
 }
 
 export const STORAGE_KEY = 'sistema-fernando'
-export const STORAGE_VERSION = 1
+/**
+ * 2 — unificação do estado do tópico. Até a v1 o progresso vivia em dois
+ * lugares: `Topic.status` aqui e um mapa `topicStates` no banco curricular.
+ * A migração funde os dois e renomeia os estados antigos.
+ */
+export const STORAGE_VERSION = 2
 
 /**
  * localStorage com proteção contra os dois modos de falha reais no mobile:

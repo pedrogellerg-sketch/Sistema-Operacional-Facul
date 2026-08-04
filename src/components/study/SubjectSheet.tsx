@@ -31,7 +31,14 @@ const STRENGTH_OPTIONS: Array<{ value: SubjectStrength; label: string }> = [
   { value: 'forte', label: 'Forte' },
 ]
 
-const STATUS_CYCLE: TopicStatus[] = ['nao_visto', 'em_andamento', 'revisando', 'dominado']
+/** Toque no status avança nesta ordem — o mesmo caminho que o método propõe. */
+const STATUS_CYCLE: TopicStatus[] = [
+  'nao_iniciado',
+  'preparando',
+  'preparado',
+  'revisando',
+  'dominado',
+]
 
 /** Detalhe da matéria: ajusta peso e força, e edita a trilha de tópicos. */
 export function SubjectSheet({ subjectId, onClose, onStartSession }: SubjectSheetProps) {
