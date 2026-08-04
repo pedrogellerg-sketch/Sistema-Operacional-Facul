@@ -148,8 +148,9 @@ export function topicBreakdown(topics: Topic[], subjectId?: string) {
   const list = subjectId ? topics.filter((t) => t.subjectId === subjectId) : topics
   return {
     total: list.length,
-    nao_visto: list.filter((t) => t.status === 'nao_visto').length,
-    em_andamento: list.filter((t) => t.status === 'em_andamento').length,
+    nao_iniciado: list.filter((t) => t.status === 'nao_iniciado').length,
+    preparando: list.filter((t) => t.status === 'preparando').length,
+    preparado: list.filter((t) => t.status === 'preparado').length,
     revisando: list.filter((t) => t.status === 'revisando').length,
     dominado: list.filter((t) => t.status === 'dominado').length,
     exercises: sum(list.map((t) => t.exercisesDone)),

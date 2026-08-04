@@ -1,4 +1,4 @@
-import type { Clock, ISODate, Weekday } from '@/types'
+import type { Clock, ISODate, TopicStatus, Weekday } from '@/types'
 
 /**
  * Modelo do Banco Curricular (Sprint 2).
@@ -148,13 +148,11 @@ export interface ScheduledLesson {
  * Cinco estados persistidos. Os dois estados restantes do desenho original
  * são derivados: "em aula" é `hoje === data da aula`, e "revisão futura" é
  * `dominado` com `nextReviewAt` no futuro.
+ *
+ * É apelido de `TopicStatus`, o estado que vive no próprio tópico — os dois
+ * nomes descrevem a mesma coisa e agora apontam para o mesmo tipo.
  */
-export type TopicState =
-  | 'nao_iniciado'
-  | 'preparando'
-  | 'preparado'
-  | 'revisando'
-  | 'dominado'
+export type TopicState = TopicStatus
 
 export const TOPIC_STATE_LABEL: Record<TopicState, string> = {
   nao_iniciado: 'Não iniciado',

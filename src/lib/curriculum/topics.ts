@@ -65,7 +65,7 @@ export function linkLessonsToTopics(
         id: uid('t-'),
         subjectId,
         title: lesson.title,
-        status: 'nao_visto',
+        status: 'nao_iniciado',
         difficulty: 3,
         exercisesDone: 0,
         lastReviewedAt: null,

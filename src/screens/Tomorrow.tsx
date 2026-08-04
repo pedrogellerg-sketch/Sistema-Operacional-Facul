@@ -30,7 +30,7 @@ export function Tomorrow() {
   const grid = useCurriculumStore((s) => s.grid)
   const calendar = useCurriculumStore((s) => s.calendar)
   const offsets = useCurriculumStore((s) => s.offsets)
-  const topicStates = useCurriculumStore((s) => s.topicStates)
+  const topics = useAppStore((s) => s.topics)
   const importedSubjects = useCurriculumStore((s) => s.importedSubjects)
 
   const [expanded, setExpanded] = useState<string | null>(null)
@@ -158,7 +158,7 @@ export function Tomorrow() {
               const first = withContent[0] ?? items[0]
               const lesson = first?.lesson
               const state: TopicState = lesson?.topicId
-                ? (topicStates[lesson.topicId] ?? 'nao_iniciado')
+                ? (topics.find((t) => t.id === lesson.topicId)?.status ?? 'nao_iniciado')
                 : 'nao_iniciado'
               const isOpen = expanded === subjectId
 

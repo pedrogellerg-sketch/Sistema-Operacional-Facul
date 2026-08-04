@@ -300,7 +300,7 @@ export function buildSeedTopics(todayISO: string, daysAgo: (n: number) => string
   for (const [subjectId, titles] of Object.entries(TRACKS)) {
     const progress = SEEDED_PROGRESS[subjectId] ?? { done: 0, current: 0 }
     titles.forEach((title, index) => {
-      let status: Topic['status'] = 'nao_visto'
+      let status: Topic['status'] = 'nao_iniciado'
       let lastReviewedAt: string | null = null
       let exercisesDone = 0
 
@@ -310,7 +310,7 @@ export function buildSeedTopics(todayISO: string, daysAgo: (n: number) => string
         lastReviewedAt = daysAgo(3 + index * 4)
         exercisesDone = 12 + index * 6
       } else if (index < progress.done + progress.current) {
-        status = 'em_andamento'
+        status = 'preparando'
         lastReviewedAt = daysAgo(1)
         exercisesDone = 5
       }
