@@ -18,6 +18,7 @@ import type {
 } from '@/types/curriculum'
 
 import { buildSeedCalendar, buildSeedGrid } from '@/data/school'
+import curriculumSeed from '@/data/curriculumSeed.json'
 import { localStorageAdapter } from '@/lib/persistence'
 import { todayISO } from '@/lib/date'
 import { uid } from '@/lib/utils'
@@ -93,9 +94,17 @@ const OFFSET_DELTA: Record<RealClassOutcome, number> = {
   conteudo_diferente: 0,
 }
 
+/**
+ * O app já nasce com os nove planos da escola carregados.
+ *
+ * Este sistema é de uma pessoa só, com uma escola só: pedir para reimportar
+ * nove PDFs a cada troca de aparelho seria fricção inventada. O importador
+ * continua existindo para quando a escola publicar os planos do próximo
+ * bimestre.
+ */
 function initialState(): CurriculumState {
   return {
-    lessons: [],
+    lessons: curriculumSeed.lessons as CurriculumLesson[],
     grid: buildSeedGrid(),
     calendar: buildSeedCalendar(),
     offsets: {},
@@ -107,7 +116,7 @@ function initialState(): CurriculumState {
     customVideos: [],
     simulados: [],
     targetExams: ['enem', 'fuvest', 'unicamp', 'unesp'],
-    importedSubjects: [],
+    importedSubjects: curriculumSeed.imported,
   }
 }
 

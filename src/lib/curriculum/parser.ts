@@ -237,7 +237,7 @@ function parseNumerada(text: string, subjectId: string): CurriculumLesson[] {
 }
 
 /** História: SEM + AULA + intervalo de datas + FRENTE. */
-function parseSemanaAula(text: string, subjectId: string, year: number): CurriculumLesson[] {
+function parseSemanaAula(text: string, subjectId: string): CurriculumLesson[] {
   const re = /^(\d{2,3})[ \t]+(\d{2,3})[ \t]+([^\n]{3,160})$/gm
   const marks = [...text.matchAll(re)]
 
@@ -248,13 +248,14 @@ function parseSemanaAula(text: string, subjectId: string, year: number): Curricu
     const title = m[3]
 
     const track = title.match(/FRENTE\s*(\d+)/i)?.[1] ?? null
-    // O bloco traz "De 27/07 a 31/07" espalhado em várias linhas.
-    const dm = block.match(/(\d{1,2})\/(\d{1,2})/)
 
+    // O bloco traz "De 27/07 a 31/07" — é o intervalo da SEMANA, não a data da
+    // aula. Gravar o início como `declaredDate` fazia as 40 aulas de História
+    // se amontoarem nas segundas e a quinta ficar sem conteúdo. A semana basta:
+    // o cronograma distribui pela grade.
     return makeLesson(subjectId, Number(m[2]), title, block, {
       week: Number(m[1]),
       track: track ? `Frente ${track}` : null,
-      declaredDate: dm ? isoFromBR(dm[1], dm[2], year) : null,
       order: Number(m[2]),
     })
   })
@@ -453,7 +454,7 @@ export function parsePlan(rawText: string, override?: { subjectId?: string }): P
 
   let lessons: CurriculumLesson[] =
     profile === 'semana_aula'
-      ? parseSemanaAula(text, subjectId, year)
+      ? parseSemanaAula(text, subjectId)
       : profile === 'intervalo'
         ? parseIntervalo(text, subjectId)
         : profile === 'numerada_data'
