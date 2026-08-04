@@ -23,13 +23,14 @@ import type {
   WorkoutTemplate,
 } from '@/types'
 
-import { SEED_SUBJECTS, buildSeedTopics } from '@/data/subjects'
+import { SEED_SUBJECTS } from '@/data/subjects'
+import curriculumSeed from '@/data/curriculumSeed.json'
 import { SEED_WORKOUT_TEMPLATES } from '@/data/workouts'
 import { SEED_MEALS, buildSeedPantry } from '@/data/nutrition'
 import { DEFAULT_ROUTINE_SETTINGS, generateWeek, regenerateDay } from '@/lib/routineEngine'
 import { buildSession } from '@/lib/studyEngine'
 import { STORAGE_KEY, STORAGE_VERSION, localStorageAdapter } from '@/lib/persistence'
-import { addDays, todayISO } from '@/lib/date'
+import { todayISO } from '@/lib/date'
 import { uid } from '@/lib/utils'
 
 /**
@@ -153,9 +154,6 @@ const EMPTY_LOG = (date: ISODate): DayLog => ({
 })
 
 function createInitialState(): AppState {
-  const today = todayISO()
-  const daysAgo = (n: number) => addDays(today, -n)
-
   return {
     profile: {
       name: '',
@@ -169,7 +167,8 @@ function createInitialState(): AppState {
     routineSettings: DEFAULT_ROUTINE_SETTINGS,
     week: generateWeek(DEFAULT_ROUTINE_SETTINGS),
     subjects: SEED_SUBJECTS,
-    topics: buildSeedTopics(today, daysAgo),
+    // Tópicos vêm do Banco Curricular real da escola, não de trilhas genéricas.
+    topics: curriculumSeed.topics as Topic[],
     sessions: [],
     activeSessionId: null,
     workoutTemplates: SEED_WORKOUT_TEMPLATES,
