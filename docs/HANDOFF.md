@@ -2,7 +2,7 @@
 
 > Documento de continuidade. Se você está começando uma sessão nova neste
 > projeto, leia isto primeiro e depois o `README.md`.
-> Última atualização: commit `71fc5ca`.
+> Última atualização: commit `0f02b47`.
 
 ---
 
@@ -90,7 +90,7 @@ telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
 
 ## 5. O que falta — em ordem de prioridade
 
-### 5.1 Importador da Fuvest (não começado)
+### 5.1 Importador da Fuvest (não começado) — ÚNICA FRENTE ABERTA
 
 O objetivo é somar questões da Fuvest às do ENEM. **Já validei que é viável**;
 falta construir.
@@ -115,17 +115,19 @@ O que descobri e você pode reaproveitar:
 Espelhe a estrutura de `scripts/fetch-questions.mjs`, gerando os mesmos campos
 do tipo `Question` em `src/types/curriculum.ts`. Cacheie os downloads.
 
-### 5.2 Parser de Química (33 de 42 aulas)
+### 5.2 Parsers dos planos — RESOLVIDO
 
-Faltam 9 aulas. Já corrigi uma causa — na virada de página a tabela inverte a
-ordem, saindo `(25/08) / AV1 / 17` em vez de `17 / AV1 / (25/08)`, e o parser
-agora aceita as duas. Restam outras variações que não mapeei.
+Os nove planos importam corretamente. Química exigiu cobrir quatro arranjos
+distintos no mesmo documento (a tabela de duas colunas quebra em ponto
+diferente a cada página); Redação exigiu um perfil próprio, porque numera em
+duplas e põe o título antes do número.
 
-Como atacar: extraia o texto do PDF, liste os 42 `(DD/MM)` que existem, compare
-com os 33 que o parser devolve, e inspecione o trecho cru de cada faltante.
-Provavelmente são mais variações de ordem causadas pelas duas colunas.
+Contagem final: Matemática 39, Física 34, Química 38, Biologia 17, História 40,
+Geografia 34, Redação 11, Literatura 20, EFL 14.
 
-**Anexe o PDF de Química na conversa** — os arquivos não passam entre sessões.
+Números repetidos em Química (6) e Geografia (10) são erros dos documentos
+originais, sinalizados na prévia para conferência manual — comportamento
+projetado, não bug.
 
 ### 5.3 Pendências menores
 
