@@ -1,19 +1,22 @@
 import type { ReactNode } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Apple, BarChart3, Dumbbell, GraduationCap, Home, Zap } from 'lucide-react'
+import { Apple, BarChart3, CalendarDays, Dumbbell, GraduationCap, Home, Zap } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
 const TABS = [
   { to: '/', label: 'Hoje', icon: Home },
-  { to: '/estudos', label: 'Estudos', icon: GraduationCap },
+  { to: '/amanha', label: 'Amanhã', icon: CalendarDays },
   { to: '/agora', label: 'Agora', icon: Zap, highlight: true },
   { to: '/treino', label: 'Treino', icon: Dumbbell },
   { to: '/progresso', label: 'Progresso', icon: BarChart3 },
 ] as const
 
 /** Abas secundárias — acessíveis pelo desktop e por atalhos nas telas. */
-const DESKTOP_EXTRA = [{ to: '/comida', label: 'Alimentação', icon: Apple }] as const
+const DESKTOP_EXTRA = [
+  { to: '/estudos', label: 'Estudos', icon: GraduationCap },
+  { to: '/comida', label: 'Alimentação', icon: Apple },
+] as const
 
 interface AppShellProps {
   children: ReactNode

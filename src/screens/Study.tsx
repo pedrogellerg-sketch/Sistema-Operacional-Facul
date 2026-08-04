@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Play, Sparkles } from 'lucide-react'
 
-import type { Subject } from '@/types'
+
 import { Button } from '@/components/ui/Button'
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Segmented } from '@/components/ui/Chip'
@@ -31,7 +31,9 @@ export function Study() {
 
   const suggestions = useSuggestions()
   const [filter, setFilter] = useState<Filter>('prioridade')
-  const [openSubject, setOpenSubject] = useState<Subject | null>(null)
+  // Guarda só o id: manter o objeto congelava a tela no estado antigo, e a
+  // mudança de peso/força só aparecia ao fechar e reabrir.
+  const [openSubjectId, setOpenSubjectId] = useState<string | null>(null)
 
   const top = suggestions[0]
 
@@ -48,7 +50,7 @@ export function Study() {
 
   const handleStart = (subjectId: string, topicId: string | null) => {
     startSession(subjectId, topicId)
-    setOpenSubject(null)
+    setOpenSubjectId(null)
     navigate('/agora')
   }
 
@@ -123,7 +125,7 @@ export function Study() {
                 subject={subject}
                 topics={topics}
                 nextTopic={pickNextTopic(topics.filter((t) => t.subjectId === subject.id))}
-                onOpen={() => setOpenSubject(subject)}
+                onOpen={() => setOpenSubjectId(subject.id)}
               />
             ))}
           </div>
@@ -131,8 +133,8 @@ export function Study() {
       </section>
 
       <SubjectSheet
-        subject={openSubject}
-        onClose={() => setOpenSubject(null)}
+        subjectId={openSubjectId}
+        onClose={() => setOpenSubjectId(null)}
         onStartSession={handleStart}
       />
     </div>

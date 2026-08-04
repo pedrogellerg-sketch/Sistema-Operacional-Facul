@@ -11,6 +11,15 @@ O critério de sucesso é simples: abrir de manhã e saber exatamente o que faze
 
 ---
 
+## Continuando o desenvolvimento
+
+Se você está retomando o projeto numa sessão nova, leia **[`docs/HANDOFF.md`](docs/HANDOFF.md)**
+antes de mexer em qualquer coisa: ele traz o estado atual, os princípios de
+arquitetura que não devem ser quebrados, o que falta fazer e as armadilhas do
+ambiente.
+
+---
+
 ## Como rodar
 
 ```bash

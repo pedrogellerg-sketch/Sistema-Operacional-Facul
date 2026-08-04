@@ -18,6 +18,7 @@ import type {
   Topic,
   Weekday,
   WeightEntry,
+  WorkoutExercise,
   WorkoutLog,
   WorkoutTemplate,
 } from '@/types'
@@ -81,6 +82,8 @@ interface AppActions {
   updateSubject: (id: string, patch: Partial<Subject>) => void
   updateTopic: (id: string, patch: Partial<Topic>) => void
   addTopic: (subjectId: string, title: string) => void
+  /** Insere um tópico já montado (usado pela importação do Banco Curricular). */
+  addTopicRecord: (topic: Topic) => void
   removeTopic: (id: string) => void
 
   // Sessões de estudo
@@ -102,6 +105,11 @@ interface AppActions {
     blockId?: string
   }) => void
   updateExerciseLoad: (templateId: string, exerciseId: string, load: number) => void
+  updateExercise: (templateId: string, exerciseId: string, patch: Partial<WorkoutExercise>) => void
+  addExercise: (templateId: string, name: string) => void
+  removeExercise: (templateId: string, exerciseId: string) => void
+  /** Repete o último treino registrado, com as mesmas cargas. */
+  repeatLastWorkout: (blockId?: string) => boolean
   cycleWorkoutRotation: () => void
   setWorkoutRotation: (index: number) => void
 
@@ -328,6 +336,9 @@ export const useAppStore = create<AppStore>()(
             return { topics: [...s.topics, topic] }
           }),
 
+        addTopicRecord: (topic) =>
+          set((s) => (s.topics.some((t) => t.id === topic.id) ? {} : { topics: [...s.topics, topic] })),
+
         removeTopic: (id) => set((s) => ({ topics: s.topics.filter((t) => t.id !== id) })),
 
         // ── Sessões ──────────────────────────────────────────
@@ -516,6 +527,55 @@ export const useAppStore = create<AppStore>()(
                 : t,
             ),
           })),
+
+        updateExercise: (templateId, exerciseId, patch) =>
+          set((s) => ({
+            workoutTemplates: s.workoutTemplates.map((t) =>
+              t.id === templateId
+                ? { ...t, exercises: t.exercises.map((e) => (e.id === exerciseId ? { ...e, ...patch } : e)) }
+                : t,
+            ),
+          })),
+
+        addExercise: (templateId, name) =>
+          set((s) => ({
+            workoutTemplates: s.workoutTemplates.map((t) =>
+              t.id === templateId
+                ? {
+                    ...t,
+                    exercises: [
+                      ...t.exercises,
+                      { id: uid('ex-'), name: name.trim(), sets: 3, reps: '10-12', lastLoad: null, notes: '' },
+                    ],
+                  }
+                : t,
+            ),
+          })),
+
+        removeExercise: (templateId, exerciseId) =>
+          set((s) => ({
+            workoutTemplates: s.workoutTemplates.map((t) =>
+              t.id === templateId
+                ? { ...t, exercises: t.exercises.filter((e) => e.id !== exerciseId) }
+                : t,
+            ),
+          })),
+
+        repeatLastWorkout: (blockId) => {
+          const s = get()
+          const last = [...s.workoutLogs].reverse().find((l) => l.completed)
+          if (!last) return false
+          s.logWorkout({
+            templateId: last.templateId,
+            completed: true,
+            lowMotivation: false,
+            minutes: last.minutes,
+            loads: last.loads,
+            notes: 'Repetiu o treino anterior',
+            blockId,
+          })
+          return true
+        },
 
         cycleWorkoutRotation: () => set((s) => ({ workoutRotation: s.workoutRotation + 1 })),
         setWorkoutRotation: (index) => set({ workoutRotation: index }),

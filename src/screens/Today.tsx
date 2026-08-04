@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { AlertTriangle, Flame, Settings2 } from 'lucide-react'
+import { AlertTriangle, Flame, School, Settings2 } from 'lucide-react'
 
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Chip } from '@/components/ui/Chip'
@@ -126,6 +126,17 @@ export function Today() {
           </p>
         </Card>
       )}
+
+      {/* ── Como foi a aula ─────────────────────────────── */}
+      <Link to="/aula-real" className="block">
+        <Card variant="flat" className="flex items-center gap-3 py-3.5">
+          <School size={17} className="shrink-0 text-ink-3" />
+          <p className="min-w-0 flex-1 text-[13px] text-ink-2">
+            <span className="font-semibold text-ink">Como foi a aula hoje?</span> — o sistema
+            reorganiza o cronograma a partir da resposta.
+          </p>
+        </Card>
+      </Link>
 
       {/* ── Status do dia ───────────────────────────────── */}
       <section className="space-y-3">

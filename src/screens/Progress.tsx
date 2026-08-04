@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Flame, Moon, Scale, TrendingUp } from 'lucide-react'
 
 import { Button } from '@/components/ui/Button'
@@ -55,6 +56,18 @@ export function Progress() {
   return (
     <div className="space-y-6">
       <PageHeader title="Progresso" subtitle="Consistência primeiro. O resto é consequência." />
+
+      <Link to="/academico" className="block">
+        <Card className="flex items-center justify-between gap-3 transition-colors hover:bg-surface-2">
+          <div className="min-w-0">
+            <p className="text-[14.5px] font-semibold text-ink">Dashboard acadêmico</p>
+            <p className="mt-0.5 text-[12.5px] text-ink-2">
+              Conteúdos, exercícios, dúvidas, simulados e vestibulares
+            </p>
+          </div>
+          <span className="shrink-0 text-[13px] font-medium text-accent">Abrir</span>
+        </Card>
+      </Link>
 
       {/* ── Sequência ───────────────────────────────────── */}
       <Card variant="accent" className="flex items-center gap-5 p-5">

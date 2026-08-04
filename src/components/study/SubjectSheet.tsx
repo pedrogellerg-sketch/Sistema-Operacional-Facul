@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Play, Plus, Trash2 } from 'lucide-react'
 
-import type { Subject, SubjectStrength, SubjectTier, Topic, TopicStatus } from '@/types'
+import type { SubjectStrength, SubjectTier, Topic, TopicStatus } from '@/types'
 import { Button, IconButton } from '@/components/ui/Button'
 import { Segmented } from '@/components/ui/Chip'
 import { Sheet } from '@/components/ui/Sheet'
@@ -12,7 +12,8 @@ import { cn } from '@/lib/utils'
 import { useAppStore } from '@/store/appStore'
 
 interface SubjectSheetProps {
-  subject: Subject | null
+  /** Só o id: o objeto vem do store, para a tela refletir a mudança na hora. */
+  subjectId: string | null
   onClose: () => void
   onStartSession: (subjectId: string, topicId: string | null) => void
 }
@@ -33,7 +34,9 @@ const STRENGTH_OPTIONS: Array<{ value: SubjectStrength; label: string }> = [
 const STATUS_CYCLE: TopicStatus[] = ['nao_visto', 'em_andamento', 'revisando', 'dominado']
 
 /** Detalhe da matéria: ajusta peso e força, e edita a trilha de tópicos. */
-export function SubjectSheet({ subject, onClose, onStartSession }: SubjectSheetProps) {
+export function SubjectSheet({ subjectId, onClose, onStartSession }: SubjectSheetProps) {
+  // Lido do store a cada render — é isso que dá feedback visual imediato.
+  const subject = useAppStore((s) => s.subjects.find((x) => x.id === subjectId))
   const topics = useAppStore((s) => s.topics)
   const updateSubject = useAppStore((s) => s.updateSubject)
   const updateTopic = useAppStore((s) => s.updateTopic)
