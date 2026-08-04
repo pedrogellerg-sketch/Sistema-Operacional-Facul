@@ -74,10 +74,13 @@ export function resolveSchedule(input: ScheduleInput, from: ISODate, to: ISODate
   // Fila por disciplina, com o cursor deslocado pelo offset acumulado.
   const cursors = new Map<string, number>()
   const queues = new Map<string, CurriculumLesson[]>()
+  /** Quantos encontros da aula atual já foram consumidos (para `span > 1`). */
+  const consumidos = new Map<string, number>()
   for (const slot of grid) {
     if (queues.has(slot.subjectId)) continue
     queues.set(slot.subjectId, queueFor(lessons, slot.subjectId))
     cursors.set(slot.subjectId, -(offsets[slot.subjectId] ?? 0))
+    consumidos.set(slot.subjectId, 0)
   }
 
   // Datas declaradas têm prioridade: reservam a aula naquele dia.
@@ -109,10 +112,34 @@ export function resolveSchedule(input: ScheduleInput, from: ISODate, to: ISODate
       const queue = queues.get(subject) ?? []
       // Pula as que já foram fixadas por data declarada.
       let idx = cursors.get(subject) ?? 0
-      while (idx >= 0 && idx < queue.length && queue[idx].declaredDate) idx += 1
-      cursors.set(subject, idx + 1)
+      let repetidas = consumidos.get(subject) ?? 0
+      while (idx >= 0 && idx < queue.length && queue[idx].declaredDate) {
+        idx += 1
+        repetidas = 0
+      }
 
       const lesson = idx >= 0 && idx < queue.length ? queue[idx] : null
+
+      /**
+       * Uma aula declarada como "Aulas 82, 83 e 84" ocupa três encontros, não
+       * um. Avançar a fila de um em um esvaziava o plano cedo demais — a Física
+       * cobria 34 dos 79 encontros do semestre e o resto ficava vazio, enquanto
+       * o conteúdo mostrado saía adiantado em relação à aula real.
+       */
+      if (lesson) {
+        repetidas += 1
+        if (repetidas >= Math.max(lesson.span, 1)) {
+          idx += 1
+          repetidas = 0
+        }
+      } else {
+        idx += 1
+        repetidas = 0
+      }
+
+      cursors.set(subject, idx)
+      consumidos.set(subject, repetidas)
+
       out.push({ date, slot, lesson, fromDeclaredDate: false })
     }
   }
