@@ -105,7 +105,7 @@ Aula Real com offset reversível; dashboard acadêmico; simulados; academia
 editável; alimentação com calorias e proteína.
 
 **Dados reais já embutidos:** grade semanal (35 aulas/semana, 13 disciplinas),
-calendário do 2º semestre de 2026 com simulados e vestibulares, e **1.017 questões
+calendário do 2º semestre de 2026 com simulados e vestibulares, e **1.061 questões
 reais de ENEM, Fuvest, FGV e Insper** (detalhe na seção 5.1).
 
 Testes feitos no navegador com PDFs reais: 10/10 no fluxo da Sprint 2, 17/17 nas
@@ -117,7 +117,7 @@ telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
 
 ### 5.1 Banco de questões — RESOLVIDO para os quatro vestibulares-alvo
 
-**1.017 questões.** Cada disciplina é um chunk próprio, carregado sob demanda;
+**1.061 questões.** Cada disciplina é um chunk próprio, carregado sob demanda;
 nada disso entra no localStorage.
 
 | Prova | Questões | Como entrou |
@@ -127,6 +127,7 @@ nada disso entra no localStorage.
 | FGV 2026.2 | ~38 | PDF com camada de texto · `scripts/build-fgv-questions.mjs` |
 | FGV 2025.1 | 56 | PDF digitalizado, transcrito à mão · `scripts/build-fgv-2025-questions.mjs` |
 | Insper 2026.2 | 41 | PDF de duas colunas · `scripts/build-insper-questions.mjs` |
+| Insper 2026.1 | 44 | mesmo script, outra edição |
 
 Três caminhos diferentes porque as fontes são diferentes, e vale saber qual
 tentar primeiro numa prova nova:
@@ -155,10 +156,12 @@ FGV e Insper têm faixa fixa por matéria, então a etiqueta sai da numeração 
 não é preciso adivinhar por vocabulário como no ENEM:
 
 - **FGV**: 1-15 Matemática · 16-30 Português · 31-45 Inglês · 46-60 Humanas.
-- **Insper**: 1-15 Português · 16-30 Matemática · 31-46 Humanas · 47-50 Biologia
-  · 51-55 Química · 56-60 Física. **Não tem inglês**, e a redação é caderno
-  separado. Não há título de seção no caderno; a divisão foi conferida questão a
-  questão.
+- **Insper**: 1-15 Português · 16-30 Matemática · Humanas · Biologia · 51-55
+  Química · 56-60 Física. **Não tem inglês**, e a redação é caderno separado.
+  Não há título de seção no caderno, então a divisão foi conferida questão a
+  questão, edição por edição — e é preciso: a fronteira entre Humanas e Biologia
+  se move (Biologia começa na 46 em 2026.1 e na 47 em 2026.2). Por isso a faixa
+  é declarada por edição, em `EDICOES`, e não uma só para todas.
 
 Só o bloco de humanas mistura História, Geografia, Filosofia e Sociologia sem
 dizer qual é qual; ali o palpite é por vocabulário, e errar a etiqueta só muda em
@@ -185,9 +188,15 @@ outra coisa. Com o filtro certo o aproveitamento foi de 35 para 41 questões.
 
 Questão que depende de figura não entra: sem a imagem não há resposta possível.
 Mesmo critério do ENEM e do BLUEX. Na FGV 2025.1 são quatro (4, 16, 17 e 24); no
-Insper são 19 — 14 com figura no enunciado e 5 cujas **alternativas** são
-imagem, caso que aparece em Matemática quando as opções são fórmulas
-desenhadas.
+Insper 2026.2 são 19 e no 2026.1 são 16 — a maioria com figura no enunciado, e
+algumas cujas **alternativas** são imagem, caso que aparece em Matemática quando
+as opções são fórmulas desenhadas.
+
+Um detalhe que custou o soneto do Raul de Leoni: o anúncio do texto de apoio vem
+nas duas ordens, e a inicial muda com ela — "Leia o conto […], para responder às
+questões de 11 a 14" numa edição, "Para responder às questões de 03 a 06, leia o
+soneto […]" na outra. A busca precisa ignorar maiúscula e o anúncio precisa ser
+lido até o fim da frase, não até o fim do trecho casado.
 
 ### 5.2 Parsers dos planos — RESOLVIDO
 

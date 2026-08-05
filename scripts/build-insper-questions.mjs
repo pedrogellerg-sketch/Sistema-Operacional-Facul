@@ -43,19 +43,48 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const OUT = resolve(ROOT, 'src', 'data', 'questions')
 
 /**
- * Faixas da objetiva do Insper, lidas da própria prova.
+ * As edições da prova, com as faixas de matéria de cada uma.
  *
- * Não há título de seção no caderno; a divisão foi conferida questão a questão.
- * Note que **não há inglês** nesta prova — ao contrário da FGV —, e que a
- * redação é caderno separado.
+ * Não há título de seção no caderno, então a divisão foi conferida questão a
+ * questão, edição por edição. Português, Matemática, Química e Física caem
+ * sempre nas mesmas posições; o que se mexe é a fronteira entre Humanas e
+ * Biologia — em 2026.1 a Biologia começa na 46, em 2026.2 na 47. Por isso a
+ * faixa é declarada por edição em vez de valer uma só para todas.
+ *
+ * Note que **não há inglês** na objetiva do Insper, ao contrário da FGV, e que
+ * a redação é caderno separado.
  */
-const FAIXAS = [
-  { ate: 15, subjectId: 'por' },
-  { ate: 30, subjectId: 'mat' },
-  { ate: 46, subjectId: null }, // humanas: decidido por vocabulário
-  { ate: 50, subjectId: 'bio' },
-  { ate: 55, subjectId: 'qui' },
-  { ate: 60, subjectId: 'fis' },
+const EDICOES = [
+  {
+    id: '2026-2',
+    ano: 2026,
+    rotulo: 'Insper 2026.2 — Processo Seletivo do 2º semestre',
+    prova: 'insper-2026-2-objetiva.txt',
+    gabarito: 'insper-2026-2-gabarito.txt',
+    faixas: [
+      { ate: 15, subjectId: 'por' },
+      { ate: 30, subjectId: 'mat' },
+      { ate: 46, subjectId: null }, // humanas: decidido por vocabulário
+      { ate: 50, subjectId: 'bio' },
+      { ate: 55, subjectId: 'qui' },
+      { ate: 60, subjectId: 'fis' },
+    ],
+  },
+  {
+    id: '2026-1',
+    ano: 2026,
+    rotulo: 'Insper 2026.1 — Processo Seletivo do 1º semestre',
+    prova: 'insper-2026-1-objetiva.txt',
+    gabarito: 'insper-2026-1-gabarito.txt',
+    faixas: [
+      { ate: 15, subjectId: 'por' },
+      { ate: 30, subjectId: 'mat' },
+      { ate: 45, subjectId: null },
+      { ate: 50, subjectId: 'bio' },
+      { ate: 55, subjectId: 'qui' },
+      { ate: 60, subjectId: 'fis' },
+    ],
+  },
 ]
 
 /**
@@ -84,8 +113,8 @@ function materiaDeHumanas(texto) {
   return melhor
 }
 
-function materiaDe(numero, texto) {
-  const faixa = FAIXAS.find((f) => numero <= f.ate)
+function materiaDe(faixas, numero, texto) {
+  const faixa = faixas.find((f) => numero <= f.ate)
   if (!faixa) return null
   return faixa.subjectId ?? materiaDeHumanas(texto)
 }
@@ -184,20 +213,37 @@ function lerPassagens(texto) {
    * `\s+` em vez de espaço em todo lugar porque a coluna é estreita e o anúncio
    * quebra onde calhar — "para responder às questões de⏎11 a 15" custou o poema
    * inteiro do Manuel Bandeira, que sustenta cinco questões.
+   *
+   * E `i` porque a frase aparece nas duas ordens, e a inicial muda com ela:
+   * "Leia o conto […], para responder às questões de 11 a 14" numa edição,
+   * "Para responder às questões de 03 a 06, leia o soneto […]" na outra. Sem
+   * isso, o soneto do Raul de Leoni e a tirinha do Adão Iturrusgarai passavam
+   * despercebidos na prova de 2026.1.
    */
   const re =
-    /para\s+responder\s+[àa]s\s+quest[õo]es\s+(?:de\s+(\d{1,2})\s+a\s+(\d{1,2})|(\d{1,2})\s+e\s+(\d{1,2}))\.?/g
+    /para\s+responder\s+[àa]s\s+quest[õo]es\s+(?:de\s+(\d{1,2})\s+a\s+(\d{1,2})|(\d{1,2})\s+e\s+(\d{1,2}))/gi
   for (const m of texto.matchAll(re)) {
     const [de, ate] = m[1] != null ? [m[1], m[2]] : [m[3], m[4]]
-    const inicio = m.index + m[0].length
-    const fim = texto.indexOf('QUESTÃO', inicio)
+    const depois = m.index + m[0].length
+
+    /**
+     * O anúncio vai até o fim da frase, não até o fim do trecho casado. Nas
+     * duas ordens isso dá o mesmo resultado certo: quando a instrução vem
+     * depois ("…, examine a tirinha do Adão Iturrusgarai."), ela entra no
+     * anúncio e o filtro de imagem a enxerga; quando vem antes, o ponto está
+     * logo ali e nada muda.
+     */
+    const ponto = texto.indexOf('.', depois)
+    const fimAnuncio = ponto >= 0 && ponto - depois <= 200 ? ponto + 1 : depois
+
+    const fim = texto.indexOf('QUESTÃO', fimAnuncio)
     if (fim < 0) continue
-    const corpo = texto.slice(inicio, fim).trim()
+    const corpo = texto.slice(fimAnuncio, fim).trim()
 
     const antes = texto.slice(0, m.index)
     const abertura = antes.lastIndexOf('\n\n') + 1
     inicios.push(abertura)
-    const anuncio = antes.slice(abertura) + m[0]
+    const anuncio = texto.slice(abertura, fimAnuncio)
 
     for (let n = Number(de); n <= Number(ate); n++) {
       anuncios.set(n, anuncio)
@@ -246,104 +292,116 @@ function dependeDeImagem(texto) {
   return SEMPRE_IMAGEM.test(texto) || REFERENCIA_A_IMAGEM.test(texto)
 }
 
-const provaPath = resolve(ROOT, 'data', 'provas', 'insper-2026-2-objetiva.txt')
-const gabPath = resolve(ROOT, 'data', 'provas', 'insper-2026-2-gabarito.txt')
+/** Lê uma edição inteira e devolve as questões aproveitáveis. */
+function lerEdicao(edicao) {
+  const bruto = tirarMobilia(
+    juntarHifens(readFileSync(resolve(ROOT, 'data', 'provas', edicao.prova), 'utf8')),
+  )
+  const gabarito = lerGabarito(readFileSync(resolve(ROOT, 'data', 'provas', edicao.gabarito), 'utf8'))
+  const { passagens, anuncios, inicios } = lerPassagens(bruto)
 
-const bruto = tirarMobilia(juntarHifens(readFileSync(provaPath, 'utf8')))
-const gabarito = lerGabarito(readFileSync(gabPath, 'utf8'))
-const { passagens, anuncios, inicios } = lerPassagens(bruto)
+  /**
+   * Onde cada questão começa e termina.
+   *
+   * Achar o marcador basta — não é preciso a varredura sequencial que a FGV
+   * exige, porque aqui o número vem sempre colado ao "QUESTÃO" e a ordem no
+   * texto é a ordem da prova. Guardamos duas posições: onde o enunciado começa
+   * (depois do marcador) e onde o marcador em si começa. As duas são precisas —
+   * parar no início do enunciado seguinte deixaria o texto "QUESTÃO 03" grudado
+   * na alternativa (E) da questão 2.
+   */
+  const marcadores = [...bruto.matchAll(/QUEST[ÃA]O\s+(\d{2})/g)].map((m) => ({
+    numero: Number(m[1]),
+    inicio: m.index + m[0].length,
+    marca: m.index,
+  }))
 
-/**
- * Onde cada questão começa.
- *
- * Achar o marcador basta — não é preciso a varredura sequencial que a FGV
- * exige, porque aqui o número vem sempre colado ao "QUESTÃO" e a ordem no texto
- * é a ordem da prova.
- */
-const marcadores = [...bruto.matchAll(/QUEST[ÃA]O\s+(\d{2})/g)].map((m) => ({
-  numero: Number(m[1]),
-  // Onde o enunciado começa (depois do marcador) e onde o marcador em si
-  // começa. Os dois são precisos: o corpo de uma questão vai do primeiro dela
-  // até o segundo da seguinte — parar no `inicio` seguinte deixaria o texto
-  // "QUESTÃO 03" grudado na alternativa (E) da questão 2.
-  inicio: m.index + m[0].length,
-  marca: m.index,
-}))
+  /**
+   * O fim não é simplesmente o marcador seguinte. Quando vem um texto de apoio
+   * no meio, ele fica entre uma questão e outra e cai inteiro dentro da
+   * alternativa (E) — que é a última e não tem nada depois para limitá-la. Foi
+   * assim que a alternativa (E) da questão 3 saiu com 2.883 caracteres,
+   * carregando o artigo das questões 4 a 8. Então o fim é o que vier primeiro:
+   * o próximo marcador ou a abertura do próximo texto de apoio.
+   */
+  const fimDe = (i) => {
+    const proximo = marcadores[i + 1]?.marca ?? bruto.length
+    const anuncio = inicios.find((p) => p > marcadores[i].inicio)
+    return anuncio != null ? Math.min(proximo, anuncio) : proximo
+  }
 
-/**
- * Onde cada questão termina.
- *
- * Não é simplesmente o marcador seguinte. Quando vem um texto de apoio no meio,
- * ele fica entre uma questão e outra, e cai inteiro dentro da alternativa (E) —
- * que é a última e não tem nada depois para limitá-la. Foi assim que a
- * alternativa (E) da questão 3 saiu com 2.883 caracteres, carregando o artigo
- * das questões 4 a 8. Então o fim é o que vier primeiro: o próximo marcador ou
- * a abertura do próximo texto de apoio.
- */
-function fimDe(indice) {
-  const proximo = marcadores[indice + 1]?.marca ?? bruto.length
-  const anuncio = inicios.find((p) => p > marcadores[indice].inicio)
-  return anuncio != null ? Math.min(proximo, anuncio) : proximo
+  const questoes = []
+  let semGabarito = 0
+  let comImagem = 0
+  let alternativaEmImagem = 0
+
+  for (let i = 0; i < marcadores.length; i++) {
+    const numero = marcadores[i].numero
+    const corpo = bruto.slice(marcadores[i].inicio, fimDe(i)).replace(/\s+/g, ' ').trim()
+
+    /**
+     * Alternativa vazia quer dizer que as opções da questão são desenho — em
+     * Matemática, fórmula ou gráfico entre `(A)` e `(B)`. Não é falha de
+     * leitura: não há texto nenhum ali, e a questão é tão inaproveitável quanto
+     * as que dependem de figura no enunciado.
+     */
+    const recorte = recortarAlternativas(corpo)
+    if (!recorte || recorte.statement.length < 20) {
+      alternativaEmImagem += 1
+      continue
+    }
+
+    const correct = gabarito[numero]
+    if (!correct) {
+      semGabarito += 1
+      continue
+    }
+
+    const context = passagens.get(numero)?.replace(/\s+/g, ' ').trim() ?? null
+
+    /**
+     * A referência à imagem é procurada no enunciado e no anúncio da faixa —
+     * nunca no corpo da passagem. O texto "Mapa", do Manuel Jorge Marmelo, fala
+     * de mapas do começo ao fim por metáfora, e olhar ali derrubaria as três
+     * questões de interpretação que ele sustenta.
+     */
+    if (dependeDeImagem(`${anuncios.get(numero) ?? ''} ${recorte.statement}`)) {
+      comImagem += 1
+      continue
+    }
+
+    const subjectId = materiaDe(edicao.faixas, numero, `${context ?? ''} ${recorte.statement}`)
+    if (!subjectId) continue
+
+    questoes.push({
+      id: `insper-${edicao.id}-${numero}`,
+      exam: 'INSPER',
+      year: edicao.ano,
+      number: numero,
+      subjectId,
+      context,
+      statement: recorte.statement,
+      alternatives: recorte.alternatives,
+      correct,
+      // Fase única de objetiva; a redação é caderno separado.
+      phase: 1,
+    })
+  }
+
+  return { questoes, semGabarito, comImagem, alternativaEmImagem }
 }
 
-console.log('Insper — objetiva do Processo Seletivo 2026.2')
-
 const porMateria = {}
-let semGabarito = 0
-let comImagem = 0
-let alternativaEmImagem = 0
 
-for (let i = 0; i < marcadores.length; i++) {
-  const numero = marcadores[i].numero
-  const corpo = bruto.slice(marcadores[i].inicio, fimDe(i)).replace(/\s+/g, ' ').trim()
-
-  /**
-   * Alternativa vazia quer dizer que as opções da questão são desenho — em
-   * Matemática, fórmula ou gráfico entre `(A)` e `(B)`. Não é falha de leitura:
-   * não há texto nenhum para ler ali, e a questão é tão inaproveitável quanto
-   * as que dependem de figura no enunciado.
-   */
-  const recorte = recortarAlternativas(corpo)
-  if (!recorte || recorte.statement.length < 20) {
-    alternativaEmImagem += 1
-    continue
-  }
-
-  const correct = gabarito[numero]
-  if (!correct) {
-    semGabarito += 1
-    continue
-  }
-
-  const context = passagens.get(numero)?.replace(/\s+/g, ' ').trim() ?? null
-
-  /**
-   * A referência à imagem é procurada no enunciado e no anúncio da faixa —
-   * nunca no corpo da passagem. O texto "Mapa", do Manuel Jorge Marmelo, fala
-   * de mapas do começo ao fim por metáfora, e olhar ali derrubaria as três
-   * questões de interpretação que ele sustenta.
-   */
-  if (dependeDeImagem(`${anuncios.get(numero) ?? ''} ${recorte.statement}`)) {
-    comImagem += 1
-    continue
-  }
-
-  const subjectId = materiaDe(numero, `${context ?? ''} ${recorte.statement}`)
-  if (!subjectId) continue
-
-  ;(porMateria[subjectId] ??= []).push({
-    id: `insper-2026-2-${numero}`,
-    exam: 'INSPER',
-    year: 2026,
-    number: numero,
-    subjectId,
-    context,
-    statement: recorte.statement,
-    alternatives: recorte.alternatives,
-    correct,
-    // Fase única de objetiva; a redação é caderno separado.
-    phase: 1,
-  })
+for (const edicao of EDICOES) {
+  const { questoes, semGabarito, comImagem, alternativaEmImagem } = lerEdicao(edicao)
+  console.log(edicao.rotulo)
+  console.log(`  ${questoes.length} questões aproveitadas de 60`)
+  console.log(`  ${comImagem} descartadas: o enunciado depende de figura`)
+  console.log(`  ${alternativaEmImagem} descartadas: as alternativas são imagem`)
+  if (semGabarito) console.log(`  ${semGabarito} sem gabarito`)
+  console.log()
+  for (const q of questoes) (porMateria[q.subjectId] ??= []).push(q)
 }
 
 const index = existsSync(resolve(OUT, 'index.json'))
@@ -363,10 +421,4 @@ for (const [subjectId, novas] of Object.entries(porMateria)) {
 }
 
 writeFileSync(resolve(OUT, 'index.json'), JSON.stringify(index, null, 2))
-
-const aproveitadas = Object.values(porMateria).reduce((a, l) => a + l.length, 0)
-console.log(`\n  ${aproveitadas} questões aproveitadas de 60`)
-console.log(`  ${comImagem} descartadas: o enunciado depende de figura`)
-console.log(`  ${alternativaEmImagem} descartadas: as alternativas são imagem`)
-if (semGabarito) console.log(`  ${semGabarito} sem gabarito`)
-console.log(`  banco final: ${Object.values(index).reduce((a, b) => a + b, 0)} questões`)
+console.log(`\n  banco final: ${Object.values(index).reduce((a, b) => a + b, 0)} questões`)
