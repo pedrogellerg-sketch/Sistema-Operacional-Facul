@@ -2,11 +2,12 @@ import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, RotateCcw, Undo2 } from 'lucide-react'
 
-import type { RealClassOutcome } from '@/types/curriculum'
+import type { CurriculumLesson, RealClassOutcome } from '@/types/curriculum'
 import { Button, IconButton } from '@/components/ui/Button'
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Chip } from '@/components/ui/Chip'
 import { TextArea } from '@/components/ui/Field'
+import { LessonDetail } from '@/components/study/LessonDetail'
 import { PageHeader } from '@/components/layout/PageHeader'
 
 import { useAppStore } from '@/store/appStore'
@@ -56,7 +57,14 @@ export function RealClass() {
     ({ bio1: 'Biologia I', bio2: 'Biologia II', lit: 'Literatura', efl: 'Estrutura da Língua' } as Record<string, string>)[id] ??
     id
 
-  /** Disciplinas que tiveram aula hoje, com o conteúdo que estava previsto. */
+  /**
+   * Disciplinas que tiveram aula hoje, com **todo** o conteúdo previsto.
+   *
+   * Guarda as aulas inteiras, não só o título da primeira: numa terça a Física
+   * ocupa três períodos, e sem isso a tela escondia dois terços do que caiu.
+   * Aulas repetidas são dedupadas — um conteúdo com `span 3` preenche os três
+   * encontros do dia e não deve aparecer três vezes.
+   */
   const todayClasses = useMemo(() => {
     const resolved = resolveSchedule(
       { calendar, grid, lessons, offsets },
@@ -64,13 +72,12 @@ export function RealClass() {
       today,
     ).filter((s) => s.date === today)
 
-    const map = new Map<string, { count: number; title: string | null }>()
+    const map = new Map<string, { count: number; lessons: CurriculumLesson[] }>()
     for (const s of resolved) {
-      const cur = map.get(s.slot.subjectId)
-      map.set(s.slot.subjectId, {
-        count: (cur?.count ?? 0) + 1,
-        title: cur?.title ?? s.lesson?.title ?? null,
-      })
+      const cur = map.get(s.slot.subjectId) ?? { count: 0, lessons: [] }
+      cur.count += 1
+      if (s.lesson && !cur.lessons.some((l) => l.id === s.lesson!.id)) cur.lessons.push(s.lesson)
+      map.set(s.slot.subjectId, cur)
     }
     return [...map.entries()]
   }, [calendar, grid, lessons, offsets, today])
@@ -135,11 +142,15 @@ export function RealClass() {
                       <span className="block text-[15.5px] font-bold text-ink">
                         {subjectName(subjectId)}
                       </span>
-                      <span className="mt-0.5 block truncate text-[12.5px] text-ink-2">
-                        {info.title ?? 'Sem conteúdo previsto no plano'}
+                      {/* Duas linhas no resumo; o texto inteiro fica ao abrir. */}
+                      <span className="mt-0.5 block text-[12.5px] leading-snug text-ink-2">
+                        {info.lessons.length > 0
+                          ? info.lessons.map((l) => l.title).join(' · ')
+                          : 'Sem conteúdo previsto no plano'}
                       </span>
                       <span className="mt-1.5 flex flex-wrap gap-1.5">
                         <Chip>{info.count}× hoje</Chip>
+                        {info.lessons.length > 1 && <Chip>{info.lessons.length} conteúdos</Chip>}
                         {offset !== 0 && (
                           <Chip color={offset > 0 ? 'var(--color-warn)' : 'var(--color-info)'}>
                             {offset > 0 ? `${offset} aula(s) atrasada(s)` : `${-offset} adiantada(s)`}
@@ -152,6 +163,28 @@ export function RealClass() {
 
                   {isOpen && (
                     <div className="space-y-2 border-t border-line-soft p-4">
+                      {/* O que estava previsto, por inteiro, antes de confirmar. */}
+                      {info.lessons.length > 0 ? (
+                        <div className="mb-4 space-y-5">
+                          {info.lessons.map((l) => (
+                            <LessonDetail
+                              key={l.id}
+                              lesson={l}
+                              subjectName={subjectName(subjectId)}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="mb-4 text-[13px] text-ink-3">
+                          O plano não prevê conteúdo para este dia. Registre mesmo assim se houve
+                          aula — o relato ajusta a fila da disciplina.
+                        </p>
+                      )}
+
+                      <p className="pt-1 text-[11.5px] font-semibold tracking-wide text-ink-3 uppercase">
+                        Como foi na prática
+                      </p>
+
                       {OUTCOMES.map((o) => (
                         <button
                           key={o.value}
