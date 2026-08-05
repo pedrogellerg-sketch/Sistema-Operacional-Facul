@@ -105,8 +105,8 @@ Aula Real com offset reversível; dashboard acadêmico; simulados; academia
 editável; alimentação com calorias e proteína.
 
 **Dados reais já embutidos:** grade semanal (35 aulas/semana, 13 disciplinas),
-calendário do 2º semestre de 2026 com simulados e vestibulares, e **976 questões
-reais de ENEM, Fuvest e FGV** (detalhe na seção 5.1).
+calendário do 2º semestre de 2026 com simulados e vestibulares, e **1.017 questões
+reais de ENEM, Fuvest, FGV e Insper** (detalhe na seção 5.1).
 
 Testes feitos no navegador com PDFs reais: 10/10 no fluxo da Sprint 2, 17/17 nas
 telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
@@ -115,10 +115,10 @@ telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
 
 ## 5. O que falta — em ordem de prioridade
 
-### 5.1 Banco de questões — RESOLVIDO para ENEM, Fuvest e FGV
+### 5.1 Banco de questões — RESOLVIDO para os quatro vestibulares-alvo
 
-**976 questões**, de três provas. Cada disciplina é um chunk próprio, carregado
-sob demanda; nada disso entra no localStorage.
+**1.017 questões.** Cada disciplina é um chunk próprio, carregado sob demanda;
+nada disso entra no localStorage.
 
 | Prova | Questões | Como entrou |
 | --- | --- | --- |
@@ -126,6 +126,7 @@ sob demanda; nada disso entra no localStorage.
 | Fuvest (USP) | 386 | conjunto aberto BLUEX · `scripts/fetch-fuvest.mjs` |
 | FGV 2026.2 | ~38 | PDF com camada de texto · `scripts/build-fgv-questions.mjs` |
 | FGV 2025.1 | 56 | PDF digitalizado, transcrito à mão · `scripts/build-fgv-2025-questions.mjs` |
+| Insper 2026.2 | 41 | PDF de duas colunas · `scripts/build-insper-questions.mjs` |
 
 Três caminhos diferentes porque as fontes são diferentes, e vale saber qual
 tentar primeiro numa prova nova:
@@ -150,18 +151,43 @@ tentar primeiro numa prova nova:
    em `data/provas/fgv-2025-1-transcrito.json` e é versionada: o trabalho caro
    foi pago uma vez, e o script que converte para o banco é trivial.
 
-A prova da FGV tem faixa fixa por matéria — 1-15 Matemática, 16-30 Português,
-31-45 Inglês, 46-60 Ciências Humanas —, então a etiqueta sai da numeração. Só o
-bloco de humanas mistura História, Geografia, Filosofia e Sociologia sem dizer
-qual é qual; ali o palpite é por vocabulário, e errar a etiqueta só muda em que
-trilha a questão aparece.
+FGV e Insper têm faixa fixa por matéria, então a etiqueta sai da numeração —
+não é preciso adivinhar por vocabulário como no ENEM:
 
-Quatro questões da 2025.1 (4, 16, 17 e 24) dependem de figura e ficaram de fora:
-sem a imagem não há resposta possível. Mesmo critério do ENEM e do BLUEX.
+- **FGV**: 1-15 Matemática · 16-30 Português · 31-45 Inglês · 46-60 Humanas.
+- **Insper**: 1-15 Português · 16-30 Matemática · 31-46 Humanas · 47-50 Biologia
+  · 51-55 Química · 56-60 Física. **Não tem inglês**, e a redação é caderno
+  separado. Não há título de seção no caderno; a divisão foi conferida questão a
+  questão.
 
-**O Insper continua com zero questões** — é o alvo nº 1 do Fernando e nenhum
-arquivo dele chegou até agora. Não há conjunto aberto; o caminho é o mesmo da
-FGV, e depende de ele enviar as provas.
+Só o bloco de humanas mistura História, Geografia, Filosofia e Sociologia sem
+dizer qual é qual; ali o palpite é por vocabulário, e errar a etiqueta só muda em
+que trilha a questão aparece.
+
+#### Duas armadilhas específicas do Insper
+
+**A prova tem duas colunas**, e é o detalhe que decide tudo. Extrair a página
+inteira de uma vez embaralha as colunas e 18 das 60 questões saem sem enunciado.
+Cortar cada página ao meio antes de extrair (A4 = 595 pt, corte em 298) resolve:
+saem as 60 na ordem certa. O comando exato está no cabeçalho do script.
+
+**Descartar questão que depende de imagem exige olhar o verbo, não a palavra.**
+Procurar "figura", "mapa", "gráfico" solto derruba questão boa: "Mapa" é o
+*título* do texto do Manuel Jorge Marmelo (três questões de interpretação),
+"uma das figuras militares mais poderosas" é gente, "reconfiguração" tem "figura"
+no meio da palavra, e "O gráfico da função f intersecta o eixo y" descreve o
+gráfico por escrito. O que separa os casos é o verbo — figura que *mostra*,
+gráfico que *relaciona* — ou o "conforme", que só existe para apontar para a
+página. Tirinha e quadrinho dispensam verbo: num caderno de prova nunca são
+outra coisa. Com o filtro certo o aproveitamento foi de 35 para 41 questões.
+
+#### O que fica de fora, e por quê
+
+Questão que depende de figura não entra: sem a imagem não há resposta possível.
+Mesmo critério do ENEM e do BLUEX. Na FGV 2025.1 são quatro (4, 16, 17 e 24); no
+Insper são 19 — 14 com figura no enunciado e 5 cujas **alternativas** são
+imagem, caso que aparece em Matemática quando as opções são fórmulas
+desenhadas.
 
 ### 5.2 Parsers dos planos — RESOLVIDO
 
