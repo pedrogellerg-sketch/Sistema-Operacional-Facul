@@ -202,6 +202,12 @@ export const EXAM_LABEL: Record<ExamId, string> = {
   insper: 'Insper',
 }
 
+/**
+ * Fase do vestibular. Fuvest, Unicamp e Unesp separam primeira e segunda fase,
+ * com formatos muito diferentes; ENEM não tem essa divisão.
+ */
+export type ExamPhase = 1 | 2 | null
+
 export interface Question {
   id: string
   exam: string
@@ -212,6 +218,8 @@ export interface Question {
   statement: string
   alternatives: Array<{ letter: string; text: string }>
   correct: string
+  /** `null` quando a prova não divide fases (ENEM). */
+  phase?: ExamPhase
 }
 
 /** Resposta do usuário a uma questão. É isso que alimenta o algoritmo. */

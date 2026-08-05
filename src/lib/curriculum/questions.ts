@@ -13,8 +13,14 @@ import type { Question } from '@/types/curriculum'
  *    questões para estudar logaritmo.
  */
 
-/** Import dinâmico: o Vite gera um chunk por disciplina. */
-const LOADERS: Record<string, () => Promise<{ default: Question[] }>> = {
+/**
+ * Import dinâmico: o Vite gera um chunk por disciplina.
+ *
+ * O tipo é `unknown` de propósito. O TypeScript infere a forma literal do JSON
+ * (`phase: number`, mais largo que `ExamPhase`), e anotar como `Question[]`
+ * aqui só produziria um erro que a conversão em `loadQuestions` já resolve.
+ */
+const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   mat: () => import('@/data/questions/mat.json'),
   fis: () => import('@/data/questions/fis.json'),
   qui: () => import('@/data/questions/qui.json'),
@@ -25,6 +31,7 @@ const LOADERS: Record<string, () => Promise<{ default: Question[] }>> = {
   geo: () => import('@/data/questions/geo.json'),
   fil: () => import('@/data/questions/fil.json'),
   soc: () => import('@/data/questions/soc.json'),
+  ing: () => import('@/data/questions/ing.json'),
   por: () => import('@/data/questions/por.json'),
   lit: () => import('@/data/questions/por.json'),
   efl: () => import('@/data/questions/por.json'),
@@ -85,8 +92,26 @@ export interface PickOptions {
 }
 
 /**
+ * Prioridade entre provas, na ordem que o usuário declarou: Insper, FGV,
+ * Fuvest e por último ENEM. Vale como desempate — uma questão do assunto certo
+ * do ENEM continua valendo mais que uma da Fuvest fora do assunto.
+ */
+const PESO_PROVA: Record<string, number> = {
+  INSPER: 4,
+  FGV: 3,
+  FUVEST: 2,
+  ENEM: 1,
+}
+
+function pesoDaProva(q: Question): number {
+  return PESO_PROVA[String(q.exam).toUpperCase()] ?? 0
+}
+
+/**
  * Escolhe questões para a sessão: primeiro as que casam com o tópico, depois
  * as demais da disciplina, para nunca devolver lista vazia quando há banco.
+ *
+ * Dentro de cada grupo, a prova-alvo desempata.
  */
 export async function pickQuestions({
   subjectId,
@@ -100,7 +125,7 @@ export async function pickQuestions({
 
   const scored = available
     .map((q) => ({ q, score: relevance(q, keywords) }))
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => b.score - a.score || pesoDaProva(b.q) - pesoDaProva(a.q))
 
   const onTopic = scored.filter((s) => s.score > 0).slice(0, count).map((s) => s.q)
   const filler = scored
