@@ -105,8 +105,8 @@ Aula Real com offset reversível; dashboard acadêmico; simulados; academia
 editável; alimentação com calorias e proteína.
 
 **Dados reais já embutidos:** grade semanal (35 aulas/semana, 13 disciplinas),
-calendário do 2º semestre de 2026 com simulados e vestibulares, e **552 questões
-reais do ENEM 2019–2023**.
+calendário do 2º semestre de 2026 com simulados e vestibulares, e **976 questões
+reais de ENEM, Fuvest e FGV** (detalhe na seção 5.1).
 
 Testes feitos no navegador com PDFs reais: 10/10 no fluxo da Sprint 2, 17/17 nas
 telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
@@ -115,30 +115,53 @@ telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
 
 ## 5. O que falta — em ordem de prioridade
 
-### 5.1 Importador da Fuvest (não começado) — ÚNICA FRENTE ABERTA
+### 5.1 Banco de questões — RESOLVIDO para ENEM, Fuvest e FGV
 
-O objetivo é somar questões da Fuvest às do ENEM. **Já validei que é viável**;
-falta construir.
+**976 questões**, de três provas. Cada disciplina é um chunk próprio, carregado
+sob demanda; nada disso entra no localStorage.
 
-O que descobri e você pode reaproveitar:
+| Prova | Questões | Como entrou |
+| --- | --- | --- |
+| ENEM 2019–2023 | 552 | API pública enem.dev · `scripts/fetch-questions.mjs` |
+| Fuvest (USP) | 386 | conjunto aberto BLUEX · `scripts/fetch-fuvest.mjs` |
+| FGV 2026.2 | ~38 | PDF com camada de texto · `scripts/build-fgv-questions.mjs` |
+| FGV 2025.1 | 56 | PDF digitalizado, transcrito à mão · `scripts/build-fgv-2025-questions.mjs` |
 
-- As provas são públicas: `https://www.fuvest.br/acervo-vestibular-2024`
-  (troque o ano). Padrão dos PDFs:
-  `https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_V.pdf`
-  e o gabarito `fuvest2024_gabarito_primeira_fase*.pdf`.
-- **A prova tem duas colunas.** Extrair por coordenada Y (como no importador de
-  planos) embaralha tudo. A solução é agrupar primeiro por X — dividir na metade
-  da largura da página (`viewport.width / 2`) e só então reagrupar por linha
-  dentro de cada coluna. **Testei: funciona perfeitamente.**
-- As questões são marcadas só pelo número solto (`08`, `09`), não por "QUESTÃO N".
-- As alternativas vêm como `(A)`, `(B)`, `(C)`, `(D)`, `(E)` — parseáveis.
-- **O gabarito extrai limpo**, com as cinco versões da prova (V, K, Q, X, Z) em
-  colunas. Use a versão V para casar com o `prova_V.pdf`.
-- Aplique o mesmo filtro do ENEM: descartar questões que dependem de imagem
-  (`isUsable` em `scripts/fetch-questions.mjs`). Estimo que sobrem 50–60% das 90.
+Três caminhos diferentes porque as fontes são diferentes, e vale saber qual
+tentar primeiro numa prova nova:
 
-Espelhe a estrutura de `scripts/fetch-questions.mjs`, gerando os mesmos campos
-do tipo `Question` em `src/types/curriculum.ts`. Cacheie os downloads.
+1. **Conjunto aberto, se existir.** A Fuvest veio do BLUEX
+   (`portuguese-benchmark-datasets/BLUEX`, HuggingFace): USP e Unicamp de 2018 a
+   2025, já estruturado, com gabarito e **etiquetado por matéria**. Escrever um
+   leitor de PDF de duas colunas daria dias de trabalho por um resultado pior.
+   FGV e Insper não têm nada equivalente.
+2. **PDF com camada de texto.** Foi o caso da FGV 2026.2. Três armadilhas que já
+   custaram caro e estão comentadas no script: dígitos de fórmula viram questão
+   fantasma (varra os números **em sequência**, de 1 a 60); alternativas contêm
+   parênteses de verdade, então ancore em `(A)`…`(E)` com `indexOf` encadeado; e
+   sem saber onde a questão seguinte começa, a alternativa (E) engole a próxima
+   questão inteira — daí as duas passadas.
+3. **PDF digitalizado: transcreva à mão.** A FGV 2025.1 é imagem pura. O
+   tesseract, mesmo com as colunas separadas, entregou 11 questões das 60 com as
+   cinco alternativas em ordem — os marcadores saíam como "Ay", "Co". Não é
+   problema de recorte, a informação não está lá. O que destravou foi ler o
+   **gabarito comentado** (`D104GABARITO`), que traz enunciado, alternativas e a
+   resposta certa destacada em amarelo, tudo na mesma página. A transcrição vive
+   em `data/provas/fgv-2025-1-transcrito.json` e é versionada: o trabalho caro
+   foi pago uma vez, e o script que converte para o banco é trivial.
+
+A prova da FGV tem faixa fixa por matéria — 1-15 Matemática, 16-30 Português,
+31-45 Inglês, 46-60 Ciências Humanas —, então a etiqueta sai da numeração. Só o
+bloco de humanas mistura História, Geografia, Filosofia e Sociologia sem dizer
+qual é qual; ali o palpite é por vocabulário, e errar a etiqueta só muda em que
+trilha a questão aparece.
+
+Quatro questões da 2025.1 (4, 16, 17 e 24) dependem de figura e ficaram de fora:
+sem a imagem não há resposta possível. Mesmo critério do ENEM e do BLUEX.
+
+**O Insper continua com zero questões** — é o alvo nº 1 do Fernando e nenhum
+arquivo dele chegou até agora. Não há conjunto aberto; o caminho é o mesmo da
+FGV, e depende de ele enviar as provas.
 
 ### 5.2 Parsers dos planos — RESOLVIDO
 
@@ -172,10 +195,11 @@ projetado, não bug.
 - **Filosofia, Sociologia e Inglês** ficam sem plano de propósito (6 aulas
   semanais sem conteúdo no app). Ele optou por ignorá-las.
 - **Biologia II** aguarda a escola enviar o planejamento. Nada a fazer até lá.
-- **Leitores de PDF de Insper e FGV** saíram do escopo: sofisticados demais para
-  o retorno, a dois meses da prova. A troca acordada é registrar no app o
-  resultado das provas antigas feitas no papel, usando o cadastro de simulado
-  que já existe.
+- **Leitor genérico de PDF de vestibular** continua fora do escopo: sofisticado
+  demais para o retorno, a dois meses da prova. O que se faz é o caminho da
+  seção 5.1 — uma prova por vez, com o script apontando para o arquivo. A troca
+  acordada segue valendo para o que não couber: registrar no app o resultado das
+  provas antigas feitas no papel, pelo cadastro de simulado que já existe.
 
 ---
 
