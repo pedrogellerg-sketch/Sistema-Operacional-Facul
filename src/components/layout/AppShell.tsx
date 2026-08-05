@@ -1,6 +1,15 @@
 import type { ReactNode } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Apple, BarChart3, CalendarDays, Dumbbell, GraduationCap, Home, Zap } from 'lucide-react'
+import {
+  Apple,
+  BarChart3,
+  CalendarDays,
+  CalendarRange,
+  Dumbbell,
+  GraduationCap,
+  Home,
+  Zap,
+} from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -14,6 +23,7 @@ const TABS = [
 
 /** Abas secundárias — acessíveis pelo desktop e por atalhos nas telas. */
 const DESKTOP_EXTRA = [
+  { to: '/calendario', label: 'Calendário', icon: CalendarRange },
   { to: '/estudos', label: 'Estudos', icon: GraduationCap },
   { to: '/comida', label: 'Alimentação', icon: Apple },
 ] as const

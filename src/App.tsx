@@ -4,6 +4,7 @@ import { AppShell } from '@/components/layout/AppShell'
 import { Food } from '@/screens/Food'
 import { ImportPlans } from '@/screens/Import'
 import { Academic } from '@/screens/Academic'
+import { CalendarScreen } from '@/screens/Calendar'
 import { Prepare } from '@/screens/Prepare'
 import { RealClass } from '@/screens/RealClass'
 import { Tomorrow } from '@/screens/Tomorrow'
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/" element={<Today />} />
         <Route path="/agora" element={<FocusMode />} />
         <Route path="/amanha" element={<Tomorrow />} />
+        <Route path="/calendario" element={<CalendarScreen />} />
         <Route path="/importar" element={<ImportPlans />} />
         <Route path="/preparar/:lessonId" element={<Prepare />} />
         <Route path="/aula-real" element={<RealClass />} />

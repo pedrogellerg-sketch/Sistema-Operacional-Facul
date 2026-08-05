@@ -82,15 +82,28 @@ export function LessonDetail({
         </div>
       )}
 
+      {/* ── Exercícios da apostila, em destaque ────────── */}
+      {(lesson.material.pages || lesson.material.exercises) && (
+        <div className="rounded-2xl border border-accent/25 bg-accent/[0.06] px-3.5 py-3">
+          <p className="text-[11.5px] font-semibold tracking-wide text-accent uppercase">
+            Exercícios {lesson.material.book ? `— ${lesson.material.book}` : 'da apostila'}
+          </p>
+          <p className="mt-1 text-[14px] leading-snug font-semibold text-ink">
+            {[lesson.material.chapter, lesson.material.pages, lesson.material.exercises]
+              .filter(Boolean)
+              .join(' · ')}
+          </p>
+        </div>
+      )}
+
       {(lesson.homework || material.length > 0) && (
         <div className="rounded-2xl border border-line-soft bg-surface-2 px-3.5 py-3">
           <p className="text-[11.5px] font-semibold tracking-wide text-ink-3 uppercase">
-            Tarefa e material
+            Tarefa de casa
           </p>
-          {lesson.homework && (
+          {lesson.homework ? (
             <p className="mt-1 text-[13px] leading-relaxed text-ink-2">{lesson.homework}</p>
-          )}
-          {material.length > 0 && (
+          ) : (
             <p className="mt-1 text-[12.5px] text-ink-3">{material.join(' · ')}</p>
           )}
         </div>

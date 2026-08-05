@@ -7,6 +7,7 @@ import { TOPIC_STATE_COLOR, TOPIC_STATE_LABEL } from '@/types/curriculum'
 import { Button } from '@/components/ui/Button'
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Chip } from '@/components/ui/Chip'
+import { LessonDetail } from '@/components/study/LessonDetail'
 import { PageHeader } from '@/components/layout/PageHeader'
 
 import { useAppStore } from '@/store/appStore'
@@ -206,43 +207,10 @@ export function Tomorrow() {
                   </button>
 
                   {isOpen && lesson && (
-                    <div className="border-t border-line-soft px-4 py-4">
-                      {lesson.objectives.length > 0 && (
-                        <>
-                          <p className="mb-2 text-[11.5px] font-semibold tracking-wide text-ink-3 uppercase">
-                            O que o professor vai cobrir
-                          </p>
-                          <ul className="mb-4 space-y-1.5">
-                            {lesson.objectives.slice(0, 5).map((o, i) => (
-                              <li key={i} className="flex gap-2 text-[13px] leading-snug text-ink-2">
-                                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ink-3" />
-                                {o}
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-
-                      {(lesson.material.book || lesson.material.exercises) && (
-                        <div className="mb-4 rounded-2xl border border-line-soft bg-surface-2 px-3.5 py-3">
-                          <p className="text-[11.5px] font-semibold tracking-wide text-ink-3 uppercase">
-                            Material de referência
-                          </p>
-                          <p className="mt-1 text-[13px] text-ink-2">
-                            {[
-                              lesson.material.book,
-                              lesson.material.chapter,
-                              lesson.material.pages,
-                              lesson.material.exercises,
-                            ]
-                              .filter(Boolean)
-                              .join(' · ')}
-                          </p>
-                          <p className="mt-1.5 text-[11.5px] text-ink-3">
-                            Se você não tiver o livro, o sistema usa questões do ENEM.
-                          </p>
-                        </div>
-                      )}
+                    <div className="space-y-4 border-t border-line-soft px-4 py-4">
+                      {/* Mesma leitura da confirmação e do calendário: objetivos
+                          inteiros, páginas da apostila em destaque e videoaula. */}
+                      <LessonDetail lesson={lesson} subjectName={subjectName(subjectId)} />
 
                       <Button
                         variant="primary"
