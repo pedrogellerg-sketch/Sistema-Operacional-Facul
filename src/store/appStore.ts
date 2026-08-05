@@ -54,6 +54,8 @@ interface AppState {
   shopping: ShoppingItem[]
   logs: Record<ISODate, DayLog>
   weights: WeightEntry[]
+  /** Último backup exportado. Alimenta o lembrete dos 30 dias. */
+  lastBackupAt: ISODate | null
 }
 
 interface AppActions {
@@ -136,6 +138,8 @@ interface AppActions {
   resetAll: () => void
   importState: (data: unknown) => boolean
   exportState: () => AppState
+  /** Registra que o backup foi baixado agora — zera o lembrete. */
+  markBackedUp: () => void
 }
 
 export type AppStore = AppState & AppActions
@@ -179,6 +183,7 @@ function createInitialState(): AppState {
     shopping: [],
     logs: {},
     weights: [],
+    lastBackupAt: null,
   }
 }
 
@@ -690,8 +695,11 @@ export const useAppStore = create<AppStore>()(
             shopping: s.shopping,
             logs: s.logs,
             weights: s.weights,
+            lastBackupAt: s.lastBackupAt,
           }
         },
+
+        markBackedUp: () => set({ lastBackupAt: todayISO() }),
       }
     },
     {

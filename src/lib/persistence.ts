@@ -50,6 +50,28 @@ export const localStorageAdapter: StorageAdapter = {
 }
 
 /** Baixa um snapshot do estado como arquivo JSON — backup manual e portátil. */
+/**
+ * Pede ao navegador que não descarte os dados do app.
+ *
+ * Sem isto, `localStorage` é "best-effort": sob pressão de espaço o navegador
+ * pode limpar o site sem avisar. Num app cujo estado inteiro mora no aparelho —
+ * meses de progresso, dúvidas e desempenho — isso é perda total e silenciosa.
+ *
+ * `persist()` promove o armazenamento a persistente. No Chrome do Android o
+ * pedido costuma ser concedido sozinho quando o PWA está instalado; no iOS o
+ * suporte varia. Por isso o retorno é informativo, não uma garantia: o lembrete
+ * de backup continua sendo a rede de segurança de verdade.
+ */
+export async function requestPersistentStorage(): Promise<boolean> {
+  try {
+    if (!navigator.storage?.persist) return false
+    if (await navigator.storage.persisted?.()) return true
+    return await navigator.storage.persist()
+  } catch {
+    return false
+  }
+}
+
 export function exportStateToFile(state: unknown, filename = 'sistema-fernando-backup.json') {
   const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { AlertTriangle, Flame, School, Settings2 } from 'lucide-react'
+import { AlertTriangle, Flame, School, Settings2, ShieldAlert } from 'lucide-react'
 
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Chip } from '@/components/ui/Chip'
@@ -13,7 +13,7 @@ import { StatusStrip } from '@/components/home/StatusStrip'
 import { useClock } from '@/hooks/useClock'
 import { useAppStore } from '@/store/appStore'
 import { useAgenda, useDayStatus, useMissingEssentials, useNow, useStreak } from '@/store/selectors'
-import { formatLongDate, greeting } from '@/lib/date'
+import { daysBetween, formatLongDate, greeting } from '@/lib/date'
 import { pickStable, plural } from '@/lib/utils'
 import {
   COACH_AFTERNOON,
@@ -36,6 +36,17 @@ export function Today() {
   const status = useDayStatus(date)
   const streak = useStreak()
   const missing = useMissingEssentials()
+
+  /**
+   * Nunca fez backup: só cobra depois de uma semana de uso real — no primeiro
+   * dia não há o que perder e o aviso só ensinaria a ignorar avisos. Já fez:
+   * cobra de novo aos 30 dias.
+   */
+  const lastBackupAt = useAppStore((s) => s.lastBackupAt)
+  const diasComRegistro = Object.keys(useAppStore((s) => s.logs)).length
+  const backupVencido = lastBackupAt
+    ? daysBetween(lastBackupAt, date) >= 30
+    : diasComRegistro >= 7
 
   const coachLine = useMemo(() => {
     if (now.allDone) return pickStable(COACH_ALL_DONE, date)
@@ -125,6 +136,20 @@ export function Today() {
             — marque como feito ou pulado na lista abaixo e siga em frente.
           </p>
         </Card>
+      )}
+
+      {/* Só aparece depois de 30 dias sem backup, e some ao baixar: lembrete
+          diário viraria ruído e o usuário aprenderia a ignorar. */}
+      {backupVencido && (
+        <Link to="/ajustes" className="block">
+          <Card variant="flat" className="flex items-center gap-3 border-warn/20 py-3.5">
+            <ShieldAlert size={18} className="shrink-0 text-warn" />
+            <p className="min-w-0 flex-1 text-[13px] text-ink-2">
+              <span className="font-semibold text-ink">Faça um backup</span> — seus dados só
+              existem neste aparelho.
+            </p>
+          </Card>
+        </Link>
       )}
 
       {/* ── Como foi a aula ─────────────────────────────── */}

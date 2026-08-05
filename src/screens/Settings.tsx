@@ -11,6 +11,8 @@ import { PageHeader } from '@/components/layout/PageHeader'
 
 import { useAppStore } from '@/store/appStore'
 import { exportStateToFile, readStateFromFile } from '@/lib/persistence'
+import { daysBetween, formatShortDate, todayISO } from '@/lib/date'
+import { cn } from '@/lib/utils'
 import { TIER_DESCRIPTION, TIER_LABEL } from '@/lib/studyEngine'
 import type { SubjectTier } from '@/types'
 
@@ -28,12 +30,17 @@ export function SettingsScreen() {
   const updateProfile = useAppStore((s) => s.updateProfile)
   const updateSubject = useAppStore((s) => s.updateSubject)
   const exportState = useAppStore((s) => s.exportState)
+  const markBackedUp = useAppStore((s) => s.markBackedUp)
+  const lastBackupAt = useAppStore((s) => s.lastBackupAt)
   const importState = useAppStore((s) => s.importState)
   const resetAll = useAppStore((s) => s.resetAll)
 
   const fileRef = useRef<HTMLInputElement>(null)
   const [confirmReset, setConfirmReset] = useState(false)
   const [message, setMessage] = useState('')
+
+  const diasDesdeBackup = lastBackupAt ? daysBetween(lastBackupAt, todayISO()) : null
+  const backupVencido = diasDesdeBackup == null || diasDesdeBackup >= 30
 
   const handleImport = async (file: File) => {
     try {
@@ -155,12 +162,30 @@ export function SettingsScreen() {
         )}
 
         <Card className="space-y-2">
+          {/* Tudo mora no aparelho: o backup é a única cópia que sobrevive a
+              trocar de celular, limpar o navegador ou reinstalar. */}
+          <p
+            className={cn(
+              'mb-1 text-[12.5px] leading-snug',
+              backupVencido ? 'text-warn' : 'text-ink-3',
+            )}
+          >
+            {lastBackupAt
+              ? backupVencido
+                ? `Último backup em ${formatShortDate(lastBackupAt)} — faz ${diasDesdeBackup} dias. Vale baixar de novo.`
+                : `Último backup em ${formatShortDate(lastBackupAt)}.`
+              : 'Você ainda não baixou nenhum backup. Se perder o aparelho, perde tudo.'}
+          </p>
+
           <Button
-            variant="outline"
+            variant={backupVencido || !lastBackupAt ? 'primary' : 'outline'}
             size="md"
             full
             icon={<Download size={16} />}
-            onClick={() => exportStateToFile(exportState())}
+            onClick={() => {
+              exportStateToFile(exportState())
+              markBackedUp()
+            }}
           >
             Exportar backup
           </Button>
