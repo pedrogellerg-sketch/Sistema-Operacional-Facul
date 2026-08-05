@@ -1,0 +1,1604 @@
+XXI CONCURSO DA
+MAGISTRATURA
+Tribunal Regional Federal da 3ª Região
+
+TARDE
+
+SUA PROVA
+
+INFORMAÇÕES GERAIS
+
+• Além deste caderno contendo 60 (sessenta)
+
+•
+
+Verifique se seu caderno está completo, sem repetição
+de questões ou falhas. Caso contrário, notifique
+imediatamente o fiscal da sala, para que sejam
+tomadas as devidas providências;
+
+•
+
+Confira seus dados pessoais, especialmente nome,
+número de inscrição e documento de identidade e leia
+atentamente as instruções para preencher o cartão de
+respostas;
+
+•
+
+Use somente caneta esferográfica, fabricada em
+material transparente, com tinta preta ou azul;
+
+•
+
+Assine
+seu
+reservado(s);
+
+•
+
+Confira seu tipo do caderno de provas. Caso tenha
+recebido caderno de tipo diferente do impresso em
+seu cartão de respostas, o fiscal deve ser
+obrigatoriamente informado para o devido registro
+na ata da sala;
+
+•
+
+Reserve tempo suficiente para o preenchimento do
+seu cartão de respostas. O preenchimento é de sua
+responsabilidade e não será permitida a troca do
+cartão de respostas em caso de erro;
+
+•
+
+Para fins de avaliação, serão levadas em consideração
+apenas as marcações realizadas no cartão de
+respostas;
+
+questões objetivas, você receberá do fiscal de
+prova o cartão de respostas;
+
+•
+
+As questões objetivas têm 5 (cinco) opções de
+resposta (A, B, C, D e E) e somente uma delas
+está correta;
+
+•
+TEMPO
+•
+
+•
+
+Você dispõe de 3 (três) horas e 30 (trinta)
+minutos para a realização da prova, já incluído o
+tempo para a marcação no cartão de respostas;
+2 horas após o início da prova é possível retirarse da sala, sem levar o caderno de prova;
+
+• A partir dos 30 minutos anteriores ao término da
+prova é possível retirar-se da sala levando o
+caderno de provas.
+
+NÃO SERÁ PERMITIDO
+
+nome
+
+apenas
+
+no(s)
+
+espaço(s)
+
+•
+
+Qualquer tipo de comunicação entre
+candidatos durante a aplicação da prova;
+
+os
+
+•
+
+A FGV coletará as impressões digitais dos candidatos
+na lista de presença;
+
+•
+
+Anotar informações relativas às respostas em
+qualquer outro meio que não seja o caderno de
+prova;
+
+•
+
+Os candidatos serão submetidos ao sistema de
+detecção de metais quando do ingresso e da saída de
+sanitários durante a realização das provas;
+
+•
+
+Levantar da cadeira sem autorização do fiscal de
+sala;
+
+•
+
+Boa sorte!
+
+•
+
+Usar o sanitário ao término da prova, após deixar
+a sala.
+
+VESTIBULAR FGV 2025.2
+
+FGV Conhecimento
+
+Matemática
+1
+Em um determinado jogo de cartas, todas as cartas são
+igualmente distribuídas pelos jogadores no início do jogo.
+Quando Joana e seus 4 amigos jogam esse jogo, cada um deles
+recebe 12 cartas no início do jogo.
+Em um dia, no qual um dos amigos de Joana não veio jogar, o
+número de cartas que cada um dos participantes recebeu, no
+início do jogo, foi
+(A) 12.
+(B) 13.
+(C) 14.
+(D) 15.
+(E) 16.
+2
+No mercado do produto X, a quantidade ofertada (Q_oferta), em
+milhares de unidades do produto, é uma função do preço p, em
+reais, pelo que ele é vendido. Para quantidades usuais nesse
+mercado, a relação é dada por Q_oferta=-200+3⋅p. Já a
+quantidade demandada (Q_demanda) pelos consumidores de X é
+decrescente no preço e dada pela equação Q_demanda=600-5p.
+O preço p, em reais, em que a quantidade ofertada é igual à
+quantidade demandada é
+(A) 100.
+(B) 120.
+(C) 140.
+(D) 160.
+(E) 180.
+3
+Newton está contando de trás para frente, de 12 em 12. Os 2
+primeiros números que Newton contou foram 2025 e 2013.
+O 36º número que Newton contou foi
+(A) 1593.
+(B) 1597.
+(C) 1605.
+(D) 1617.
+(E) 1622.
+4
+Em uma de suas provas aplicadas aos seus alunos com notas de 0
+(zero) a 10 (dez), o Professor Astrogildo constatou que:
+• 7 alunos tiraram pelo menos nota 9;
+• 15 alunos tiraram pelo menos nota 8;
+• 37 alunos tiraram pelo menos nota 7;
+• 55 alunos tiraram pelo menos nota 6.
+O número de alunos que tiraram pelo menos 6 e menos do que 9
+foi
+(A) 8.
+(B) 18.
+(C) 22.
+(D) 40.
+(E) 48.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 3
+
+VESTIBULAR FGV 2025.2
+
+FGV Conhecimento
+
+5
+No interior do país há duas cidades A e B, bem pequenas e bem
+próximas uma da outra. Dos habitantes da cidade A, 300 são
+trabalhadores e dos habitantes da cidade B, 180 são
+trabalhadores. Todos os trabalhadores das duas cidades
+trabalham em uma delas sendo que 25% dos habitantes
+trabalhadores da cidade A trabalham na cidade B e o número
+total de pessoas que trabalham na cidade 𝐵 é 174.
+Não há outros trabalhadores nessas duas cidades além de seus
+habitantes.
+A porcentagem de habitantes trabalhadores da cidade 𝐵 que
+trabalham na cidade 𝐴 é
+(A) 55%.
+(B) 50%.
+(C) 45%.
+(D) 40%.
+(E) 35%.
+6
+Um conjunto contém inicialmente todos os números inteiros de 1
+a 2025. Porém, foram retirados desse conjunto todos os
+múltiplos de 3 e todos os múltiplos de 5. Após a retirada dos
+números citados, o número de elementos restantes é
+(A) 1082.
+(B) 1083.
+(C) 1801.
+(D) 1080.
+(E) 1804.
+7
+Sônia investiu R$10.000,00 a uma taxa de juros compostos de
+10% ao ano. O montante em reais ao final de 3 anos é de
+(A) 13.170.
+(B) 13.220.
+(C) 13.310.
+(D) 13.450.
+(E) 13.530.
+8
+A medida do ângulo 𝑥 é positiva e menor do que 180°. Além
+disso, sabemos que o cosseno de 𝑥 é −0,6. Se 𝑆 é o seno de x, e
+1
+1
+𝑇 é a tangente de 𝑥, a soma + é igual a
+𝑆
+
+𝑇
+
+(A) 0.5.
+(B) 0.6.
+(C) 0.75.
+(D) 0.8.
+(E) 0.9.
+9
+Priscila escreveu os números 2021, 2022, 2023, 2024, 2025 em
+uma folha de papel. Depois, apagou um deles e observou que a
+soma dos 4 números restantes era divisível por 6.
+O número que Priscila apagou foi
+(A) 2021.
+(B) 2022.
+(C) 2023.
+(D) 2024.
+(E) 2025.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 4
+
+VESTIBULAR FGV 2025.2
+
+10
+Um número inteiro positivo X é inserido na lista 3, 5, 5, 9, 13, 22,
+de modo que a mediana da nova lista é X. Além disso, a média da
+nova lista é um número inteiro.
+O valor de X é
+(A) 5.
+(B) 6.
+(C) 7.
+(D) 8.
+(E) 9.
+11
+Túlio tem uma coleção de 72 cartas. Todas as cartas de Túlio são
+amarelas, azuis ou verdes. O número de cartas azuis é o triplo do
+número de cartas amarelas e o número de cartas verdes é a
+metade do número de cartas amarelas.
+O número de cartas azuis que Túlio tem a mais do que cartas
+verdes é
+(A) 48.
+(B) 40.
+(C) 36.
+(D) 30.
+(E) 24.
+
+FGV Conhecimento
+
+15
+O triângulo ABC tem lados AB = 12 cm e AC = BC = 10 cm. Sobre o
+lado BC é colocado um ponto D, de modo que BD = 6 cm (e,
+portanto, CD = 4 cm). Uma reta perpendicular a BC é traçada a
+partir de D, intersectando o lado AB no ponto E. O comprimento
+do segmento BE, em centímetros, é
+(A) 6.
+(B) 8.
+(C) 9.
+(D) 10.
+(E) 7.
+
+12
+Felipe tem uma lista de 12 músicas para tocar no seu carro. Alice,
+que está de carona com ele, gosta de 10 dessas 12 músicas. A
+carona dura o tempo de reprodução de exatamente 3 músicas,
+que são escolhidas aleatoriamente da lista, sem repetição. A
+probabilidade de que as 3 músicas tocadas sejam músicas das
+quais Alice gosta é
+(A) 3/5.
+(B) 1/2.
+(C) 4/9.
+(D) 7/12.
+(E) 6/11.
+13
+A sequência 𝑎𝑛 é uma progressão geométrica de razão 𝑟 = 10 e
+primeiro termo 𝑎1 = 0,1. A sequência 𝑏𝑛 é definida por 𝑏𝑛 =
+𝑙𝑜𝑔10 (𝑎𝑛 ) para todo 𝑛 ≥ 1. O valor da soma 𝑆 = 𝑏1 + 𝑏2 + 𝑏3 +
+⋯ + 𝑏10 é
+(A) 12.
+(B) 35.
+(C) 72.
+(D) 102.
+(E) 132.
+14
+Ana, Bruno e Camila moram ao longo de uma rua reta que começa
+em uma praça. Suas casas estão localizadas a 500 m, 600 m
+e 1000 m da praça, respectivamente. Eles decidem se encontrar em
+um ponto 𝑃 da rua, distante 𝑥 metros da praça, de modo que a
+soma dos quadrados das distâncias de cada um até esse ponto seja
+a menor possível. O valor de 𝑥 é
+(A) 650.
+(B) 700.
+(C) 600.
+(D) 750.
+(E) 800.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 5
+
+VESTIBULAR FGV 2025.2
+
+Língua Portuguesa
+16
+Examine a tirinha de Caco Galhardo.
+
+Cinco mil anos e quase todas as tiras. Quadrinhos na Cia. 2019.
+
+Considerando-se a relação de sentido entre as imagens e os
+nomes próprios que compõem a tirinha, o título
+“As ........................ filosóficas de Chico Bacon” (1º. quadrinho)
+poderia ser completado, de modo mais adequado, pela palavra:
+(A) Ironias.
+(B) Onomatopeias.
+(C) Personificações
+(D) Metáforas.
+(E) Contradições.
+Atenção! Leia o texto a seguir para responder às próximas cinco
+questões.
+Destaca-se, atualmente, o cyberbullying, realizado de forma
+digital, com exposição de fotos, constrangimento e humilhações
+nas redes sociais e na internet.
+As consequências do cyberbullying podem ser devastadoras e
+irreversíveis para quem sofre. Os primeiros sintomas são o
+isolamento social da vítima, que não se vê como alguém que
+pertence àquele grupo. A partir daí, pode haver queda no
+rendimento escolar, redução na autoestima, quadros de
+depressão, transtorno de ansiedade, síndrome do pânico e outros
+distúrbios de saúde mental. Quando não tratados, esses quadros
+podem levar o jovem a tentar o suicídio.
+Se os traumas do cyberbullying não forem adequadamente
+abordados, a vítima pode carregar aquele sofrimento até a vida
+adulta, dificultando suas relações pessoais, a vida em sociedade,
+afetando sua carreira profissional e até levando ao
+desenvolvimento de vícios em drogas e álcool.
+As discussões sobre o cyberbullying são relativamente
+recentes, chamando a atenção dos especialistas em
+comportamento humano apenas nas últimas duas décadas. Uma
+relação desigual não pode ser tolerada e deve ser denunciada.
+Agressores e agredidos precisam de intervenções e não se pode
+banalizar e achar normal esse tipo de comportamento.
+O papel das instituições de ensino no combate e prevenção do
+cyberbullying é crucial para a formação de cidadãos que prezam
+o respeito às diferenças, o convívio em sociedade e a vivência de
+uma cidadania plena.
+Renato de Ávila Kfouri, “Cyberbullying nas escolas: o que podemos (e devemos)
+fazer?”
+
+Graduação em Administração de Empresas - FGV EAESP
+
+FGV Conhecimento
+
+17
+O conteúdo e a linguagem do texto permitem classificá-lo como:
+(A) crônica jornalística.
+(B) excerto de tese acadêmica.
+(C) editorial.
+(D) resenha.
+(E) artigo de divulgação científica.
+18
+Em sua argumentação, o autor utiliza conceitos antitéticos no
+trecho:
+(A) “constrangimento e humilhações nas redes sociais e na
+internet” (1º. parágrafo).
+(B) “podem ser devastadoras e irreversíveis para quem sofre”
+(2º. parágrafo).
+(C) “Uma relação desigual não pode ser tolerada e deve ser
+denunciada” (4º. parágrafo).
+(D) “Agressores e agredidos precisam de intervenções” (4º.
+parágrafo).
+(E) “não se pode banalizar e achar normal esse tipo de
+comportamento” (4º. parágrafo).
+19
+No trecho “não se pode banalizar e achar normal esse tipo de
+comportamento” (4º. parágrafo), o verbo sublinhado foi
+empregado com o sentido de:
+(A) descobrir.
+(B) conjecturar.
+(C) julgar.
+(D) realizar.
+(E) constatar.
+20
+O trecho “Se os traumas do bullying não forem” (3º. parágrafo)
+pode ser substituído, sem alteração de sentido, por:
+(A) À medida que os traumas do bullying não são.
+(B) Porquanto os traumas do bullying sejam.
+(C) Conquanto os traumas do bullying não sejam.
+(D) Assim como os traumas do bullying não são.
+(E) Sem que os traumas do bullying sejam.
+21
+No trecho “Agressores e agredidos precisam de intervenções”
+(4º. parágrafo), a palavra sublinhada é formada pelo acréscimo
+de prefixo (“inter”) e de sufixo (“ção”) ao radical “vir”.
+Esse mesmo processo de formação de palavras verifica-se nos
+termos sublinhados em:
+(A) “com exposição de fotos, constrangimento e humilhações nas
+redes sociais e na internet”. (1º. parágrafo)
+(B) As consequências do cyberbullying podem ser devastadoras e
+irreversíveis para quem sofre”. (2º. parágrafo)
+(C) “A partir daí, pode haver queda no rendimento escolar,
+redução na autoestima”. (2º. parágrafo)
+(D) “afetando sua carreira profissional e até levando ao
+desenvolvimento de vícios em drogas e álcool”. (3º.
+parágrafo)
+(E) “Uma relação desigual não pode ser tolerada e deve ser
+denunciada”. (4º. parágrafo)
+
+Tipo 1 – Página 6
+
+VESTIBULAR FGV 2025.2
+
+Atenção! Leia o texto a seguir para responder às próximas seis
+questões.
+Não havia só recreio. Uma parte mínima do dia, — pouco
+mais de uma hora, — era consagrada ao exame do que Iaiá
+aprendera no colégio, durante os dias anteriores. Luís Garcia
+interrogava-a, fazia-a ler, contar e desenhar alguma coisa. A
+docilidade da menina encantava a alma do pai. Nenhum receio,
+nenhuma hesitação; respondia, lia ou desenhava, conforme lhe
+era mandado ou pedido.
+— Papai quer ouvir tocar piano? disse ela um dia. Olhe, é
+assim.
+E com os dedos na borda da mesa, executava um trecho
+musical, sobre teclas ausentes. Luís Garcia sorriu, mas um véu lhe
+empanou os olhos. Iaiá não tinha piano! Era preciso dar-lhe um,
+ainda com sacrifício. Se ela aprendia no colégio, não era para
+tocar mais tarde em casa? Este pensamento enraizou-se-lhe no
+cérebro e turbou o resto do dia. No dia seguinte, Luís Garcia
+encheu-se de valor, pegou da caderneta da Caixa Econômica e foi
+retirar o dinheiro preciso para comprar um piano. Eram da filha
+as poucas economias que ajuntava; o piano era para ela
+igualmente; não lhe diminuía a herança.
+Quando no seguinte sábado, Iaiá viu o piano, que o pai lhe foi
+mostrar, sua alegria foi intensa, mas curta. O pai abrira-o, ela
+acordou as notas adormecidas no vasto móvel, com suas
+mãozinhas ainda incertas e débeis. A um dos lados do
+instrumento, com os olhos nela, Luís Garcia pagava-se do
+sacrifício, contemplando a satisfação da filha. Curta foi ela. Entre
+duas notas, Iaiá parou, olhou para o pai, para o piano, para os
+outros móveis; depois descaiu-lhe o rosto, disse que tinha uma
+vertigem. Luís Garcia ficou assustado, pegou dela, chamou
+Raimundo; a criança afirmou que estava melhor, e finalmente que
+a vertigem passara de todo. Luís Garcia respirou; os olhos de Iaiá
+não ficaram mais alegres, nem ela foi tão travessa como
+costumava ser.
+A causa da mudança, desconhecida para Luís Garcia, era a
+penetração que madrugava no espírito da menina. Lembrara-se
+ela, repentinamente, das palavras que proferira e do gesto que
+fizera, no domingo anterior; por elas explicou a existência do
+piano; comparou-o, tão novo e lustroso, com os outros móveis da
+casa, modestos, usados, encardida a palhinha das cadeiras, roído
+do tempo e dos pés um velho tapete, contemporâneo do sofá.
+Dessa comparação extraiu a ideia do sacrifício que o pai devia ter
+feito para condescender com ela; ideia que a pôs triste, ainda que
+não por muito tempo, como sucede às tristezas pueris. A
+penetração madrugava, mas a dor moral fazia também irrupção
+naquela alma até agora isenta da jurisdição da fortuna.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+FGV Conhecimento
+
+Passou! Bem depressa os sons do piano vieram casar-se ao
+gorjeio de Iaiá e ao riso do escravo e do senhor. Era mais uma
+festa aos domingos. Iaiá confiou um dia ao pai a ideia que tinha
+de ser mestre de piano. Luís Garcia sorria a esses planos da
+meninice, tão frágeis e fugidios como suas impressões. Também
+ele os tivera aos dez anos. Que lhe ficara dessas primeiras
+ambições? Um resíduo e nada mais. Mas assim como as
+aspirações daquele tempo o fizeram feliz, era justo não dissuadir
+a filha de uma ambição, aliás inocente e modesta. Oxalá não
+viesse a ter outras de mais alto voo! Demais, que lhe poderia ele
+desejar, senão aquilo que a tornasse independente e lhe desse os
+meios de viver sem favor? Iaiá tinha por si a beleza e a instrução;
+podia não ser bastante para lhe dar casamento e família. Uma
+profissão honesta aparava os golpes possíveis da adversidade.
+Não se podia dizer que Iaiá tivesse talento musical: que importa?
+Para ensinar a gramática da arte, era suficiente conhecê-la.
+Machado de Assis, Iaiá Garcia.
+
+22
+As várias indicações referentes à posição social e à situação
+econômica de Luís Garcia, presentes no texto, permitem concluir
+corretamente que, sob esse ponto de vista, ele é um
+(A) homem livre, isto é, não escravizado, desprovido de fortuna,
+mas independente.
+(B) agregado, ou seja, homem livre, dependente do favor e da
+proteção dos mais ricos.
+(C) ex-escravizado, há tempos alforriado pelo seu senhor.
+(D) homem livre, porém pobre, desejoso de obter a proteção de
+um grande.
+(E) antigo proprietário arruinado, nostálgico da sua situação
+anterior.
+23
+Luís Garcia, pai de Iaiá, estava consciente de que aquilo que lhe
+cabia almejar para sua filha era, primordialmente,
+(A) a aquisição de um grande patrimônio que a libertasse da
+pobreza.
+(B) um matrimônio em classe social superior à sua.
+(C) uma vida independente, livre do favor dos mais ricos.
+(D) o reconhecimento de seus méritos pela classe proprietária.
+(E) a coragem para encetar uma luta por sua ascensão social.
+24
+Considerada no contexto do excerto, a “dor moral” (5º.
+parágrafo), de que fala o narrador, refere-se ao sofrimento
+psíquico implicado
+(A) na experiência da vulnerabilidade social, em geral, e da
+condição de agregado, em particular.
+(B) no temor de regredir ao estatuto social de escravo, devido ao
+agravamento da pobreza.
+(C) na vergonha de ser pobre, em meio a uma sociedade
+burguesa.
+(D) na angústia de permanecer ignorante, por falta de instrução
+adequada.
+(E) na inveja do brilho e do fausto, reservados às moças
+casadouras da classe dominante.
+
+Tipo 1 – Página 7
+
+VESTIBULAR FGV 2025.2
+
+25
+A leitura do texto permite verificar que, nele, deparamo-nos com
+um narrador
+(A) onisciente, pois mostra conhecer a matéria narrada, em todas
+as suas dimensões.
+(B) personagem, uma vez que ele próprio figura no enredo.
+(C) protagonista, uma vez que é a personagem principal do seu
+próprio relato.
+(D) volúvel, na medida em que muda constantemente de tom e
+de feição.
+(E) observador, visto que apenas relata, objetivamente, o que lhe
+é dado ver.
+
+FGV Conhecimento
+
+Atenção! Leia o texto a seguir para responder às próximas três
+questões.
+I. Macunaíma
+No fundo do mato-virgem nasceu Macunaíma, herói de nossa
+gente. Era preto retinto e filho do medo da noite. Houve um
+momento em que o silêncio foi tão grande escutando o
+murmurejo do Uraricoera, que a índia tapanhumas pariu uma
+criança feia. Essa criança é que chamaram de Macunaíma.
+Já na meninice fez coisas de sarapantar. De primeiro passou
+mais de seis anos não falando. Si o incitavam a falar exclamava:
+— Ai! que preguiça!. . .
+
+26
+Na frase “ela acordou as notas adormecidas no vasto móvel” (4º.
+parágrafo), as palavras sublinhadas foram empregadas em
+sentido conotativo.
+Esse recurso expressivo também ocorre em uma das palavras do
+trecho:
+(A) “Nenhum receio, nenhuma hesitação; respondia, lia ou
+desenhava, conforme lhe era mandado ou pedido”. (1º.
+parágrafo)
+(B) ‘Luís Garcia sorriu, mas um véu lhe empanou os olhos”. (3º.
+parágrafo)
+(C) “nem ela foi tão travessa como costumava ser”. (4º.
+parágrafo)
+(D) “Lembrara-se ela, repentinamente, das palavras que proferira
+e do gesto que fizera”. (5º. parágrafo)
+(E) “Iaiá confiou um dia ao pai a ideia que tinha de ser mestre de
+piano”. (6º. parágrafo)
+
+e não dizia mais nada. Ficava no canto da maloca, trepado no
+jirau de paxiúba, espiando o trabalho dos outros e principalmente
+os dois manos que tinha, Maanape já velhinho e Jiguê na força do
+homem. O divertimento dele era decepar cabeça de saúva. Vivia
+deitado mas si punha os olhos em dinheiro, Macunaíma dandava
+pra ganhar vintém. E também espertava quando a família ia
+tomar banho no rio, todos juntos e nus. Passava o tempo do
+banho dando mergulho, e as mulheres soltavam gritos gozados
+por causa dos guaimuns diz-que habitando a água-doce por lá.
+No mucambo si alguma cunhatã se aproximava dele pra fazer
+festinha, Macunaíma punha a mão nas graças dela, cunhatã se
+afastava. Nos machos guspia na cara. Porém respeitava os
+velhos, e frequentava com aplicação a murua a poracê o torê o
+bacororô a cucuicogue, todas essas danças religiosas da tribo.
+
+27
+No trecho “Este pensamento enraizou-se-lhe no cérebro” (3º.
+parágrafo), o pronome pessoal “lhe” tem valor possessivo
+(“enraizou-se no seu cérebro”).
+Ocorre o mesmo com o pronome sublinhado em:
+(A) “conforme lhe era mandado ou pedido”. (1º. parágrafo)
+(B) “não lhe diminuía a herança”. (3º parágrafo)
+(C) “que o pai lhe foi mostrar”. (4º. parágrafo)
+(D) “que lhe poderia ele desejar”. (6º. parágrafo)
+(E) “e lhe desse os meios de viver sem favor”. (6º. parágrafo)
+
+28
+Nessa abertura de Macunaíma, combinam-se, principalmente,
+dois diferentes “estilos” de narrar, ou seja, um estilo
+(A) de lenda, mais solene, e um estilo de crônica, despachado e
+coloquial.
+(B) dramático, com foco nos conflitos, e um estilo jornalístico,
+conciso.
+(C) sentimental, introspectivo, e um estilo paródico.
+(D) realista, mais rente aos fatos, e um estilo fantasioso,
+delirante.
+(E) distanciado, de cunho crítico, e um estilo dissertativo,
+argumentador.
+
+Mário de Andrade, Macunaíma.
+
+29
+O texto, assim como o conjunto da obra a que pertence, deixa ver
+que, sobretudo no final dos anos de 1920, Mário de Andrade
+compartilhava, com Oswald de Andrade e outros modernistas,
+um vivo interesse pelo assim chamado
+(A) Primitivismo.
+(B) Tropicalismo.
+(C) Ecologismo.
+(D) Desvairismo.
+(E) Decadentismo.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 8
+
+VESTIBULAR FGV 2025.2
+
+30
+Como se sabe, Macunaíma foi dedicado a Paulo Prado. Todavia,
+nos primeiros manuscritos, a obra era dedicada a José de Alencar,
+reconhecendo, nele, algo como uma ancestralidade artística.
+Em Macunaíma, só NÃO evoca um traço de afinidade com o
+projeto literário alencarino
+(A) a aspiração a produzir uma visão geral do Brasil.
+(B) a retomada do indígena como referência originária.
+(C) o gosto da variedade brasileira da língua portuguesa.
+(D) o recurso aos mitos e lendas americanos, na conformação da
+narrativa.
+(E) a crítica ao trabalho, mais a correspondente validação da
+preguiça.
+
+FGV Conhecimento
+
+Inglês
+Atenção! Leia o texto a seguir para responder às próximas três
+questões.
+THE THEORY OF STUPIDITY
+By Dietrich Bonhoeffer
+(Historical Note: Dietrich Bonhoeffer
+(February 4, 1906 – April 9, 1945) was a
+German Lutheran pastor, neo-orthodox
+theologian, and anti-Nazi dissident. He
+was
+executed
+in
+Flossenbürg
+concentration
+camp
+by
+hanging
+[enforcamento] at dawn, one month
+before Germany surrendered to the Allies
+on May 8, 1945, ending World War II in
+Europe. His writings on Christianity's role in the secular world
+have become widely influential.)
+Stupidity is a more dangerous enemy of the good than
+malice. One may protest against evil; it can be exposed and, if
+need be, prevented by the use of force. Evil always carries within
+itself the germ [semente, origem] of its own subversion in that it
+leaves behind in other human beings at least a sense of unease
+[inquietação]. Against stupidity we are defenseless. Neither
+protests nor the use of force accomplish anything here. Reasons
+fall on deaf ears. Facts that contradict a stupid person’s
+prejudgment simply need not be believed and when they are
+irrefutable, they are just pushed aside as inconsequential, as
+incidental. In all this, the stupid person, in contrast to the
+malicious one, is self-satisfied and, being easily irritated, becomes
+dangerous by going on the attack.
+For that reason, greater caution is called for when dealing
+with a stupid person than with a malicious one. If we want to
+know how to get the better of [derrotar, superar] stupidity, we
+must seek to understand its nature.
+This much is certain, stupidity is in essence not an intellectual
+defect but a moral one. There are human beings who are
+remarkably agile intellectually yet stupid, and others who are
+intellectually dull yet anything but stupid. The impression one
+gains is not so much that stupidity is a congenital defect but that,
+under certain circumstances, people are made stupid or, rather,
+they allow this to happen to them.
+People who live in solitude manifest this defect less
+frequently than individuals in groups. Thus, it would seem that
+stupidity is perhaps less a psychological than a sociological
+problem.
+Adapted from the book Letters and Papers from Prison
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 9
+
+VESTIBULAR FGV 2025.2
+
+31
+According to the information in the passage, which of the
+following most likely helps to explain why the author considers
+stupidity more dangerous than malice?
+(A) As stupidity is more common than malice, it constitutes a
+greater and more prevalent threat to society.
+(B) A malicious person can be identified and successfully
+confronted, but a stupid person resists reasons and facts.
+(C) Malice is easily recognized, avoided, and even subverted,
+whereas stupidity at first appears to be merely innocuous.
+(D) Despite appearances, stupid people are often more
+intelligent than malicious ones and thus are harder to defeat.
+(E) A malicious person knows when to stop, but a stupid person
+will, without thinking, go to his or her own destruction.
+32
+The information in the passage most likely supports the idea that
+stupidity is
+(A) an intellectual defect that cannot be corrected through
+traditional education.
+(B) primarily a psychological disorder affecting a person’s ability
+to think clearly.
+(C) a character flaw that is possibly reinforced by social and
+external influences.
+(D) caused by a lack of emotional intelligence and therefore is an
+innate, unchangeable condition.
+(E) an irrational emotional response to conflict, a response
+exacerbated by the stupid person’s cognitive limitations.
+33
+Which of the following is most likely not supported by the
+information in the passage?
+(A) A person who makes a point of avoiding contact with other
+people may be less susceptible to stupidity than someone
+who spends most of his or her time with a group of friends.
+(B) A person who possesses great intelligence and selfconfidence may in fact be dangerous because of stupidity.
+(C) Stupid people are in fact capable of recognizing the existence
+of certain truths that they do not like.
+(D) Despite appearances, stupid people are usually more
+intelligent than malicious ones and thus are harder to defeat.
+(E) People are not necessarily born stupid but, apparently, in one
+way or another, may become stupid.
+
+FGV Conhecimento
+
+Atenção! Leia o texto a seguir para responder às próximas
+quatro questões.
+YOUNG MALE SYNDROME
+By Flurin Clalüna and Barbara Klingbacher
+Psychologists Margo Wilson and Martin Daly have invented a
+term for the phenomenon of young men constantly getting into
+trouble, calling it “young male syndrome.”
+There are harmless and less harmless examples of this. In the
+United States, for example, researchers examined 1,200 patients
+in 100 hospitals who had injured their hands because they had
+punched [socado] a wall. Almost all of them were men between
+15 and 24. A British study found that the automobile drivers least
+likely to wear a seat belt when a male passenger was present
+were men under 25. Apparently such individuals want at some
+level to impress the male passengers with their fearlessness
+[destemor, coragem]. An experiment in America observed men
+crossing roads. If a woman was standing nearby, men under 20
+allowed the cars to come three times closer than otherwise, as if
+they wanted to show how brave they were.
+This behavior manifests itself not only in risky everyday
+decisions, but also in serious violence. Around the world, 90% of
+murders are committed by men. Moreover, most murder victims
+are also men. Interestingly, the proportions are almost the same
+among young male chimpanzees. And it is always the young men,
+between 15 and 24, who are most at risk of becoming either
+perpetrators or victims. Why is that?
+Forty years ago, psychologists Wilson and Daly investigated
+violent crime in Detroit for their paper [artigo, estudo] on young
+male syndrome. They identified “the tendency of young men
+between 15 and 24 toward competitive behavior, risk-taking, and
+violence from an evolutionary psychological perspective” and
+concluded that behaving dominantly in primitive societies made
+sense from a biological point of view. The Cambridge University
+psychologist Simon Baron-Cohen once wrote: “In evolutionary
+terms, the bravest and most skilled fighters in male-male
+competition would have earned the highest social status in
+primitive societies, and thus secured the most wives and
+offspring [prole].”
+Young men are clearly still carrying this evolutionary legacy
+[legado] with them. In the past, bravado was a survival advantage
+that even led to better chances of mating [acasalamento]
+successfully. Today, in extreme cases, it offers a direct route to
+conflict, crime, and prison.
+Adapted from the Swiss newspaper NZZ, March 12, 2025
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 10
+
+VESTIBULAR FGV 2025.2
+
+34
+What does the information in the passage most likely suggest
+about young men in the 15-to-24-year age group?
+(A) Worldwide, if a person murders or is murdered, that person
+tends to be a man in that age group.
+(B) In urban environments, men in that age group are inevitably
+victims of their own biologically motivated toxic masculinity.
+(C) Like all primates seeking to demonstrate their power, men in
+that age group are unable to avoid risky, life-threatening
+situations.
+(D) When together in a group, young men between 15 and 24
+will take risks that they would never take if they were alone.
+(E) Men in that age group often take risks as a form of rebellion
+against authority figures, especially is those authority figures
+are women.
+35
+According to the information in the passage, why did young men
+in primitive societies most likely engage in behavior related to
+dominance and fearlessness?
+(A) Men who showed dominance and fearlessness were more
+likely to form lasting, mutually beneficial relationships with
+women.
+(B) The bravest, most dominant men were honored and
+respected and therefore gained more sexual access to
+women.
+(C) A successful warrior could lead a group of young men to steal
+women from neighboring tribes and thus have a sure way to
+produce offspring.
+(D) In primitive societies, the only way for any man to survive and
+prosper was through the intelligent, strategic use of violence.
+(E) In primitive societies characterized by short life expectancies,
+men and women had to start producing offspring at a young
+age.
+36
+With respect to “young male syndrome,” which of the following is
+most supported by the information in the passage?
+(A) For young men worldwide it has become the major cause of
+self-inflicted physical injuries.
+(B) Worldwide, it is the major cause of death for young men in
+the 15-to-24-year age group.
+(C) There is evidence that it may not be an exclusively human
+phenomenon.
+(D) If channeled into healthy activities, it leads young men to gain
+significant academic and career opportunities.
+(E) Studies show that it dramatically increases a young man’s
+chance for success in risky professional and business
+ventures.
+37
+According to the information in the passage, Wilson and Daly
+most likely believe that the high levels of violence and risky
+behavior in young men
+(A) are largely a result of modern-day media influence, peer
+pressure, and the breakdown of societal norms.
+(B) occur because young men worldwide have little exposure to
+positive male and female role models.
+(C) are mainly caused by harmful socio-economic factors and a
+lack of education.
+(D) are the result of an irresistible primitive impulse that has no
+place in modern society.
+(E) are a manifestation of the harmful influence of deeply rooted
+biological impulses that were advantageous in primitive
+societies.
+Graduação em Administração de Empresas - FGV EAESP
+
+FGV Conhecimento
+
+Atenção! Leia o texto a seguir para responder às próximas duas
+questões.
+POTENTIAL FOR LIFE ON SATURN MOON
+By Laurence A. Marschal
+
+As indicated in recent analyses, the conditions on Saturn’s icy
+moon Enceladus make it a prime target in the search for
+extraterrestrial life. Observed in detail by NASA’s Cassini mission
+in 2005, this “natural” satellite (so called because it orbits Saturn)
+is distinguished by numerous icy cryovolcanoes that eject
+towering plumes [nuvens] of water vapor, ice particles, and
+organic molecules into space, with much of the material falling
+back to the moon’s surface. Those organic molecules may include
+a subcategory known as biomolecules, which are the
+fundamental building blocks of life and are essential for the
+structure and function of living cells.
+The geologic activity of Enceladus implies that an ocean of
+liquid water, as deep as six miles [9.65 kilometers], lies hidden
+beneath the ice. As with Jupiter’s moon Europa (which also has
+an ice-covered ocean), the water on Enceladus may be habitable,
+but unlike Europa, no drilling would be required to investigate
+further. Due to the activity of Enceladus’s cryovolcanoes,
+evidence of biomolecules in its oceans could be detected via a
+straightforward mission to sample the surface residue of its
+plumes.
+As researcher Christopher H. House, at the Pennsylvania State
+University in State College, PA, has emphasized, “It is aweinspiring [impressionante, extraordinário] to think that with
+known technology, we can readily [facilmente] access lots of
+organic material from a possibly habitable extraterrestrial
+ocean.”
+Adapted from Natural History, March 2024
+
+Tipo 1 – Página 11
+
+VESTIBULAR FGV 2025.2
+
+38
+Which of the following most likely makes Enceladus a prime
+target in the search for extraterrestrial life?
+(A) Its cryovolcanoes, together with gravity, act to deposit
+organic molecules in places of relatively easy access.
+(B) Its surface is covered in vast oceans containing numerous
+underwater cryovolcanoes that store large reserves of
+organic molecules.
+(C) It has already shown confirmed signs of microbial life in its
+organic molecules.
+(D) Its warm atmosphere shows irrefutable signs of being able to
+support a habitable environment.
+(E) Its solid, rocky surface presents clear evidence of ancient
+fossils preserved in ice.
+39
+With respect to the search for signs of life, how does Enceladus
+most likely differ from Jupiter’s moon Europa?
+(A) Current technology, which is sufficient for drilling on
+Enceladus, is still inadequate for drilling on Europa.
+(B) Because Enceladus is covered by a thinner layer of ice than is
+Europa, its ocean water is in liquid form instead of frozen.
+(C) Europa’s ice-covered ocean has proven to be uninhabitable,
+whereas preliminary research suggests that Enceladus’s icecovered ocean is habitable.
+(D) Europa is closer to Earth, making it a more practical target for
+exploration than Enceladus.
+(E) Because of the activity of its cryovolcanoes, Enceladus
+presents at least one less obstacle to that search than does
+Europa.
+
+FGV Conhecimento
+
+Atenção! Leia o texto a seguir para responder às próximas três
+questões.
+WILL THE STATUE OF LIBERTY GO BACK TO FRANCE?
+By Troy Mathews
+The Statue of Liberty (whose official name is “Liberty
+Enlightening the World”) is a colossal neoclassical sculpture on
+Liberty Island in New York Harbor (which is part of New York
+City). The idea for the statue was conceived in 1865, when the
+French historian and abolitionist Édouard de Laboulaye proposed
+a monument to commemorate the upcoming centennial of U.S.
+independence (in 1876), the perseverance of American
+democracy, and the liberation of the nation's slaves as a result of
+the Civil War (1861-1865).
+
+But though the Statue of Liberty has long been considered a
+symbol of the United States, the results of the first two months of
+President Donald Trump’s administration motivated Raphaël
+Glucksmann, a French Member of European Parliament, to
+demand that the United States return the famous monument to
+France. Glucksmann called on Americans to send the gifted
+statue back, stating that because of Trump's embrace of
+dictators, his generalized attacks on civil rights, and his policies of
+unconstitutional detention and mass deportation, the U.S. no
+longer adheres to the values of liberty and democracy embodied
+in the monument.
+According to Glucksmann, "We’re going to say to the
+Americans who have chosen to side with the tyrants, to the
+Americans who have fired researchers for demanding scientific
+freedom: Give us back the Statue of Liberty. It was our gift to you,
+but apparently you despise [desprezam] it. So it will be just fine
+here at home."
+Officially presented to the United States by France in Paris in
+1880, the statue was unveiled [revelada] in New York Harbor in
+1886 to mark (10 years late) the 1776-1876 centennial
+anniversary of the Declaration of Independence. It has long been
+a symbol of the American dream for immigrants arriving in New
+York Harbor seeking a better life in the United States. Inscribed at
+the base of the statue are the powerful words by the poet Emma
+Lazarus, herself a descendant of Jewish immigrants: "Give me
+your tired, your poor, your huddled masses yearning to breathe
+free [as multidões apinhadas que anseiam por respirar em
+liberdade].”
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 12
+
+VESTIBULAR FGV 2025.2
+
+Nevertheless, too many of Donald Trump's policies and
+activities have cast [lançaram] a shadow on this beacon [farol] of
+welcome and liberty – at least that’s what Raphaël Glucksmann
+seems to believe.
+Adapted from the Meidas Touch News website, March 17, 2025
+
+40
+According to the information in the passage, Raphaël Glucksmann
+most likely called for the return of the Statue of Liberty to France
+for all of the following reasons except
+(A) Donald Trump has demonstrated enthusiasm for
+authoritarian rulers.
+(B) France has always considered itself the statue’s true,
+democratic home.
+(C) too many Americans are opposed to the principles that the
+statue represents.
+(D) scientific freedom is under attack in the U.S.
+(E) in certain legal areas, Donald Trump has ignored
+constitutional guarantees.
+41
+The information in the passage most likely supports which of the
+following?
+(A) Before Donald Trump’s presidency, U.S.-French relations
+were always characterized by harmonious cooperation.
+(B) The audacity of Raphaël Glucksmann’s demand indicates that
+he considers the U.S. under Donald Trump a declining power.
+(C) Raphaël Glucksmann made his demand not for political
+reasons, but rather because he was truly disappointed in the
+U.S.
+(D) Édouard de Laboulaye originally conceived of the Statue of
+Liberty as a kind of multipurpose monument.
+(E) When Édouard de Laboulaye originally conceived the Statue
+of Liberty, the U.S. and France were the world’s leading
+proponents of democracy.
+42
+The information in the article suggests that when Emma Lazarus
+wrote the words for the inscription at the base of the Statue of
+Liberty, she was
+(A) aware that most U.S. politicians would disagree with those
+words.
+(B) mainly addressing European immigrants.
+(C) directing her words especially at Jewish immigrants.
+(D) summarizing for many immigrants the essence of the
+American dream.
+(E) unaware that, years later, many people would laugh at those
+words.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+FGV Conhecimento
+
+Atenção! Leia o texto a seguir para responder às próximas três
+questões.
+THE CONSULTING BUSINESS
+By Lionel Barber
+The roots of the consulting business go back to 1911, when
+Frederick Winslow Taylor, a mechanical engineer who had
+become the manager of a steel plant, wrote the monograph
+Principles of Scientific Management. Taylor was obsessed with
+efficient manufacturing and the output of individual workers –
+what we today call “productivity.” He concluded that
+manufacturing should be separated into individual tasks, timed
+rigorously, and carried out by workers selected “scientifically”
+and trained appropriately.
+In this new world, workers were treated more as resources
+than individuals. And while managers and workers were
+theoretically equal (in the early part of his career, Taylor had
+worked as a factory laborer), the managers were in charge of
+planning and supervision. This emerging executive class was
+responsible for the results and, implicitly, entitled to a greater
+share of the rewards.
+Taylorism spawned [gerou] a generation of consulting firms in
+the U.S. and Europe. Large-scale manufacturers such as the auto,
+chemical, and steel industries were desperate to improve
+efficiency. The consultant, armed with charts and numbers,
+showed up [apareceu] to provide the answer.
+Taylorism even found support in the Soviet Union. Initially,
+the Bolsheviks (the Marxist revolutionaries that established the
+Soviet Union) thought management consultancy was a pseudoscience aimed at squeezing the working class. But Lenin himself
+acknowledged in 1918 that “the Russian is a bad worker [who
+must] learn to work.” By the mid-1920s, Lenin and Trotsky
+embraced Taylorism, contracting the U.S.-based consultant
+Walter Polakov for advice on developing the Soviet Union’s first
+five-year plan. The Bolsheviks were happy to adopt some of the
+latest capitalist methods – and that included Taylorism – to build
+their new socialist society.
+Adapted from Prospect, April 2023
+
+43
+With respect to Frederick Winslow Taylor, the information in the
+passage most likely supports all of the following except
+(A) he tended to see workers as just one more element in the
+manufacturing process.
+(B) along with being a profound thinker and the “father” of the
+consulting business, he had first-hand experience as both a
+factory laborer and boss.
+(C) his development of a scientific approach to the
+manufacturing process was a revolutionary achievement.
+(D) at first, the ideas he formulated about the manufacturing
+process had a certain egalitarian component.
+(E) though he himself was unsympathetic to Marxism, he saw no
+problem in collaborating with Marxists.
+
+Tipo 1 – Página 13
+
+VESTIBULAR FGV 2025.2
+
+44
+According to the information in the passage, which of the
+following probably best describes the Soviet Union’s relationship
+with Taylorism?
+(A) Although the Bolsheviks at first were suspicious of Taylorism,
+they later saw its potential to contribute to the Soviet Union’s
+economic growth.
+(B) By the mid-1920s, Lenin and Trotsky were convinced that
+Taylorism would help the Soviet Union’s economy to surpass
+the economies of the capitalist Western countries.
+(C) Even before the Bolsheviks had definitively established the
+Soviet Union, Lenin was convinced that Taylorism was the key
+to industrial productivity.
+(D) Taylorism appealed greatly to workers in the Soviet Union,
+who believed it would increase their wages and improve
+working conditions.
+(E) Bolshevik leaders admitted that without the massive
+application of Taylorism, the Soviet Union’s first five-year
+plan would have failed.
+45
+According to the information in the passage, which of the
+following is most likely a result of Taylorism?
+(A) The difference between worker pay and executive pay
+became bigger than ever.
+(B) Greater numbers of workers joined trade unions to avoid
+being exploited by predatory labor practices.
+(C) Efficiency in large-scale industries improved, and consulting
+firms emerged to help companies optimize production.
+(D) The Soviet Union adopted even more capitalist methods to
+grow the national economy.
+(E) The U.S. developed the largest, most powerful industrial
+infrastructure in the world.
+
+FGV Conhecimento
+
+Ciências Humanas
+46
+
+Capa do jornal New York Post intitulada “The Donroe Doctrine”, publicada em
+janeiro de 2025 (https://nypost.com/cover/january-8-2025/).
+
+Pouco mais de 200 anos depois de James Monroe estabelecer sua
+doutrina e defender o lema “a América para os americanos”,
+Trump retomou a ideia de tornar a vizinhança americana uma
+zona de influência política e econômica mediante anexações,
+compras ou intervenções militares.
+A respeito das declarações expansionistas do Presidente Donald
+Trump, assinale a afirmativa que descreve corretamente os
+interesses americanos em relação ao Canadá, à Groenlândia e ao
+Canal do Panamá.
+(A) O Canadá seria como o 51º estado dos Estados Unidos, e sua
+anexação facilitaria a vigilância das fronteiras, especialmente
+quanto à imigração ilegal, além de ampliar a oferta de mão de
+obra no mercado de trabalho americano.
+(B) A aquisição da Groenlândia é uma estratégia de segurança
+nacional e ambiental, visando a proteger o ecossistema do
+Ártico e evitar a presença de bases militares dinamarquesas
+ou russas próximas ao território dos Estados Unidos.
+(C) A anexação da Groenlândia está ligada à abundância de
+recursos naturais estratégicos para a produção tecnológica e
+de defesa dos Estados Unidos, como lítio, cobalto, urânio e
+metais de terras raras.
+(D) A ameaça de assumir o controle do canal panamenho é uma
+estratégia para impor ao Panamá um tratado de neutralidade
+que garanta a acessibilidade e neutralidade da hidrovia a
+todas as nações, em tempos de paz ou guerra.
+(E) A visão de Trump para o continente americano insere-se na
+disputa entre EUA, Rússia e China pelas principais rotas
+oceânicas, acirrada após o fechamento do Estreito de Malaca,
+prejudicando o comércio asiático com a Europa e o Oriente
+Médio.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 14
+
+VESTIBULAR FGV 2025.2
+
+47
+Em 2023, o Programa Bolsa Família completou 20 anos. Uma
+parte da sociedade o considera uma política pública bemsucedida no combate à pobreza e à desigualdade social,
+enquanto outra o critica por seu caráter assistencialista,
+defendendo sua descontinuidade.
+Com base nesse debate, analise as afirmativas a seguir e assinale
+aquela que apresenta corretamente argumentos favoráveis ou
+contrários ao programa.
+(A) O Bolsa Família, ao efetuar uma transferência direta e
+condicionada de renda para famílias em situação de
+vulnerabilidade, contribui para reduzir a pobreza extrema no
+Brasil.
+(B) O Bolsa Família, ao exigir como contrapartida a inserção do
+responsável em mercado de trabalho formal ou informal,
+estimula o combate ao desemprego.
+(C) O Bolsa Família, ao efetuar o registro eletrônico dos
+beneficiados, visa a coletar, processar e sistematizar
+informações para a caracterização socioeconômica das
+famílias de baixa renda.
+(D) O Bolsa Família, ao oferecer um substitutivo da renda do
+trabalho, cria, para as famílias de baixa renda, uma
+dependência do Estado, tornando desnecessários o trabalho
+formal e a busca por autonomia financeira.
+(E) O Bolsa Família, ao adotar critérios socio-raciais na seleção
+dos beneficiários, assume um caráter reparador, corrigindo
+desigualdades enfrentadas por grupos racialmente
+discriminados e promovendo maior equidade no acesso a
+direitos e oportunidades.
+48
+Leia o trecho a seguir sobre um conceito que vem ganhando
+destaque na análise do cenário geopolítico contemporâneo.
+Este conceito indica um grupo de países em desenvolvimento,
+principalmente localizados no hemisfério sul, incluindo América
+Latina, África, Ásia Meridional e Sudeste Asiático. Esses países
+compartilham características como economias diversificadas,
+desafios sociais e atuam de maneira coordenada em foros
+internacionais para reivindicar reformas na ordem econômica e
+política global, visando a promover cooperação econômica,
+fortalecer sua voz nos fóruns internacionais e reduzir dependência
+dos países desenvolvidos, impulsionando o desenvolvimento
+sustentável e reequilibrando o poder global.
+O trecho descreve o conceito de
+(A) G20.
+(B) Sul Global.
+(C) Soft Power.
+(D) Multipolaridade.
+(E) Integração Regional.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+FGV Conhecimento
+
+49
+
+Fonte: Bernardi, C. e Vanhaute, E. Uma história global da humanidade. Unir
+fronteiras: dos impérios à economia capitalista (de 1000 E.C. a 1870 E.C.). Lisboa:
+CISP, 2021, p. 31.
+
+O mapa, que representa o comércio afro-asiático entre os séculos
+XI-XIV, destaca
+(A) o papel fundamental da civilização islâmica nos contatos
+entre a Europa, o Norte da África, a África Subsaariana e
+diversas regiões asiáticas.
+(B) o desenvolvimento da navegação em mar aberto, graças ao
+uso da bússola, do astrolábio, do quadrante, da vela
+triangular e de um novo modelo de embarcação: as caravelas.
+(C) as cidades africanas que ligavam as rotas de comércio de
+longa distância, como Timbuctu e Fez (Império do Mali),
+importantes centros de troca de ouro e escravos para o
+tráfico colonial atlântico.
+(D) a rota da seda que ligava diretamente a China e a Ásia central
+às principais cidades marítimas da península itálica, como
+Nápoles, Gênova e Veneza.
+(E) o predomínio das rotas de peregrinação cristãs (de Avinhão
+para Roma e Jerusalém), islâmicas (Meca e Medina) e
+Budistas (Calicute e Deli).
+50
+Entre os séculos XVI e XVIII, Castela e Portugal implementaram
+um novo sistema econômico nas colônias americanas, apesar do
+drástico decréscimo populacional ocorrido após a chegada dos
+colonizadores, em consequência de guerras, doenças, fome e
+desordem social.
+O funcionamento do sistema econômico colonial iberoamericano assentava-se
+(A) no aproveitamento de técnicas tradicionais de trabalho
+indígenas, potencializadas pela introdução de animais de
+carga.
+(B) na circulação de bens e mercadorias em fluxos regionais,
+interamericanos e intercontinentais, com base na oferta
+metropolitana de moeda e crédito.
+(C) na introdução de grandes empresas agrícolas integradas ao
+abastecimento e comércio internos, com base na experiência
+exitosa das colônias orientais.
+(D) no trabalho compulsório, modificando instituições já
+existentes em sociedades indígenas (mita), criando novas
+práticas (encomienda) e introduzindo africanos escravizados.
+(E) nas atividades industriais para produzir bens de consumo a
+partir do beneficiamento de produtos como tecidos, metais
+preciosos, criação de gado e lavoura de produtos tropicais.
+Tipo 1 – Página 15
+
+VESTIBULAR FGV 2025.2
+
+51
+Observe a caricatura holandesa de 1658 a seguir.
+
+FGV Conhecimento
+
+52
+Leia o trecho a seguir.
+Este princípio é o de que o único fim para o qual a
+humanidade está autorizada, individual ou coletivamente, a
+interferir na liberdade de ação de qualquer um dos seus, é a
+autoproteção. Que o único propósito para o qual o poder pode ser
+legitimamente exercido sobre qualquer membro de uma
+comunidade civilizada, contra a sua vontade, é o de evitar danos
+para os outros. O seu próprio bem, seja físico ou moral, não é
+suficiente como autorização. Na parte que meramente lhe
+concerne, a sua independência é, de direito, absoluta. Sobre ele
+mesmo, sobre o seu próprio corpo e mente, o indivíduo é
+soberano.
+Traduzido e adaptado de MILL, Stuart. On Liberty and Other Essays (1859).
+Oxford: Oxford University Press, 1998, p. 14.
+
+Fonte: coleção escocesa do museu National Gallery (Londres):
+https://www.nationalgalleries.org/art-and-artists/154438/satire-oliver-cromwelllong-snakes-tail-filled-coins-his-right-fairfax-offers-him-three-crowns
+
+Na imagem, Oliver Cromwell é representado com uma longa
+cauda de serpente cheia de moedas. À sua esquerda, mercadores
+holandeses tentam cortar a cauda; à sua direita, o comandante
+do exército do Parlamento (Thomas Fairfax) lhe oferece três
+coroas.
+Com base na imagem, assinale a afirmativa que descreve
+corretamente as críticas à República de O. Cromwell (1653-1658).
+(A) Os mercadores holandeses estavam insatisfeitos com a
+proclamação dos Atos de Navegação, os quais proibiam a
+importação de produtos manufaturados das Províncias
+Unidas para a Inglaterra e suas colônias.
+(B) As lideranças militares que lutaram a favor do Parlamento na
+Guerra Civil (1642-49) ficaram satisfeitas com a abolição da
+monarquia dinástica dos Stuart e a criação de uma república
+democrática.
+(C) Os calvinistas holandeses julgavam Cromwell como um
+traidor, pois manteve a Igreja Anglicana, com seus bispos
+indicados por Roma, e ofereceu tolerância religiosa aos
+católicos.
+(D) Os opositores políticos de Cromwell o consideravam um
+ditador pois, após dissolver o Parlamento (1653), ele assumiu
+o título de “Lorde Protetor da Inglaterra, Escócia e Irlanda” e
+estabeleceu o Protetorado.
+(E) A nobreza temia a disseminação do sistema do cercamento
+dos campos implementado por Cromwell, o qual incentivava
+o uso coletivo das terras pelos camponeses e questionava o
+princípio da propriedade privada.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Com base no trecho, assinale a opção que interpreta
+corretamente o princípio da liberdade individual enunciado por
+Stuart Mill.
+(A) A liberdade do indivíduo é ilimitada.
+(B) O Estado nunca pode interferir na vida das pessoas.
+(C) A liberdade de ação é limitada apenas pelo dano a terceiros.
+(D) A soberania do indivíduo sobre si mesmo pressupõe a
+autonomia financeira.
+(E) A sociedade pode intervir se considerar que o
+comportamento de alguém é moralmente errado.
+53
+Em 1807, quando ocupava o cargo de embaixador austríaco em
+Paris, Metternich avaliou o impacto geopolítico da expansão
+napoleônica e escreveu:
+Todas as nações cometeram o erro de atribuir a um tratado
+com a França o valor de uma paz, sem imediatamente se
+prepararem de novo para a guerra. Nenhuma paz é possível com
+um sistema revolucionário, seja com Robespierre, que declara
+guerra aos castelos, ou com Napoleão, que declara guerra às
+potências.
+Para Metternich, principal arquiteto do Congresso de Viena,
+(A) Napoleão era o herdeiro da Revolução Francesa e promotor
+da expansão dos temíveis ideais revolucionários.
+(B) as potências europeias precisavam estabelecer tratados de
+paz com a França Napoleônica para restaurar suas
+soberanias.
+(C) a paz e o equilíbrio de poder seriam restaurados pela criação
+de uma Europa unificada sob a potência francesa.
+(D) os regimes revolucionários alcançariam a estabilidade após
+uma fase de ruptura violenta, como no caso da França
+napoleônica.
+(E) a estabilidade resultaria do restabelecimento de estruturas
+sociais e políticas tradicionais, como o absolutismo na Áustria
+e o republicanismo na França.
+
+Tipo 1 – Página 16
+
+VESTIBULAR FGV 2025.2
+
+FGV Conhecimento
+
+54
+A respeito das crises que marcaram o sistema capitalista nos
+séculos XX e XXI, assinale (V) para a(s) afirmativa(s) verdadeira(s)
+e (F) para a(s) falsa(s).
+( ) A crise de 1929, marcada pela superprodução e pelo
+subconsumo nos Estados Unidos (EUA), levou à queda das
+ações, ao desemprego e à recessão. No Brasil, o impacto
+imediato foi a redução das importações de café pelos EUA,
+desvalorizando o produto nacional.
+( ) A crise de 1973 foi provocada pelo embargo de petróleo da
+OPEP, em reação ao apoio ocidental a Israel na Guerra do
+Yom Kippur. O Brasil, dependente das importações de
+petróleo, respondeu com investimentos em fontes
+alternativas, como o Proálcool.
+( ) A crise de 2008 nos EUA resultou da queda dos juros, da
+expansão descontrolada do crédito e da valorização excessiva
+dos imóveis. O Brasil, consequentemente, passou a receber
+investimentos em dólar, contribuindo para o crescimento de
+setores industriais.
+As afirmativas são, respectivamente,
+(A) V – V – F.
+(B) F – V – V.
+(C) V – F – F.
+(D) F – F – V.
+(E) V – V – V.
+55
+A expansão do comércio mundial, graças às medidas
+regulatórias introduzidas pelo Acordo Geral sobre Comércio e
+Tarifas (hoje, Organização Mundial de Comércio), permitiu que as
+empresas adquirissem componentes onde a produção fosse mais
+barata. Assim, desde meados do século passado, houve uma
+mudança geográfica significativa em diversos processos de
+produção.
+
+56
+O conhecimento sobre o clima tem se ampliado nas últimas
+décadas e numerosas evidências apontam que o comportamento
+do clima está mudando. No Brasil, estudos e pesquisas apontam
+para o aumento da temperatura e para alterações na distribuição
+das chuvas. As mudanças do clima são evidentes e é necessário
+que produtores agrícolas brasileiros - pequenos, médios e grandes
+- se adaptem para sobreviver.
+ASSAD, Eduardo A. Mudanças do clima e a agropecuária. Instituto de Estudos
+Avançados da USP. 2024. (Adaptado)
+
+Sobre os impactos decorrentes das mudanças do clima na
+agricultura tropical, analise as afirmativas a seguir e assinale (V)
+para a(s) verdadeira(s) e (F) para a(s) falsa(s).
+( ) O aquecimento global provoca um aumento geral das
+temperaturas, o que leva ao estresse térmico das plantas,
+retardando o crescimento e reduzindo a produtividade dos
+cultivos.
+( ) A alteração dos regimes pluviométricos exige a adoção de
+medidas mitigadoras sustentáveis, como o uso intensivo de
+fertilizantes nitrogenados e a queima de resíduos agrícolas no
+manejo de solo.
+( ) A frequência e a intensidade de eventos climáticos extremos
+alteram o volume de matéria orgânica nos horizontes
+superficiais do solo, diversificando sua composição e
+favorecendo o rendimento agrícola.
+As afirmativas são, respectivamente:
+(A) V – V – F;
+(B) F – V – V;
+(C) V – F – F;
+(D) V – V – V;
+(E) V – F – V.
+
+LISBOA, Marcos. Guerra tarifária reduz o crescimento. Folha de São Paulo.
+13/04/25. (Adaptado).
+
+Sobre os efeitos dessas mudanças, analise as afirmativas a seguir.
+I. As etapas de produção que exigiam trabalho intensivo
+deslocaram-se para regiões com menores custos de salários
+ou de tributos, enquanto as atividades de gestão e de
+inovação permaneciam nas regiões com mão de obra mais
+qualificada.
+II. A queda do custo dos transportes e o aumento da velocidade
+das comunicações possibilitaram o fatiamento das estruturas
+produtivas entre vários países, quebrando a lógica da
+produção concentrada em um único lugar.
+III. A transferência de empregos para regiões onde o custo da
+mão de obra era mais baixo levou à desindustrialização em
+partes do mundo desenvolvido, aumentando a desigualdade
+e o descontentamento social nesses países.
+Está correto o que se afirma em
+(A) I, apenas.
+(B) I e II, apenas.
+(C) I e III, apenas.
+(D) II e III, apenas.
+(E) I, II e III.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 17
+
+VESTIBULAR FGV 2025.2
+
+57
+Analise os gráficos a seguir, que apresentam a composição da
+oferta de energia no Brasil, em 1970, 2000 e 2030 (projetada).
+
+FGV Conhecimento
+
+58
+A cidade é um sistema no qual a forma espacial e o processo
+social estão em contínua interação. Assim, a segregação urbana
+não se limitaria apenas à divisão ou ao distanciamento social no
+espaço urbano, mas configura-se também como uma estrutura
+espacial.
+Sobre o tema, tomando a urbanização da população brasileira
+como referência, assinale a afirmativa incorreta.
+(A) A periferia urbana inclui violência e pobreza, mas também
+cultura, que se expressa por meio do rap, do funk, do grafite
+etc., e poder, que se manifesta na representação política.
+(B) No espaço urbano periférico coexistem populações de alta e
+baixa renda, mas os condomínios fechados e as favelas,
+apesar de estarem muito próximos, mantêm poucos
+contatos.
+(C) Os centros urbanos são, ao mesmo tempo, lugares de poder e
+de privilégios para as populações de alta renda e, para as
+classes socioeconômicas mais pobres, de exclusão para as
+periferias.
+(D) Ao núcleo urbano, geralmente uma estrutura concêntrica e
+compacta, integrou-se um tecido urbano mais esgarçado, que
+apresentava um acelerado crescimento demográfico devido
+ao êxodo rural.
+(E) Na urbanização extensiva, as periferias são marcadas pelo
+crescimento vertical e pela densidade da ocupação, com a
+consequente desvalorização das áreas centrais e aumento da
+segregação.
+
+Sobre a evolução da estrutura da oferta de energia no Brasil,
+assinale a afirmativa incorreta.
+(A) Os derivados de petróleo deverão manter a posição de
+liderança em 2030, com uma participação de cerca de 30% da
+matriz energética, mas cerca de 15 pontos percentuais a
+menos em relação a 2000.
+(B) A energia nuclear, devido à pressão crescente para a redução
+das emissões de gases formadores do efeito estufa, passou a
+ser estimulada, embora ela tenha o problema de armazenar
+rejeitos de longa duração.
+(C) O declínio da hidreletricidade é justificado pelos movimentos
+ambientalistas contrários ao aproveitamento do potencial
+hidráulico da Bacia Amazônica, o que impediu a construção
+de novas usinas na região.
+(D) A participação da lenha e do carvão vegetal, com destaque
+para o uso doméstico, foi influenciada pelo nível de
+desenvolvimento, por questões ambientais e pela competição
+econômica com outras fontes energéticas.
+(E) Os derivados da cana de açúcar devem ser a segunda fonte
+de energia mais importante da matriz energética em 2030,
+graças à ampliação da área cultivada e ao aumento da
+produtividade do setor sucroalcooleiro.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+59
+Os relatórios de avaliação das mudanças climáticas destacam que
+a concentração de gás carbônico – o mais importante gás do
+efeito estufa na atmosfera – aumentou de 280 para 379 ppm
+(ppm = partes por milhão) desde a Revolução Industrial.
+As opções a seguir apresentam propostas que visam a mitigar
+essa concentração, à exceção de uma. Assinale-a.
+(A) Incentivar o uso de energias alternativas que não envolvam a
+queima de combustíveis fósseis.
+(B) Conservar a cobertura vegetal original e combater o
+desmatamento para, por meio da fotossíntese, “capturar” o
+CO2.
+(C) Adotar novos comportamentos coletivos, como as mudanças
+no estilo de vida e no padrão de consumo da população.
+(D) Implementar mecanismos que gerem créditos de carbono,
+bem como a taxação das emissões de CO2 no setor
+energético.
+(E) Intervir na dinâmica atmosférica para alterar o deslocamento
+das massas de ar que contribuem para a ocorrência de
+fenômenos meteorológicos extremos.
+
+Tipo 1 – Página 18
+
+VESTIBULAR FGV 2025.2
+
+FGV Conhecimento
+
+60
+Leia as definições a seguir.
+I. Hard Power é a capacidade de um Estado impor sua vontade
+a outros Estados por meio da força militar e de sanções
+econômicas. Sua eficácia pode ser limitada por fatores como
+o nacionalismo, a resistência do adversário e o custo político
+e econômico das ações coercitivas.
+II. Soft Power é a habilidade de modelar os desejos do outro, ou
+seja, é gerar tamanha atração que o outro escolhe seguir seu
+exemplo. Logo, um Estado estará exercendo uma influência
+indireta sobre outro, uma ação que precede o momento de
+tomada de decisão.
+Assinale a opção que apresenta, corretamente, exemplos de Hard
+Power e Soft Power, respectivamente.
+(A) A criação do Mercosul e a dissolução do NAFTA.
+(B) O Brexit da Inglaterra e a integração econômica da Europa.
+(C) O “American way of life” e a ação de Israel na Faixa de Gaza.
+(D) A invasão da Ucrânia pela Rússia e a Nova Rota da Seda
+proposta pela China.
+(E) A intervenção norte-americana no Iraque e o bloqueio
+econômico de Cuba.
+
+Graduação em Administração de Empresas - FGV EAESP
+
+Tipo 1 – Página 19
+
+Realização
+
+

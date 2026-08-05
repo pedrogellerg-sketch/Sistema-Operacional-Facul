@@ -105,7 +105,7 @@ Aula Real com offset reversível; dashboard acadêmico; simulados; academia
 editável; alimentação com calorias e proteína.
 
 **Dados reais já embutidos:** grade semanal (35 aulas/semana, 13 disciplinas),
-calendário do 2º semestre de 2026 com simulados e vestibulares, e **1.061 questões
+calendário do 2º semestre de 2026 com simulados e vestibulares, e **1.115 questões
 reais de ENEM, Fuvest, FGV e Insper** (detalhe na seção 5.1).
 
 Testes feitos no navegador com PDFs reais: 10/10 no fluxo da Sprint 2, 17/17 nas
@@ -117,7 +117,7 @@ telas novas, 11/11 no deploy com subcaminho. Zero erros de console.
 
 ### 5.1 Banco de questões — RESOLVIDO para os quatro vestibulares-alvo
 
-**1.061 questões.** Cada disciplina é um chunk próprio, carregado sob demanda;
+**1.115 questões.** Cada disciplina é um chunk próprio, carregado sob demanda;
 nada disso entra no localStorage.
 
 | Prova | Questões | Como entrou |
@@ -128,8 +128,9 @@ nada disso entra no localStorage.
 | FGV 2025.1 | 56 | PDF digitalizado, transcrito à mão · `scripts/build-fgv-2025-questions.mjs` |
 | Insper 2026.2 | 41 | PDF de duas colunas · `scripts/build-insper-questions.mjs` |
 | Insper 2026.1 | 44 | mesmo script, outra edição |
+| FGV 2025.2 | 54 | PDF com linhas preservadas · `scripts/build-fgv-2025-2-questions.mjs` |
 
-Três caminhos diferentes porque as fontes são diferentes, e vale saber qual
+Quatro caminhos diferentes porque as fontes são diferentes, e vale saber qual
 tentar primeiro numa prova nova:
 
 1. **Conjunto aberto, se existir.** A Fuvest veio do BLUEX
@@ -151,6 +152,30 @@ tentar primeiro numa prova nova:
    resposta certa destacada em amarelo, tudo na mesma página. A transcrição vive
    em `data/provas/fgv-2025-1-transcrito.json` e é versionada: o trabalho caro
    foi pago uma vez, e o script que converte para o banco é trivial.
+4. **PDF com as linhas preservadas: leia por linha.** É o melhor caso, e o da
+   FGV 2025.2. Quando o texto extraído mantém as quebras, **o número da questão
+   fica sozinho na linha** — sinal muito mais forte que a varredura sequencial,
+   e que dispensa toda a defesa contra questão fantasma. Aqui isso não é luxo: a
+   ordem de leitura desta prova está embaralhada (a questão 15 sai entre a 11 e a
+   12), e a varredura sequencial se perdia ali, casava com um "15" solto 42 mil
+   caracteres à frente e derrubava as 45 seguintes. Lendo por linha, a ordem no
+   arquivo deixa de importar. A armadilha em troca é que nem toda linha com
+   número é marcador: os numeradores de fração da questão 8 saem sozinhos na
+   linha. O que separa os dois é o que vem depois — enunciado começa com
+   maiúscula e é longo.
+
+   Ordem embaralhada cobra em outro lugar também. Uma questão que depende de
+   figura sai partida, e o que sobra dela cai na alternativa (E) da vizinha, que
+   é a única sem fronteira natural. Três cortes resolvem, e estão comentados no
+   script: um segundo `(A)` só pode ser outra questão; o que sobra depois disso
+   se reconhece pela fórmula com que a FGV fecha enunciado ("assinale a
+   afirmativa incorreta"); e, por último, o tamanho — as cinco alternativas de
+   uma questão são paralelas em extensão, então a (E) destoar denuncia intruso.
+   Pelo mesmo motivo a passagem de apoio é enfileirada, não substituída: o aviso
+   do trecho de Macunaíma sai entre as questões 25 e 26 embora sirva à 28, e
+   trocar na hora dava Macunaíma a duas questões sobre Machado de Assis. Vale a
+   contagem que a prova declara ("para responder às próximas seis questões"),
+   não a posição.
 
 FGV e Insper têm faixa fixa por matéria, então a etiqueta sai da numeração —
 não é preciso adivinhar por vocabulário como no ENEM:
