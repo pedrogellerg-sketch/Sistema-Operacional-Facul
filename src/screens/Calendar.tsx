@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button'
 import { Card, SectionTitle } from '@/components/ui/Card'
 import { Chip } from '@/components/ui/Chip'
 import { LessonDetail } from '@/components/study/LessonDetail'
+import { ScheduleAdjust } from '@/components/study/ScheduleAdjust'
 import { PageHeader } from '@/components/layout/PageHeader'
 
 import { useAppStore } from '@/store/appStore'
@@ -295,6 +296,10 @@ export function CalendarScreen() {
                       O plano não prevê conteúdo para este dia.
                     </p>
                   )}
+
+                  {/* Fica por último de propósito: ao tocar, o conteúdo acima
+                      se recalcula na hora e serve de confirmação visual. */}
+                  <ScheduleAdjust subjectId={subjectId} subjectName={subjectName(subjectId)} />
                 </div>
               )}
             </Card>

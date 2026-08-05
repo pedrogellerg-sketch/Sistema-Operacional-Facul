@@ -64,6 +64,10 @@ interface CurriculumActions {
 
   reportRealClass: (data: { date: ISODate; subjectId: string; outcome: RealClassOutcome; note?: string }) => void
   undoReport: (id: string) => void
+  /** Ajuste manual da fila de uma disciplina: +1 atrasa uma aula, −1 adianta. */
+  adjustOffset: (subjectId: string, delta: number) => void
+  /** Devolve a disciplina ao cronograma original do plano. */
+  resetOffset: (subjectId: string) => void
 
   scheduleReview: (topicId: string, date: ISODate) => void
 
@@ -174,6 +178,27 @@ export const useCurriculumStore = create<CurriculumStore>()(
           },
         }))
       },
+
+      /**
+       * Correção direta da fila, para quando o desvio já se acumulou e relatar
+       * aula por aula seria trabalhoso. O relato diário continua servindo ao dia
+       * a dia; isto serve a consertar de uma vez.
+       *
+       * Não vira `report`: um ajuste manual não é um relato de aula, e misturar
+       * os dois faria o histórico afirmar coisas que não aconteceram. O desfazer
+       * aqui é o próprio botão oposto, ou `resetOffset`.
+       */
+      adjustOffset: (subjectId, delta) =>
+        set((s) => ({
+          offsets: { ...s.offsets, [subjectId]: (s.offsets[subjectId] ?? 0) + delta },
+        })),
+
+      resetOffset: (subjectId) =>
+        set((s) => {
+          const next = { ...s.offsets }
+          delete next[subjectId]
+          return { offsets: next }
+        }),
 
       // ── Revisão ──────────────────────────────────────
       scheduleReview: (topicId, date) =>

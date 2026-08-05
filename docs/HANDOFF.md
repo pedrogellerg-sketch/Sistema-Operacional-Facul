@@ -72,6 +72,20 @@ no tópico — o que também impede que estudar reescreva o banco curricular.
 véspera não volta para a fila no mesmo dia. **Não recrie um segundo lugar para
 guardar progresso.**
 
+**5. Uma aula se lê de um jeito só.** `components/study/LessonDetail.tsx` é a
+leitura única de uma aula — título inteiro, objetivos, estratégias, páginas da
+apostila em destaque e videoaulas. Três telas entram nela: preparar amanhã
+(`Tomorrow`), confirmar o que caiu (`RealClass`) e abrir um dia do calendário
+(`Calendar`). Antes cada tela tinha a sua versão, e a da confirmação truncava o
+texto — justo onde ler errado desloca o cronograma inteiro. **Não crie uma
+quarta.**
+
+**6. AV1 e AV2 são períodos, não provas.** `data/assessments.ts` separa o
+*formato* (fixo: objetiva de 90 questões em duas partes, ou dissertativa de três
+dias) das *datas* (do calendário), e distribui as partes pelos dias reservados.
+A ordem inverte a cada bimestre — no 3º a AV1 é a objetiva, no 4º é a
+dissertativa. Quem assumir "AV1 é sempre a objetiva" erra metade do ano.
+
 **Questões não entram no localStorage.** São dados de leitura, empacotados como
 chunk por disciplina em `src/data/questions/`. Só as respostas do usuário são
 persistidas.
