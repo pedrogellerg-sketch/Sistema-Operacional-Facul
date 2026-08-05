@@ -1,0 +1,566 @@
+{
+  "_fonte": "FGV Vestibular Unificado 2025.1, aplicado em 14/11/2024. Transcrito do gabarito comentado da prova D104 (tipo 4), que traz o enunciado completo e a alternativa correta destacada. O PDF é digitalizado: o reconhecimento automático de texto acertava só 11 das 60 questões, então a transcrição foi feita à mão, lendo página a página.",
+  "_ordem": "A ordem das alternativas é a da prova D104. As outras versões (A101, B102, C103) têm as mesmas questões embaralhadas.",
+  "_faixas": "1-15 Matemática · 16-30 Língua Portuguesa · 31-45 Inglês · 46-60 Ciências Humanas",
+  "_ausentes": "Faltam 4, 16, 17 e 24: as quatro dependem de uma figura (gráfico, tirinha ou ilustração) que não dá para transcrever em texto. Sem a imagem o enunciado fica sem resposta possível, então ficam de fora — 56 das 60.",
+  "questoes": [
+    {
+      "n": 1,
+      "enunciado": "Uma fazenda utiliza tratores autônomos para arar seu terreno. Três tratores são capazes de arar uma área de 6 hectares em 2 horas. O fazendeiro precisa arar uma área total de 12 hectares em uma hora. Quantos tratores são necessários para completar a tarefa no prazo desejado?",
+      "alt": ["12", "16", "9", "15", "10"],
+      "correta": "A"
+    },
+    {
+      "n": 2,
+      "enunciado": "A World Wide Web (WWW) se tornou popular pela primeira vez na década de 1990. Naquela época as velocidades de download atingiam um máximo de cerca de 56 quilobits por segundo. O download de uma música de 7,7 megabytes, feito nessa velocidade máxima de 56 quilobits por segundo, levava um tempo aproximado de: Dado: um megabyte equivale a 8000 quilobits.",
+      "alt": ["19min40s", "15min30s", "16min15s", "18min20s", "17min30s"],
+      "correta": "D"
+    },
+    {
+      "n": 3,
+      "enunciado": "Para distrair o seu filho pequeno no restaurante, Cláudia entregou uma quantidade de massinha de modelar e pediu para ele fazer uma chapa aproximadamente quadrada, com aproximadamente 5 milímetros de espessura. Seu filho conseguiu fazer e o quadrado resultante tinha 12 cm de lado. Cláudia então amassou o quadrado e pediu para ele fazer, com a mesma quantidade de massinha, um disco circular com a mesma espessura. Considerando a aproximação π≈3, qual deve ser o raio, em cm, do disco circular que o menino deve fazer?",
+      "alt": ["5√2", "3√3", "4√3", "5√3", "2√6"],
+      "correta": "C"
+    },
+    {
+      "n": 5,
+      "enunciado": "Considere as operações # e & definidas sobre o conjunto dos números inteiros, conforme abaixo: (1) a # b = (a − b)²  (2) a & b = a² − b². O valor de (3 # (−2)) & (1 # 4) é:",
+      "alt": ["16", "544", "−8", "0", "212"],
+      "correta": "B"
+    },
+    {
+      "n": 6,
+      "enunciado": "O peso de 1/3 de uma pizza grande mais o peso de 2 xícaras e meia de manteiga é o mesmo de 3/4 de uma pizza grande mais o de 1/3 de uma xícara de manteiga. Se o peso de uma pizza grande mais o de uma xícara de manteiga é 1240 gramas, então a diferença entre o peso de uma pizza grande e o de uma xícara de manteiga, em gramas, é:",
+      "alt": ["920", "840", "720", "780", "640"],
+      "correta": "B"
+    },
+    {
+      "n": 7,
+      "enunciado": "Tarsila está preparando uma mistura de tintas para criar uma cor específica. As tintas disponíveis são as seguintes: Tinta A: contém 30% ciano, 70% magenta. Tinta B: contém 60% ciano, 40% magenta. Misturando essas tintas, Tarsila criou 21 mililitros de uma cor nova que contém 40% ciano, 60% magenta. A quantidade de Tinta A que ela utilizou para fazer a cor nova, em mililitros, é",
+      "alt": ["16", "9", "14", "12", "10"],
+      "correta": "C"
+    },
+    {
+      "n": 8,
+      "enunciado": "Zureta, o sapinho saltitante, está inicialmente no quadradinho central de um tabuleiro 3 x 3. A cada salto Zureta escolhe aleatoriamente um dos quadradinhos do tabuleiro adjacentes ao quadradinho em que ele está e salta para lá. Todos os saltos de Zureta são independentes e Zureta só faz saltos na horizontal ou na vertical, nunca na diagonal. Quando Zureta atinge um quadradinho de um dos 4 cantos do tabuleiro ele para e descansa. A partir da posição inicial, Zureta executa uma sequência de saltos. A probabilidade de que Zureta dê no máximo quatro saltos antes de descansar é:",
+      "alt": ["8/9", "2/3", "5/9", "1/2", "7/9"],
+      "correta": "A"
+    },
+    {
+      "n": 9,
+      "enunciado": "A altura de um triângulo retângulo ABC, que é perpendicular à hipotenusa AB, divide a hipotenusa em dois segmentos, AM e MB, com comprimentos de 9 cm e 4 cm, respectivamente. O comprimento da altura MC, em centímetros, é",
+      "alt": ["√6", "2√3", "5", "4√2", "6"],
+      "correta": "E"
+    },
+    {
+      "n": 10,
+      "enunciado": "Para todo n ≥ 0 inteiro, defina Pn = 1/2ⁿ + 1/2ⁿ⁺¹ + 1/2ⁿ⁺² + … A soma S é dada por S = P0 + P1 + P2 + … O valor de S é igual a",
+      "alt": ["6", "7", "8", "5", "4"],
+      "correta": "E"
+    },
+    {
+      "n": 11,
+      "enunciado": "Em uma sequência de números inteiros positivos, cada termo a partir do terceiro é o produto dos dois termos anteriores. O quinto termo dessa sequência é 800. O terceiro termo é:",
+      "alt": ["30", "20", "15", "12", "24"],
+      "correta": "B"
+    },
+    {
+      "n": 12,
+      "enunciado": "Uma escada deve ser construída em torno de um silo de armazenamento cilíndrico para permitir o acesso ao topo. O silo tem uma base circular com raio de 2 metros e altura de 26 metros. A curva que a escada descreve sobre a superfície lateral do cilindro tem uma inclinação constante de 45 graus em relação ao solo. Determine o número de voltas completas que a escada dará ao redor do silo para ir do solo até o seu topo.",
+      "alt": ["1", "5", "4", "2", "3"],
+      "correta": "D"
+    },
+    {
+      "n": 13,
+      "enunciado": "O ponto A(3, 0) sofre uma rotação em torno do ponto P(0, m), pertencente ao eixo-y, resultando no ponto A'(3, 8). O valor de m é",
+      "alt": ["4", "5", "3", "8", "6"],
+      "correta": "A"
+    },
+    {
+      "n": 14,
+      "enunciado": "O conjunto A tem 3 elementos e o conjunto B tem 4 elementos. Considere o conjunto de todas as funções possíveis f : A→B. Se selecionarmos uma função ao acaso deste conjunto, qual é a probabilidade de que a função selecionada seja injetiva?",
+      "alt": ["1/3", "7/16", "3/7", "3/8", "4/15"],
+      "correta": "D"
+    },
+    {
+      "n": 15,
+      "enunciado": "Ana (A) e Beatriz (B) estão em um grande campo gramado a uma distância de 36 metros uma da outra. Carlos (C) também está no mesmo campo, o mais afastado possível de Ana, de tal modo que o ângulo ACB seja 30°. A distância, em metros, de Carlos a Ana é:",
+      "alt": ["108", "36√3", "36", "72√3", "72"],
+      "correta": "E"
+    },
+    {
+      "n": 18,
+      "contexto": "Por que as empresas de tecnologia estão abandonando o home office?\n\n1. Desde o início de 2023, estamos vendo gigantes da tecnologia pedindo que seus colaboradores voltem para os escritórios de forma integral.\n2. É curioso, pois, em tempos recentes, o trabalho remoto foi aclamado como a grande revolução do ambiente corporativo moderno. As promessas de flexibilidade, equilíbrio entre vida profissional e pessoal e acesso a talentos globais fizeram com que muitas empresas adotassem esse modelo com entusiasmo. No entanto, a maré parece estar mudando. E já se fala em \"adeus ao trabalho remoto\".\n3. A comunicação, que é a espinha dorsal de qualquer organização, tem enfrentado obstáculos quando as interações face a face são substituídas por chamadas de vídeo e mensagens instantâneas. Por mais avançadas que sejam as ferramentas virtuais, elas nem sempre conseguem capturar a nuance e a riqueza da comunicação presencial.\n4. Muitas vezes o coração e a alma de uma organização, a cultura empresarial pode estar diluída em um ambiente remoto. A sensação de pertencer, de estar engajado e conectado à missão da empresa, pode se perder quando os funcionários estão dispersos geograficamente.\n5. Mas é bem possível que o desafio mais tangível seja a segurança da informação. Com funcionários acessando sistemas e dados críticos de diferentes locais e dispositivos, garantir a integridade e a segurança dessas informações se tornou uma tarefa hercúlea.\n6. Então, por que algumas das maiores empresas de tecnologia, que foram pioneiras no trabalho remoto, estão agora fazendo uma pausa ou até revertendo suas políticas?\n7. A resposta pode residir na própria natureza da indústria tecnológica. Empresas como Apple e Google prosperam com inovação — aquela faísca criativa que muitas vezes surge de discussões espontâneas no corredor ou brainstormings improvisados. A proximidade física pode, em muitos casos, acelerar esse processo criativo.\n8. Além disso, para reter e atrair os melhores talentos, é essencial oferecer opções. Enquanto alguns podem prosperar em um ambiente remoto, outros podem ansiar pela estrutura, socialização e separação clara entre trabalho e casa que um escritório oferece.\n9. É inegável que o trabalho remoto trouxe uma transformação sem precedentes para o mundo corporativo, mas também trouxe consigo desafios inesperados.\n10. As gigantes da tecnologia, ao reavaliar suas políticas, estão sinalizando que o futuro pode não ser totalmente remoto, mas sim um equilíbrio entre o virtual e o físico. E, como sempre, a chave será se adaptar e evoluir de acordo com as necessidades em constante mudança do mundo dos negócios.\n\nAmanda Graciano, https://www.estadao.com.br, 22/08/2023. Adaptado.",
+      "enunciado": "Depreende-se da leitura do texto que a autora",
+      "alt": [
+        "crê que as empresas terão de optar por uma ou por outra modalidade de trabalho.",
+        "considera inevitável a volta aos escritórios em tempo integral.",
+        "defende com entusiasmo as vantagens do trabalho remoto.",
+        "enfatiza as virtudes do trabalho presencial.",
+        "vê com pessimismo o futuro do trabalho à distância."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 19,
+      "enunciado": "Considere os sinônimos indicados entre parênteses para as expressões sublinhadas. I. \"o trabalho remoto foi aclamado (recebido) como a grande revolução do ambiente corporativo moderno.\" (2º parágrafo) II. \"conseguem capturar a nuance (o matiz) e a riqueza da comunicação presencial.\" (3º parágrafo) III. \"Mas é bem possível que o desafio mais tangível (palpável) seja a segurança da informação.\" (5º parágrafo). Está correto apenas o sinônimo indicado em",
+      "alt": ["III.", "II e em III.", "I e em III.", "II.", "I."],
+      "correta": "B"
+    },
+    {
+      "n": 20,
+      "enunciado": "Apesar de não ser próprio do gênero a que pertence o texto, a autora lança mão de linguagem conotativa de forma reiterada. Dentre os trechos abaixo, o único que NÃO contém esse recurso é:",
+      "alt": [
+        "\"No entanto, a maré parece estar mudando.\"",
+        "\"Então, por que algumas das maiores empresas de tecnologia, [...], estão agora fazendo uma pausa ou até revertendo suas políticas?\"",
+        "\"A comunicação, que é a espinha dorsal de qualquer organização, tem enfrentado obstáculos.\"",
+        "\"Muitas vezes o coração e a alma de uma organização, [..] pode estar diluída em um ambiente remoto.\"",
+        "\"aquela faísca criativa que muitas vezes surge de discussões espontâneas no corredor\"."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 21,
+      "enunciado": "Além de termos, orações também podem funcionar como sujeito. Um exemplo de sujeito oracional cujo verbo está no infinitivo ocorre em:",
+      "alt": [
+        "\"Por mais avançadas que sejam as ferramentas virtuais, elas nem sempre conseguem capturar a nuance e a riqueza da comunicação presencial\".",
+        "\"E, como sempre, a chave será se adaptar e evoluir de acordo com as necessidades em constante mudança do mundo dos negócios\".",
+        "\"A resposta pode residir na própria natureza da indústria tecnológica\".",
+        "\"A sensação de pertencer, de estar engajado e conectado à missão da empresa, pode se perder\".",
+        "\"Além disso, para reter e atrair os melhores talentos, é essencial oferecer opções\"."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 22,
+      "contexto": "1. \"Vais encontrar o mundo, disse-me meu pai, à porta do Ateneu. Coragem para a luta.\"\n2. Bastante experimentei depois a verdade deste aviso, que me despia, num gesto, das ilusões de criança educada exoticamente na estufa de carinho que é o regime do amor doméstico, diferente do que se encontra fora, tão diferente, que parece o poema dos cuidados maternos um artifício sentimental, com a vantagem única de fazer mais sensível a criatura à impressão rude do primeiro ensinamento, têmpera brusca da vitalidade na influência de um novo clima rigoroso. Lembramo-nos, entretanto, com saudade hipócrita, dos felizes tempos; como se a mesma incerteza de hoje, sob outro aspecto, não nos houvesse perseguido outrora e não viesse de longe a enfiada das decepções que nos ultrajam.\n3. Eufemismo, os felizes tempos, eufemismo apenas, igual aos outros que nos alimentam, a saudade dos dias que correram como melhores. Bem considerado, a atualidade é a mesma em todas as datas. Feita a compensação dos desejos que variam, das aspirações que se transformam, alentadas perpetuamente do mesmo ardor, sobre a mesma base fantástica de esperanças, a atualidade é uma. Sob a coloração cambiante das horas, um pouco de ouro mais pela manhã, um pouco mais de púrpura ao crepúsculo — a paisagem é a mesma de cada lado beirando a estrada da vida.\n4. Eu tinha onze anos.\"\n\nRaul Pompeia, O Ateneu.",
+      "enunciado": "O aviso que o pai dá ao filho, à porta do Ateneu, sugere que o colégio está para o mundo, como o",
+      "alt": [
+        "ensino está para a ignorância.",
+        "problema está para a solução.",
+        "internato está para a prisão.",
+        "microcosmo está para o macrocosmo.",
+        "dever está para a transgressão."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 23,
+      "enunciado": "No excerto de O Ateneu, as reflexões do narrador configuram uma percepção do tempo, que se caracteriza pelo fato de que",
+      "alt": [
+        "ele passa lentamente, para a criança, e, aceleradamente, para o adulto.",
+        "ele aponta enfaticamente para o futuro, considerado a dimensão temporal da redenção.",
+        "ele tem, como virtude principal, a capacidade de solver conflitos e reconciliar opostos.",
+        "o passado é concebido como erro; o presente, como ilusão, e o futuro, como radioso.",
+        "o presente é diferente do passado e, ao mesmo tempo, não o é."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 25,
+      "enunciado": "Considerando-se que o romance O Ateneu tem feição memorialística, e que seu subtítulo é \"Crônica de saudades\", o teor de sua abertura, aqui reproduzida, revela que a relação do narrador com sua matéria é",
+      "alt": [
+        "dialética e otimista.",
+        "irracional e irrefletida.",
+        "típica da ideologia republicana.",
+        "positivista e cientificista.",
+        "dúplice e contraditória."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 26,
+      "enunciado": "No trecho \"Bem considerado, a atualidade é a mesma em todas as datas.\" (3º parágrafo), a oração sublinhada expressa ideia de",
+      "alt": ["consequência.", "finalidade.", "condição.", "causa.", "concessão."],
+      "correta": "C"
+    },
+    {
+      "n": 27,
+      "enunciado": "\"Vais encontrar o mundo, disse-me meu pai, à porta do Ateneu.\" (1º parágrafo). Se essa frase for redigida em discurso indireto, a locução verbal sublinhada mudará para:",
+      "alt": ["\"ia encontrar\".", "\"vai encontrar\".", "\"encontraste\".", "\"encontrarás\".", "\"fosse encontrar\"."],
+      "correta": "A"
+    },
+    {
+      "n": 28,
+      "contexto": "NO MEIO DO CAMINHO\n\nNo meio do caminho tinha uma pedra\ntinha uma pedra no meio do caminho\ntinha uma pedra\nno meio do caminho tinha uma pedra.\n\nNunca me esquecerei desse acontecimento\nna vida de minhas retinas tão fatigadas.\nNunca me esquecerei que no meio do caminho\ntinha uma pedra\ntinha uma pedra no meio do caminho\nno meio do caminho tinha uma pedra.\n\nCarlos Drummond de Andrade, Alguma poesia.",
+      "enunciado": "Para dar concreção verbal à vivência de choque produzida pelo encontro com o obstáculo, o poema vale-se, primordialmente, do recurso à",
+      "alt": [
+        "personificação da pedra.",
+        "paródia e à carnavalização.",
+        "antítese continuada.",
+        "reiteração múltipla.",
+        "onomatopeia."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 29,
+      "enunciado": "A composição do poema de Drummond beneficia-se, principalmente, da seguinte conquista do movimento modernista:",
+      "alt": [
+        "a rejeição da linguagem figurada.",
+        "a revolução cultural da Antropofagia.",
+        "o direito à pesquisa estética.",
+        "a criação do poema-piada.",
+        "a invenção dos versos brancos (sem rima)."
+      ],
+      "correta": "C"
+    },
+    {
+      "n": 30,
+      "enunciado": "Entre as licenças poéticas de que lança mão o texto de Drummond, encontra-se",
+      "alt": [
+        "o emprego de infrações à norma culta escrita da língua portuguesa.",
+        "a recusa das alusões ou referências à tradição poética.",
+        "o abandono do uso da metáfora.",
+        "a prática da escrita automática.",
+        "a exclusão dos registros visuais."
+      ],
+      "correta": "A"
+    },
+    {
+      "n": 31,
+      "contexto": "WHITE WOMEN AND SLAVERY\n\n(Historical Note: Based on English common law, coverture laws in the United States forbade a married woman to own property, sign legal documents or enter into a contract, obtain an education against her husband's wishes, or keep a salary for herself.)\n\n1. They didn't know how bad it was. That was how James Redpath, a northern journalist who toured the U.S. South in the 1850s, explained white southern women's support for slavery to his readers. He reckoned that women were shielded from the \"most obnoxious features\" – rarely witnessing the auctions and punishments – and were oblivious to the \"gigantic commerce\" that it had become. Historians came to agree that slavery was the business of men.\n2. Research published last month shatters that narrative. Economists at Ohio State University analyzed data from the New Orleans slave market, the biggest. They found that women were buyers or sellers in 30% of all transactions and 38% of those that involved female slaves.\n3. These are the first hard numbers building on qualitative work by Stephanie Jones-Rogers at the University of California, Berkeley, showing just how instrumental women were to the slave economy. In the travel logs of foreigners she recently uncovered descriptions of southern belles bidding at the slave markets dressed in their finest silks and \"glittering in precious jewels.\" For the ladies of the antebellum South, slavery was more than business – it was their ticket to economic freedom. Coverture laws compelled women to relinquish property and money to men when they married, but exceptions were made for slaves. Fathers hoping to secure their daughters' futures gave them slaves at baptisms, birthdays, and engagements.\n4. Women put slaves to work selling cakes or dresses and pocketed the profits in secret. Some ran slave brothels. They then used the cash to reinvest in the slave market. But unlike their husbands, who often bought men to work the fields, women bought more women, who were cheaper but paid dividends later on when they reproduced. After the Civil War it would be decades before the women of the South gained the right to control their earnings, have property, and vote. Ms. Jones-Rogers contends that their fight for segregation into the 20th century was fuelled by the sense of power they had known and lost. In the subjugation of others they had tasted freedom.\n\nAdapted from The Economist, June 22, 2024.",
+      "enunciado": "The article's first sentence – \"They didn't know how bad it was\" – most likely refers to the belief that",
+      "alt": [
+        "during the days of slavery in the U.S. South, northerners had an unrealistic, romanticized view of that institution.",
+        "because of southern customs and traditions, white southern women had to pretend they knew nothing about the institution of slavery.",
+        "slavery in the U.S. South would have ended much sooner if northerners had known how bad that institution was.",
+        "white southern women were advocates of slavery only because they had so little familiarity with the terrible reality of that institution.",
+        "U.S. historians accepted superficial descriptions of southern slavery until James Redpath published his investigative journalism in the 1850s."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 32,
+      "enunciado": "The information in the article most likely supports which of the following?",
+      "alt": [
+        "For many years, written observations by foreign travellers failed to effectively counter James Redpath's view of white southern women's relationship with slavery.",
+        "Contrary to popular belief, white southern women in general constituted the biggest group of buyers at the New Orleans slave market.",
+        "When upper-class white southern women were present, a slave auction was conducted as more of a social event than a commercial one.",
+        "According to some economists, white southern women were involved in a combined total of 68% of all slave transactions at the New Orleans slave market.",
+        "White southern women needed special permission to witness the punishments and auctions of slaves."
+      ],
+      "correta": "A"
+    },
+    {
+      "n": 33,
+      "enunciado": "Because of coverture laws in the U.S. South, we may presume that",
+      "alt": [
+        "slaves were the only property that white southern women could own.",
+        "though white southern men and women often supported slavery and, later, segregation, their reasons for doing so were not necessarily the same.",
+        "political ideology became a mask for a married white southern woman's economic self-interest.",
+        "a white southern woman who didn't own slaves was considered little better than a slave herself.",
+        "white southern women who possessed valuable patrimony resisted getting married."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 34,
+      "enunciado": "The article's last sentence – \"In the subjugation of others they had tasted freedom\" – most likely refers to which of the following?",
+      "alt": [
+        "By profiting from the labor of their slaves, white southern women could be equal to any man.",
+        "Though they themselves were oppressed, white southern women did not hesitate to oppress slaves.",
+        "By owning slaves, white southern women could free themselves from the never-ending responsibilities of domestic duties.",
+        "Slavery freed white southern women from traditional moral constraints and enabled them to concentrate on making money.",
+        "The abolition of slavery deprived many white southern women of an important source of economic independence."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 35,
+      "contexto": "FROM THE AMERICAN WRITER DAVID McCLOSKEY\n\nI find it depressing that there's a gulf between Russian and western (specifically American) views of freedom. We Americans have a tendency to \"mirror-image\" the Russian people, to assume that they want the same things we do, that the hopes and desires of Americans are an acceptable proxy for what most Russian's hope and desire. I'm not sure it's true, or at least it's not true often enough. It's one of the reasons there has not been much sustained, energetic, and organized opposition inside Russia to the war in Ukraine. In general, Americans would protest and scream for freedom, but many (most?) Russians put their heads down and just try to get by, or get their dose of autonomy in some other, more limited way.\n\nAdapted from Prospect, March 2024.",
+      "enunciado": "When David McCloskey mentions \"the gulf between Russian and western (specifically American) views of freedom,\" he is most likely referring to which of the following?",
+      "alt": [
+        "There can never be real understanding between Russia and the U.S. as long as both countries insist on competing for a dominant position worldwide.",
+        "Russians have been conditioned not to openly express their hopes and desires, whatever they may be.",
+        "Americans have a hard time understanding that their love of freedom and their desire to maintain it are not necessarily shared by Russians.",
+        "Russians don't understand freedom because, throughout their country's history, they have never really had it.",
+        "Americans often fall into the trap of thinking that they and the Russians are merely two groups that can be considered \"separate but equal.\""
+      ],
+      "correta": "C"
+    },
+    {
+      "n": 36,
+      "enunciado": "By saying \"I'm not sure it's true, or it's not true often enough,\" David McCloskey is most likely",
+      "alt": [
+        "condemning Russians for not adhering to certain concepts that Americans consider both good and self-evident.",
+        "expressing his fear that Russians can neither be understood nor trusted.",
+        "affirming that, to avoid problems with their government, most Russians never seek any kind of personal independence.",
+        "distancing himself from what he considers a common American opinion.",
+        "admitting his own typically American inability to view Russians as \"westerners.\""
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 37,
+      "contexto": "TRIAL BY JURY\n\n1. One institution of government that many people will take part in at some time is the jury trial. It's a system with sources in medieval England, especially in actions by King Henry II, who ruled from 1154 to 1189. To settle disputes over land and inheritance, Henry introduced the practice of \"assizes.\" Twelve local men with knowledge of the dispute would be called to testify as to who was the rightful owner or heir. They differed from a modern jury in that they were expected to arrive in court already knowing the facts of the case, instead of having evidence of the two sides presented to them there.\n2. In Henry's time, people suspected of crimes (often punishable by death) were subjected to trial by ordeal. In one variety, a priest would be summoned to bless a pond or river, and the accused would be thrown in. If he or she floated, guilt would be assumed, since the blessed water had \"rejected\" them. In 1215 the Catholic Church forbade clergymen to assist in trial by ordeal. The decision delegitimized the procedure, which rested on an assumption that God protected the innocent. So the assize panels were adapted to serve as something more like modern juries – bodies that decide guilt and innocence, and by the 15th century they were more commonly hearing evidence presented to them in court rather than working entirely on the basis of their own information about the dispute. Though the right to a jury trial is guaranteed in the U.S. Constitution, juries have become less common in the land of their birth. In England, both civil and criminal cases are now more likely to be tried before judges alone.\n\nAdapted from 100 Ideas That Changed The World, published by Time.",
+      "enunciado": "The information in the article most likely supports which of the following?",
+      "alt": [
+        "Most people in countries that have adopted the English legal system will participate in a jury trial at least once during their lifetime.",
+        "The assizes were always forbidden to judge men and women accused of criminal behavior.",
+        "Before the reign of King Henry II, trial by ordeal was the standard way of resolving land and inheritance disputes in England.",
+        "By royal decree, the twelve men in an assize panel had to be recognized experts appointed by the King of England.",
+        "Juries developed from a way of trying to verify which person had the strongest right to possess a certain disputed item or patrimony."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 38,
+      "enunciado": "With respect to \"trial by ordeal,\" as described in the article, you can most logically conclude that",
+      "alt": [
+        "the people of that time probably believed that without the participation and support of the Catholic Church, trial by ordeal made no sense.",
+        "the people who advocated trial by ordeal had complete and unquestioning faith in God's infallible justice.",
+        "people believed that the water blessed by a Catholic priest for a trial by ordeal would remain sacred for eternity.",
+        "when trial by ordeal was abandoned in England, the assize panels were forced to take on several new duties to avoid becoming obsolete.",
+        "if God was on the side of a person being submitted to a trial by ordeal, he or she would probably drown."
+      ],
+      "correta": "A"
+    },
+    {
+      "n": 39,
+      "enunciado": "The information in the article most likely supports all of the following except",
+      "alt": [
+        "ironically, the country that gave the world the concept of trial by jury now makes little use of it.",
+        "before 1215, people in England generally believed that, on certain occasions, God worked with an essential representative on earth to protect innocent people.",
+        "until 1215, the Catholic Church in England actively opposed the implementation of trial by jury.",
+        "in some types of trial by ordeal, the ability to swim would not necessarily keep an accused person alive.",
+        "before the 15th century, members of assize panels were expected to have a significant amount of knowledge and preparation before helping to decide a dispute."
+      ],
+      "correta": "C"
+    },
+    {
+      "n": 40,
+      "contexto": "THE ATTEMPTED ASSASSINATION OF THEODORE ROOSEVELT\n\n(Historical Note: In 1912, as the candidate of the Progressive Party, whose symbol was a magnificent bull moose, Theodore Roosevelt ran unsuccessfully for an unprecedented third term as president of the United States.)\n\n1. On October 14, 1912, while arriving at a campaign event in Milwaukee, Wisconsin, Theodore Roosevelt was shot by the deranged John Schrank, who believed the ghost of the assassinated U.S. president William McKinley had directed him to kill Roosevelt. The bullet lodged in his chest after penetrating his steel eyeglass case and passing through a 50-page single-folded copy of the speech he intended to give that night. Schrank was disarmed and captured by Roosevelt's stenographer, Elbert E. Martin, as he attempted to fire a second time, and might have been lynched had Roosevelt not shouted for Schrank to remain unharmed. Roosevelt assured the crowd that he was all right, then ordered the police to take Schrank and make sure no violence was done to him.\n2. As an experienced hunter and knowledgeable about anatomy, Roosevelt correctly assumed that since he was not coughing blood, the bullet had not reached his lung. He refused to go to a hospital immediately and insisted on proceeding to the auditorium where ten thousand people waited to hear his speech. After mounting the stage, he showed the audience his bloody shirt and said: \"I have just been shot, but it takes more than that to kill a bull moose.\"\n3. Roosevelt then delivered a 90-minute speech with blood seeping into his shirt. Only afterwards did he accept medical attention. Probes and an X-ray showed the bullet embedded in Roosevelt's chest muscle. Doctors concluded that it would be less dangerous to leave it than attempt to remove it, and so Roosevelt carried the bullet in him for the rest of his life. Once he wrote a friend about the bullet: \"I do not mind it any more than if it were in my waistcoat-pocket.\"\n\nAdapted from Wikipedia.",
+      "enunciado": "According to the information in the article, which of the following most likely happened in Milwaukee on October 14, 1912?",
+      "alt": [
+        "A madman acted, as he alleged, because of a request from a dead U.S. president.",
+        "John Schrank's incompetence with a gun saved Theodore Roosevelt's life.",
+        "That morning, the city of Milwaukee awoke to the news that Theodore Roosevelt had almost died.",
+        "As part of a conspiracy, a terrorist was sent to Milwaukee to assassinate Theodore Roosevelt.",
+        "A paid assassin tried to kill Theodore Roosevelt."
+      ],
+      "correta": "A"
+    },
+    {
+      "n": 41,
+      "enunciado": "The information in the article most likely supports all of the following except",
+      "alt": [
+        "it's possible that Elbert E. Martin saved Theodore Roosevelt's life.",
+        "if he had been coughing blood after being shot, Theodore Roosevelt probably would have accepted immediate medical care.",
+        "after several failed attempts to remove the bullet, the doctors decided to leave it in Theodore Roosevelt's chest.",
+        "Theodore Roosevelt at least twice expressed his concern for the safety of John Schrank.",
+        "Theodore Roosevelt's decision to give his speech after being shot was not foolish."
+      ],
+      "correta": "C"
+    },
+    {
+      "n": 42,
+      "enunciado": "The information in the article most likely suggests that, after Theodore Roosevelt was shot,",
+      "alt": [
+        "for the rest of his life he did his best to ignore the pain that the bullet in his chest was causing.",
+        "he surprised everyone by being more concerned about John Schrank's well-being than his own well-being.",
+        "his experience as a hunter and his knowledge of anatomy saved his life.",
+        "for the first time in his life he truly understood the importance of luck.",
+        "he soon found a way to use that occurrence to benefit his political campaign."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 43,
+      "contexto": "ANOTHER GREAT FLOOD\n\n(Historical Note: 1 cubit = 44 centimeters)\n\n1. Well before the Book of Genesis was written down, a similar story about a great flood was recorded in ancient Mesopotamia, that historical region situated within the Tigris-Euphrates river system. In this earlier account, the gods had grown unhappy with humankind. They had made people out of clay to labor at building canals and raising crops to save the lesser gods from the drudgery. But humans, headstrong and irritating, had caused so much trouble that the gods, led by Anu, the king of the gods, decided to wash them away by flooding Mesopotamia. However, the lesser god Hea, feeling sorry for the humans, came to a man named Adrakhasis (also \"Atrahasis\") in his city on the Euphrates River and told him to build a great boat, 600 cubits long and 60 wide, and to fill it with \"thy grain, thy furniture, thy goods, they wealth, thy women slaves, thy handmaids, and the sons of the people, the beasts of the field, and the wild animals of the field.\" The door was sealed and a great storm began, driven by the gods of wind and rain. It lasted for seven days and nights. When the rain stopped, the people in the boat found a flooded world, with corpses floating on the water like reeds. The ship came to rest on Mt. Nizir. Adrakhasis sent out a dove, a sparrow, and a raven to find the land, and when the flood receded, he released all his animals to repopulate the world. He built an altar on the mountain and made a sacrifice to the gods, who all came around and were so impressed that they granted Adrakhasis immortality.\n2. This story is in cuneiform on Table XI of the Epic of Gilgamesh, written around 2100 BCE [\"Before the Common Era,\" i.e., \"Before Christ\"].\n\nAdapted from Natural History, February 2024.",
+      "enunciado": "As presented in the article, this story of a great flood probably least supports which of the following?",
+      "alt": [
+        "The gods were apparently inefficient when they created humans.",
+        "The original purpose of humans was to act as a kind of labor-saving device for a certain group of gods.",
+        "The emotion of pity saved humans from extinction.",
+        "The gods had created humans in their image.",
+        "It seems to suggest that the world's only humans lived in Mesopotamia."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 44,
+      "enunciado": "With respect to the gods, which of the following is most likely not supported by the information in the article?",
+      "alt": [
+        "Some of them avoided certain kinds of work.",
+        "They were associated with a religion that predates the Jewish religion.",
+        "Though powerful, they apparently were not omniscient.",
+        "They didn't always agree unanimously among themselves and were capable of changing their minds.",
+        "They could take an inanimate substance and turn it into something alive."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 45,
+      "enunciado": "The story in cuneiform on Table XI of the Epic of Gilgamesh most likely suggests which of the following?",
+      "alt": [
+        "By his actions alone, Adrakhasis saved humans from extinction.",
+        "Not only did the great flood kill humans, but it also killed both domesticated and wild animals.",
+        "Hea chose to speak to Adrakhasis because he was both the leader and the richest man of Mesopotamia.",
+        "The gods rewarded Adrakhasis by making him a god.",
+        "The first time a god spoke directly to a human was just before the great flood."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 46,
+      "enunciado": "O Brasil, como resultado da política externa pragmática que visava tornar o país um \"player\" internacional, reatou, em 1974, relações diplomáticas com a China, liderada por Mao Tsé-Tung. Sobre os resultados dessa improvável aproximação, analise as afirmações a seguir. I. A redução das taxas de crescimento da economia chinesa deve se refletir nas exportações brasileiras, porque a China tornou-se, a partir de 2009, o principal destino das commodities brasileiras. II. O processo de desindustrialização e a falta de competitividade dos produtos industriais brasileiros são explicados pela concorrência das novas industriais desenvolvidas na China. III. As relações comerciais entre o Brasil e a China devem aumentar devido à nova rota da seda, iniciativa chinesa de se conectar com os países membros do BRICS, mediante investimentos em infraestrutura e energia. Está correto o que se afirma em",
+      "alt": ["I e II, apenas.", "I e III, apenas.", "I, apenas.", "I, II e III.", "II e III, apenas."],
+      "correta": "C"
+    },
+    {
+      "n": 47,
+      "enunciado": "Sobre as eleições presidenciais realizadas na Venezuela, em julho de 2024, analise as afirmações a seguir. I. O governo brasileiro não aceitou o resultado eleitoral venezuelano como reação às críticas feitas por Maduro à integridade das eleições e das urnas eletrônicas no Brasil. II. A União Europeia afirmou não reconhecer a reeleição de Maduro devido à não divulgação dos registros oficiais das eleições e demonstrou sua preocupação com as prisões arbitrárias e a repressão contra a oposição. III. Os governos de nove países latino-americanos, em documento conjunto, manifestaram profunda preocupação com o resultado das eleições presidenciais da Venezuela e exigiram a publicação das atas eleitorais para reconhecê-lo. Está correto o que se afirma em",
+      "alt": ["II e III, apenas.", "I e II, apenas.", "I e III, apenas.", "I, apenas.", "I, II e III."],
+      "correta": "A"
+    },
+    {
+      "n": 48,
+      "enunciado": "Em maio de 2024, um dos maiores nomes da literatura brasileira fez muito sucesso nas redes sociais. Tudo por causa de um desafio pessoal de uma norte-americana, que estabeleceu para si, como missão, ler um livro de um autor de cada país. Para o Brasil, ela escolheu um clássico absoluto, publicado, oficialmente, em 1881. Assinale a opção que o indica.",
+      "alt": ["Vidas Secas, de Graciliano Ramos.", "Os Sertões, de Euclides da Cunha.", "Encontro Marcado, de Fernando Sabino.", "Grande Sertão: Veredas, de Guimarães Rosa.", "Memórias Póstumas de Brás Cubas, de Machado de Assis."],
+      "correta": "E"
+    },
+    {
+      "n": 49,
+      "contexto": "\"O mundo romano não foi o único na história onde as mulheres permaneceram em segundo plano na política e nos negócios […] Entretanto, é difícil lembrar outro grande Estado civilizado sem grandes escritoras e poetisas, sem uma rainha verdadeiramente poderosa\". FINLEY, M. I. Aspectos da Antiguidade. Trad. São Paulo: Martins Fontes, 1991, p. 149-150.",
+      "enunciado": "As mulheres, no mundo romano:",
+      "alt": [
+        "Tinham ao menos o direito assegurado à participação e votação nas assembleias desde que possuíssem a cidadania política.",
+        "Passaram a se destacar nas atividades mercantis a partir do Império, controlando várias rotas de abastecimento do Mar Mediterrâneo.",
+        "Controlavam totalmente os rituais pagãos e passaram também a dirigir os principais assuntos religiosos com o advento do cristianismo.",
+        "Adquiriram alguns direitos políticos com o estabelecimento da República e puderam ocupar funções e cargos intermediários na magistratura.",
+        "Eram sujeitas ao poder do pater familias, como os filhos e os escravos, cujo limite era a decisão sobre a morte dos subordinados."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 50,
+      "enunciado": "Em maio de 1948, foi proclamada a criação do Estado de Israel em um contexto histórico marcado pelo fim da Segunda Guerra Mundial e por conflitos na Palestina intensificados desde a década de 1930. Sobre esse contexto, é correto afirmar:",
+      "alt": [
+        "A divisão da Palestina em dois Estados, aprovada pela ONU (Organização das Nações Unidas) em 1947, foi contestada por lideranças palestinas e pacificou os conflitos na região.",
+        "A imigração judaica, desde o início do século XX, foi patrocinada por palestinos descontentes com a dominação franco-britânica que transformara a região em um Protetorado.",
+        "O governo britânico, em 1939, tomou medidas para inibir a imigração e limitar a aquisição de terras por judeus na Palestina, o que estimulou grupos armados a promoverem ações terroristas.",
+        "O contingente judaico ultrapassou a população árabe estabelecida na Palestina, com o crescente deslocamento de judeus de diversas partes do mundo para a região, ao final da década de 1930.",
+        "Brigadas de voluntários compostas por judeus e palestinos lutaram juntas durante a Segunda Guerra Mundial ao lado das forças militares Aliadas contra o Eixo."
+      ],
+      "correta": "C"
+    },
+    {
+      "n": 51,
+      "contexto": "\"Inicialmente, a historiografia separa seu presente de um passado. Porém, repete sempre o gesto de dividir. Assim sendo, sua cronologia se compõe de 'períodos' (por exemplo Idade Média, História Moderna, História Contemporânea) entre os quais se indica sempre a decisão de ser outro ou de não ser mais o que havia sido até então (o Renascimento, a Revolução). Por sua vez, cada tempo 'novo' deu lugar a um discurso que considera 'morto' aquilo que o precedeu, recebendo um 'passado' já marcado pelas rupturas anteriores.\" DE CERTEAU, M. A escrita da História. Trad. Rio de Janeiro: Forense-Universitária, 1982, p. 15.",
+      "enunciado": "A expansão marítima europeia é tida como um dos marcos temporais do início da Idade Moderna e fim da Idade Média. Acerca dessa periodização, é correto afirmar:",
+      "alt": [
+        "O caráter humanista do contato com os povos submetidos é um dos elementos de ruptura com as práticas medievais intolerantes.",
+        "A conquista articulou os destinos particulares de povos de continentes diversos, possibilitando a constituição inicial de uma história mundial.",
+        "A revolução social dirigida pela burguesia ibérica permitiu a montagem de grandes empresas marítimas, enfraquecendo a nobreza e o clero.",
+        "O avanço europeu a partir do século XV rompeu com a ausência de atividades comerciais, característica das sociedades medievais.",
+        "A revolução tecnológica dos séculos XV e XVI se sobrepôs à estagnação de saberes do mundo medieval."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 52,
+      "enunciado": "Ao final do século XVI, o jesuíta Fernão Cardim definiu o engenho de açúcar como uma \"máquina e fábrica incrível\". Os engenhos:",
+      "alt": [
+        "Articulavam o mundo rural, do plantio de cana, e os espaços urbanos coloniais, destinados a produção de açúcar e sua comercialização.",
+        "Caracterizavam-se por uma agroindústria sofisticada que dispensou a utilização da mão-de-obra indígena no plantio e nas moendas.",
+        "Empregavam apenas a força motriz humana de escravizados para movimentar as prensas no processo de moagem da cana.",
+        "Eram complexos sociais que se estabeleceram no interior do território da América Portuguesa e permitiram o avanço das fronteiras coloniais.",
+        "Possuíam uma estrutura produtiva diretamente associada ao trabalho escravo que incluía também serviços especializados de homens livres."
+      ],
+      "correta": "E"
+    },
+    {
+      "n": 53,
+      "enunciado": "A primeira Constituição brasileira, de 1824, foi elaborada durante um processo turbulento de divergências políticas. A esse respeito, é correto afirmar:",
+      "alt": [
+        "O Poder Moderador era uma expressão da perspectiva absolutista do monarca D. Pedro I e de seus auxiliares mais diretos, como forma de controlar o poder das oligarquias regionais brasileiras.",
+        "O poder Moderador foi a maneira de estabelecer a hegemonia política das províncias do Nordeste diante do poderio econômico de São Paulo, Rio de Janeiro e Minas Gerais.",
+        "A adoção do Poder Moderador foi uma estratégia de apaziguamento das rivalidades entre as oligarquias de São Paulo e Minas Gerais, que disputavam a hegemonia política do Estado brasileiro.",
+        "O estabelecimento do Poder Moderador baseava-se no pensamento ilustrado de Montesquieu, que previa um instrumento de harmonização política entre os poderes Judiciário, Legislativo e Executivo.",
+        "A Assembleia Constituinte foi instaurada em 1823 e só encerrou seus trabalhos com a aceitação da proposta de D. Pedro I em criar o Poder Moderador, que controlava os demais poderes."
+      ],
+      "correta": "A"
+    },
+    {
+      "n": 54,
+      "enunciado": "Entre 1974 e 1980, a oposição à Ditadura Militar no Brasil manifestou-se, apesar da manutenção de mecanismos repressivos e de censura no país. Sobre esse período, é correto afirmar:",
+      "alt": [
+        "A fragorosa derrota eleitoral da oposição nas eleições parlamentares de 1974 demonstraram que a única possibilidade de enfrentamento ao regime seria a mobilização popular.",
+        "A morte de Vladimir Herzog em 1975, nas dependências do DOI-CODI em São Paulo, provocou grandes manifestações populares em diversas capitais do país.",
+        "A campanha pela anistia aos presos políticos e as movimentações pela reorganização da UNE (União Nacional dos Estudantes) estimularam manifestações públicas contra o regime, entre 1977 e 1979.",
+        "A Lei Falcão (1976) e o Pacote de Abril (1977), medidas para dificultar o crescimento da oposição, estimularam o aparecimento de grupos guerrilheiros no Brasil.",
+        "A cassação dos partidos de esquerda, como o PCB e o PCdoB, foram as principais motivações das greves dos metalúrgicos do ABC a partir de 1978."
+      ],
+      "correta": "C"
+    },
+    {
+      "n": 55,
+      "enunciado": "O Brasil apresentou um crescimento econômico acelerado durante o período de 1940 a 1980, sem modificar significativamente a forte desigualdade social, mas na segunda metade do século XX, seus indicadores de mortalidade infantil e de esperança de vida ao nascer evoluíram positivamente. Assinale a opção que indica, corretamente, um fator orientador dessa dinâmica.",
+      "alt": [
+        "O atendimento médico às adolescentes gestantes e aos casamentos precoces.",
+        "O acesso à informação e ao conhecimento dos métodos anticonceptivos.",
+        "A obrigatoriedade dos serviços de vacinas e o acesso a antibióticos.",
+        "A universalização do serviço de água potável e de esgotamento sanitário.",
+        "A garantia da escolaridade básica e do acesso ao mercado de trabalho."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 56,
+      "contexto": "A modernidade separou a ordem 'natural' da 'humana' como se o homem não pertencesse ao natural, criando o pensamento utópico de que a natureza é um instrumento para suprir as necessidades humanas.",
+      "enunciado": "A respeito da citação acima, analise as afirmações a seguir. I. Ao longo dos séculos XVIII e XIX, não havia dúvida de que os seres humanos, por meio do domínio da ciência e da técnica, poderiam controlar os fenômenos naturais. II. O desenvolvimento industrial mudou o modo de vida humano, que ganhou a perspectiva de uma vida voltada para a produção e o consumo de bens, sem preocupar-se com a finitude dos recursos naturais. III. A crise ecológica, com seus efeitos nas mudanças climáticas e na sustentabilidade ambiental do planeta, é consequência do desenvolvimento tecnológico sobre o meio ambiente. Está correto o que se afirma em",
+      "alt": ["II e III, apenas.", "I e II, apenas.", "I, apenas.", "I, II e III.", "I e III, apenas."],
+      "correta": "D"
+    },
+    {
+      "n": 57,
+      "enunciado": "De acordo com o Instituto Nacional de Pesquisa Espacial (Inpe), o desmatamento na Amazônia Legal cresce a um ritmo de mais de 20.000 km² por ano. Em 2015, o desmatamento atingiu uma área de 27.423 km², superado apenas pelo ocorrido em 1995 com uma devastação de 29.059 km². O território desmatado atingia, em 2015, uma área de, aproximadamente, 600.000 km². Sobre as causas desse elevado desmatamento, assinale a afirmação incorreta.",
+      "alt": [
+        "A concessão de benefícios fiscais para a pecuária em grande escala, atividade altamente rentável do ponto de vista privado, acelerou o desmatamento na fronteira agrícola.",
+        "A expansão da agricultura empresarial, no que se refere ao acesso à terra, permitiu a implantação de assentamentos rurais, o que acelerou o desmatamento.",
+        "As políticas de caráter desenvolvimentista, que visavam integrar a região mediante a construção de eixos rodoviários, contribuíram para aumentar o desmatamento.",
+        "O crescimento da população, devido às políticas de migração adotadas, aumentou a pressão sobre a base de recursos naturais, com repercussões ambientais imediatas.",
+        "A expansão da agropecuária deu origem ao arco de desmatamento, região em que a fronteira agrícola avança em direção à floresta e onde estão os maiores índices de desmatamento."
+      ],
+      "correta": "B"
+    },
+    {
+      "n": 58,
+      "enunciado": "O desenvolvimento sustentável, como uma das soluções para a crise ambiental vivida no mundo, propõe a adoção de meios mais eficazes para a preservação dos recursos naturais. As opções a seguir apresentam valores e comportamentos capazes de mudar, para melhor, as expectativas do futuro, à exceção de uma. Assinale-a.",
+      "alt": [
+        "Deslocar a noção de felicidade da sociedade de \"consumir\" para \"usufruir\".",
+        "Diminuir a rotatividade imposta pela \"moda\", visando à durabilidade dos produtos.",
+        "Estimular a adoção de fontes de energia que não emitam gases do efeito estufa.",
+        "Adotar políticas demográficas natalistas para \"frear\" a ação antrópica sobre a natureza.",
+        "Aumentar as pressões para a valorização e a melhoria dos transportes coletivos."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 59,
+      "enunciado": "A respeito da urbanização brasileira a partir dos anos 1980, assinale a afirmação correta.",
+      "alt": [
+        "As cidades de porte médio cresceram com taxas menores do que as metrópoles, devido às deficiências do setor de serviços demandados pelas empresas.",
+        "O processo de metropolização foi acelerado devido às mudanças demográficas, principalmente, a diminuição da taxa de natalidade.",
+        "As metrópoles nacionais, devido ao aumento das migrações internas, mantiveram taxas de crescimento demográfico maiores que a do país, mas o ritmo desse crescimento foi diminuindo.",
+        "As cidades situadas nas regiões de recepção do fluxo migratório mais intenso, como foi o caso do Centro-Oeste, apresentaram crescimento superior ao das metrópoles.",
+        "As periferias das metrópoles cresceram mais do que os núcleos centrais, o que implicou o adensamento do espaço urbano e a melhoria dos indicadores sociais."
+      ],
+      "correta": "D"
+    },
+    {
+      "n": 60,
+      "contexto": "A China contemporânea, integrada aos mercados mundiais, iniciou seu processo de abertura somente no final da década de 1970, quando Deng Xiao-Ping, rompendo com a política econômica isolacionista de Mao Tsé-Tung, adotou as primeiras medidas que levaram à instalação de uma economia de mercado. O crescimento da economia chinesa a partir dessa decisão mudou o centro de gravidade da economia e, em consequência, da política mundial. Em 50 anos, a China passou da situação de país subdesenvolvido à condição de fábrica do mundo.",
+      "enunciado": "Sobre as mudanças ocorridas na China, assinale a afirmação correta.",
+      "alt": [
+        "A balança comercial superavitária permitia a acumulação de reservas cambiais e o aumento dos investimentos.",
+        "A dispersão espacial dos investimentos integrava as regiões periféricas aos centros dinâmicos da economia.",
+        "A legislação fiscal do socialismo de mercado restringia a livre circulação dos investimentos de capital produtivo.",
+        "A qualificação da mão de obra sustentava a preços competitivos dos setores industriais voltados para o mercado interno.",
+        "A passagem do coletivismo para a propriedade individual possibilitava o aumento das exportações do setor agrícola."
+      ],
+      "correta": "A"
+    }
+  ]
+}
