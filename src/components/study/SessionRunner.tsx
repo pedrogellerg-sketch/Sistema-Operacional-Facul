@@ -4,6 +4,7 @@ import { Check, HelpCircle, Pause, Play, RotateCcw } from 'lucide-react'
 import type { StudySession } from '@/types'
 import { Button } from '@/components/ui/Button'
 import { Sheet } from '@/components/ui/Sheet'
+import { StepMaterial } from '@/components/study/StepMaterial'
 import { TextArea, NumberStepper } from '@/components/ui/Field'
 import { cn } from '@/lib/utils'
 import { formatSeconds, useTimer } from '@/hooks/useTimer'
@@ -39,16 +40,45 @@ export function SessionRunner({
   const [questionText, setQuestionText] = useState('')
   const [finishOpen, setFinishOpen] = useState(false)
   const [exercises, setExercises] = useState(0)
+  /**
+   * Quantas questões foram feitas dentro da própria sessão.
+   *
+   * Serve para pré-preencher o fechamento: quem resolveu as questões aqui não
+   * deveria ter de contar de novo no fim. Fica separado de `exercises` para não
+   * sobrescrever um número que o usuário já tenha ajustado à mão.
+   */
+  const [doneHere, setDoneHere] = useState(0)
 
   const isComplete = session.currentStep >= session.steps.length
   const step = session.steps[Math.min(session.currentStep, session.steps.length - 1)]
   const timer = useTimer(step.minutes * 60)
 
+  /**
+   * Abre o fechamento já com o número de questões feitas aqui dentro. Só
+   * semeia quando o usuário ainda não mexeu no contador — o ajuste dele manda.
+   */
+  const abrirFechamento = () => {
+    if (exercises === 0 && doneHere > 0) setExercises(doneHere)
+    setFinishOpen(true)
+  }
+
   const handleAdvance = () => {
     const isLast = session.currentStep === session.steps.length - 1
     advanceStep()
-    if (isLast) setFinishOpen(true)
+    if (isLast) abrirFechamento()
   }
+
+  /**
+   * Quantas questões o passo pede.
+   *
+   * A instrução da sessão já traz o número ("Faça 15 questões de …"), calculado
+   * a partir do peso da matéria e da autoavaliação. Lê-lo de lá evita ter duas
+   * fontes para a mesma decisão.
+   */
+  const exerciseCount = Number(step.instruction.match(/Faça\s+(\d+)\s+quest/i)?.[1] ?? 10)
+
+  /** Passos que abrem material embaixo do cronômetro e alongam a tela. */
+  const temMaterial = !isComplete && (step.kind === 'videoaula' || step.kind === 'exercicios')
 
   const handleFinish = () => {
     finishSession({ exercises, blockId })
@@ -92,7 +122,20 @@ export function SessionRunner({
       </div>
 
       {/* ── Passo atual ─────────────────────────────────── */}
-      <div className="flex flex-1 flex-col justify-center px-5 py-8">
+      {/**
+       * Centralizar só vale quando o passo é curto — cronômetro e uma frase.
+       * Com o material aberto (vídeo ou bateria de questões) o conteúdo passa
+       * da altura da tela, e `justify-center` empurra metade do excesso para
+       * cima, tornando o topo inalcançável. Nesses passos o conteúdo começa no
+       * topo e ganha uma folga embaixo, para as últimas alternativas não ficarem
+       * debaixo da barra de ações, que é fixa.
+       */}
+      <div
+        className={cn(
+          'flex flex-1 flex-col px-5 py-8',
+          temMaterial ? 'justify-start pb-40' : 'justify-center',
+        )}
+      >
         <div key={session.currentStep} className="animate-in-up">
           <p className="text-[12px] font-bold tracking-[0.16em] text-accent uppercase">
             Passo {Math.min(session.currentStep + 1, session.steps.length)} de {session.steps.length}
@@ -141,6 +184,23 @@ export function SessionRunner({
                   </Button>
                 )}
               </div>
+
+              {/**
+               * O material do passo, logo abaixo do cronômetro.
+               *
+               * Sem isto a sessão mandava "assista a videoaula" e "faça 15
+               * questões" sem entregar nem uma coisa nem outra, e estudar de
+               * verdade exigia sair da sessão — deixando o cronômetro para trás.
+               */}
+              <StepMaterial
+                kind={step.kind}
+                subjectId={session.subjectId}
+                subjectName={subjectName}
+                topicTitle={session.topicTitle}
+                topicId={session.topicId}
+                exerciseCount={exerciseCount}
+                onExerciseProgress={(s) => setDoneHere(s.right + s.wrong)}
+              />
             </div>
           )}
         </div>
@@ -149,7 +209,7 @@ export function SessionRunner({
       {/* ── Ações ───────────────────────────────────────── */}
       <div className="safe-bottom sticky bottom-0 space-y-2 border-t border-line-soft bg-base/90 px-5 pt-4 pb-4 backdrop-blur-xl">
         {isComplete ? (
-          <Button variant="primary" size="lg" full onClick={() => setFinishOpen(true)}>
+          <Button variant="primary" size="lg" full onClick={abrirFechamento}>
             Fechar sessão
           </Button>
         ) : (
