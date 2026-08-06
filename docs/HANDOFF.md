@@ -237,6 +237,31 @@ Números repetidos em Química (6) e Geografia (10) são erros dos documentos
 originais, sinalizados na prévia para conferência manual — comportamento
 projetado, não bug.
 
+### 5.2b Videoaulas — RESOLVIDO, e a lição vale para o resto
+
+O catálogo de videoaulas era escrito à mão, e **72 dos 73 links não existiam**.
+Os títulos e os canais eram plausíveis — "LOGARITMO EM 15 MINUTOS", do Dicasdemat
+Sandro Curió, é um vídeo real —, mas os identificadores de 11 caracteres eram
+inventados. No app isso virava "vídeo indisponível", o oposto exato do que a
+funcionalidade promete.
+
+Hoje `src/data/videoCatalog.ts` é **gerado**, não escrito:
+`node scripts/build-video-catalog.mjs` (ou `npm run videos`). O script busca no
+YouTube, extrai os identificadores da página de resultados e **confere cada um
+no oembed do YouTube**, que devolve título e canal reais e 404 para vídeo que não
+existe. São 103 vídeos, todos conferidos.
+
+Duas coisas para não repetir o erro:
+
+- **`npm run videos:check`** confere o catálogo inteiro sem alterar nada, e sai
+  com código 1 se algum morreu. Vídeo sai do ar; rode de vez em quando.
+- **Não parseie o JSON interno da página de busca.** O formato muda sem aviso —
+  já mudou uma vez durante este trabalho. Pegue só o identificador de 11
+  caracteres e pergunte o resto ao oembed, que é endpoint documentado.
+
+A regra geral, que vale para qualquer dado externo: **identificador não se
+escreve de cabeça.** Ou se busca e se confere, ou não entra no produto.
+
 ### 5.3 Pendências menores
 
 - **Persistência dos dados no celular**: proposto e não implementado —

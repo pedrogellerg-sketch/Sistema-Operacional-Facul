@@ -24,3 +24,6 @@ pnpm-debug.log*
 *.sw?
 .cache-enem/
 .cache-bluex/
+
+# Cache do gerador de videoaulas (resultado de rede, nao fonte)
+.cache-videos/

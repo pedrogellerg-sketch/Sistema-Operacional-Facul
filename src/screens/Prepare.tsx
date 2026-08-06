@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Check, ExternalLink, HelpCircle, Play, Search, X } from 'lucide-react'
+import { Check, ExternalLink, HelpCircle, Play, Search, SkipForward, X } from 'lucide-react'
 
 import type { Question, TopicState } from '@/types/curriculum'
 import { TOPIC_STATE_LABEL } from '@/types/curriculum'
@@ -47,7 +47,7 @@ export function Prepare() {
   const [idx, setIdx] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
   const [revealed, setRevealed] = useState(false)
-  const [score, setScore] = useState({ right: 0, wrong: 0 })
+  const [score, setScore] = useState({ right: 0, wrong: 0, skipped: 0 })
   const [doubtOpen, setDoubtOpen] = useState(false)
   const [doubtText, setDoubtText] = useState('')
 
@@ -93,7 +93,11 @@ export function Prepare() {
     setPicked(letter)
     setRevealed(true)
     const correct = letter === current.correct
-    setScore((s) => ({ right: s.right + (correct ? 1 : 0), wrong: s.wrong + (correct ? 0 : 1) }))
+    setScore((s) => ({
+      ...s,
+      right: s.right + (correct ? 1 : 0),
+      wrong: s.wrong + (correct ? 0 : 1),
+    }))
     recordAttempt({
       questionId: current.id,
       topicId: lesson.topicId,
@@ -120,6 +124,21 @@ export function Prepare() {
     setIdx((i) => i + 1)
     setPicked(null)
     setRevealed(false)
+  }
+
+  /**
+   * Pula a questão sem responder.
+   *
+   * De propósito **não registra tentativa**: pular não é errar. Sem registro, a
+   * questão não entra em `answered` e volta a ser sorteada numa próxima sessão —
+   * que é o comportamento certo para quem travou e quer seguir, em vez de ficar
+   * parado ou chutar. Chute registrado como erro sujaria o desempenho do tópico
+   * e ainda geraria uma dúvida falsa no Banco de Dúvidas.
+   */
+  const skip = () => {
+    if (!current) return
+    setScore((s) => ({ ...s, skipped: s.skipped + 1 }))
+    next()
   }
 
   const finish = (state: TopicState) => {
@@ -327,7 +346,7 @@ export function Prepare() {
                   })}
                 </div>
 
-                {revealed && (
+                {revealed ? (
                   <div className="space-y-2">
                     <p
                       className="text-[13.5px] font-semibold"
@@ -343,6 +362,16 @@ export function Prepare() {
                       {idx + 1 >= questions.length ? 'Ver resultado' : 'Próxima questão'}
                     </Button>
                   </div>
+                ) : (
+                  /**
+                   * Saída para quem travou. Fica discreto — em `ghost` e abaixo
+                   * das alternativas — porque responder é o caminho principal;
+                   * pular é a válvula de escape para não abandonar a sessão
+                   * inteira por causa de uma questão.
+                   */
+                  <Button variant="ghost" size="md" full onClick={skip} icon={<SkipForward size={16} />}>
+                    {idx + 1 >= questions.length ? 'Pular e ver resultado' : 'Pular esta questão'}
+                  </Button>
                 )}
               </>
             )}
@@ -357,9 +386,15 @@ export function Prepare() {
                 <Check size={26} />
               </span>
               <h2 className="mt-4 text-[22px] font-bold text-ink">Preparado para a aula</h2>
-              {score.right + score.wrong > 0 && (
+              {score.right + score.wrong + score.skipped > 0 && (
                 <p className="tnum mt-2 text-[14px] text-ink-2">
                   {score.right} acertos · {score.wrong} erros
+                  {score.skipped > 0 && ` · ${score.skipped} puladas`}
+                </p>
+              )}
+              {score.skipped > 0 && (
+                <p className="mt-2 text-[12.5px] leading-relaxed text-ink-3">
+                  As puladas voltam em outra sessão — não ficam marcadas como erro.
                 </p>
               )}
               <p className="mt-3 text-[13px] leading-relaxed text-ink-2">
